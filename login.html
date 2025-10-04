@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Name | Home</title>
+    <title>Login/Register</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 <body>
-
     <!--Primary Navigation-->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="index.html">
             <img src="bootstrap-logo.svg" alt="Bootstrap" width="30" height="24">
             Name
         </a>
@@ -61,7 +60,6 @@
     </div>
     </nav>
 
-
     <!--Secondary Navigation-->
     <nav class="navbar navbar-expand-lg" style="background-color: plum;" data-bs-theme="light">
     <div class="container-fluid">
@@ -97,110 +95,28 @@
     </div>
     </nav>
 
-
-    <!-- Carousel -->
-    <br>
-    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    </div>
-    <div class="carousel-inner">
-
-        <div class="carousel-item active">
-        <a href="#">
-        <img src="gradient1.avif" class="d-block w-100" alt="..." height="400px">
-        <div class="carousel-caption d-none d-md-block">
-            <h5>First slide label</h5>
-            <p>Some representative placeholder content for the first slide.</p>
-            <button type="button" class="btn btn-outline-light btn-lg">
-                Link
-            </button>
-        </div>
-        </a>
-        </div>
-
-        <div class="carousel-item">
-        <a href="#">
-        <img src="gradient2.jpg" class="d-block w-100" alt="..." height="400px">
-        <div class="carousel-caption d-none d-md-block">
-            <h5>Second slide label</h5>
-            <p>Some representative placeholder content for the second slide.</p>
-            <button type="button" class="btn btn-outline-light btn-lg">
-                Link
-            </button>
-        </div>
-        </a>
-        </div>
-
-        <div class="carousel-item">
-        <a href="#">
-        <img src="gradient3.jpg" class="d-block w-100" alt="..." height="400px">
-        <div class="carousel-caption d-none d-md-block">
-            <h5>Third slide label</h5>
-            <p>Some representative placeholder content for the third slide.</p>
-            <button type="button" class="btn btn-outline-light btn-lg">
-                Link
-            </button>
-        </div>
-        </a>
-        </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </button>
-    </div>
-    
-    <br>
-    <div class="row">
-    <div class="col-sm-6 mb-3 mb-sm-0">
-        <div class="card">
-        <div class="card-body">
-            <h5 class="card-title">Special title treatment</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-        </div>
-    </div>
-    <div class="col-sm-6">
-        <div class="card">
-        <div class="card-body">
-            <h5 class="card-title">Special title treatment</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-        </div>
-    </div>
-    </div>
-
-
-
-    <br>
-    <div class="container-fluid">
-        
-        <div class="row">
-
-            <div class="col-sm-6">
-            <a href="#" aria-current="page">
-                <img src="gradient2.jpg" class="d-block w-100" alt="..." height="400px">
-            </a>
+    <!-- Login/Register Form -->
+    <div class="container mt-5" style="max-width: 500px;">
+        <div class="card shadow" style="border-color: plum;">
+            <div class="card-body">
+                <h2 class="mb-4 text-center" style="color: plum;">Login/Register</h2>
+                <form>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="Password">
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-primary" style="background-color: plum; border-color: plum;">Login</button>
+                        <button type="button" class="btn btn-outline-secondary ms-2" style="border-color: plum; color: plum;">Register</button>
+                    </div>
+                </form>
             </div>
-
-            <div class="col-sm-6">
-            <a href="#" aria-current="page">
-                <img src="gradient2.jpg" class="d-block w-100" alt="..." height="400px">
-            </a>
-            </div>
-
         </div>
     </div>
-
 
     <br>
     <footer class="text-center text-lg-start" style="background-color: lavender;">
