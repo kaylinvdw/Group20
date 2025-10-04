@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Name | Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+
+    <!--Primary Navigation-->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="bootstrap-logo.svg" alt="Bootstrap" width="30" height="24">
+            Name
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    
+        <ul class="navbar-nav w-100 d-flex justify-content-end align-items-center mb-2 mb-lg-0" style="gap: 1rem;">
+
+            <!-- Search Bar -->
+            <li class="nav-item">
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search Books/Modules/Courses" aria-label="Search" style="width: 300px; border-color: plum; box-shadow: 0 0 0 0.2rem rgba(221,160,221,.25);"/>
+                <button class="btn btn-outline-success" type="submit" style="border-color: plum;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="black" class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                    </svg>
+                </button>
+            </form>
+            </li>
+
+            <!-- Wishlist -->
+            <li class="nav-item">
+            <a class="navbar-brand" href="#">
+                Wishlist
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="plum" class="bi bi-heart" viewBox="0 0 16 16">
+                    <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                </svg>
+                
+            </a>
+            </li>
+
+            <!-- Login/Register -->
+            <li class="nav-item">
+            <a class="navbar-brand" href="#">
+                Login/Register
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="plum" class="bi bi-person-circle" viewBox="0 0 16 16">
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+            </svg>
+            </a>
+            </li>     
+
+        </ul>
+        </div>
+    </div>
+    </nav>
+
+
+    <!--Secondary Navigation-->
+    <nav class="navbar navbar-expand-lg" style="background-color: plum;" data-bs-theme="light">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-4">
+
+            <li class="nav-item">
+            <a class="nav-link active fs-5" aria-current="page" href="#">Universities</a>
+            </li>
+
+            <li class="nav-item">
+            <a class="nav-link active fs-5" aria-current="page" href="#">Courses</a>
+            </li>
+
+            <li class="nav-item">
+            <a class="nav-link active fs-5" aria-current="page" href="#">New Books</a>
+            </li>
+
+            <li class="nav-item">
+            <a class="nav-link active fs-5" aria-current="page" href="#">Used Books</a>
+            </li>
+
+            <li class="nav-item">
+            <a class="nav-link active fs-5" aria-current="page" href="#">eBooks</a>
+            </li>
+
+        </ul>
+        </div>
+    </div>
+    </nav>
+
+
+    <!-- Carousel -->
+    <br>
+    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+
+        <div class="carousel-item active">
+        <a href="#">
+        <img src="gradient1.avif" class="d-block w-100" alt="..." height="400px">
+        <div class="carousel-caption d-none d-md-block">
+            <h5>First slide label</h5>
+            <p>Some representative placeholder content for the first slide.</p>
+            <button type="button" class="btn btn-outline-light btn-lg">
+                Link
+            </button>
+        </div>
+        </a>
+        </div>
+
+        <div class="carousel-item">
+        <a href="#">
+        <img src="gradient2.jpg" class="d-block w-100" alt="..." height="400px">
+        <div class="carousel-caption d-none d-md-block">
+            <h5>Second slide label</h5>
+            <p>Some representative placeholder content for the second slide.</p>
+            <button type="button" class="btn btn-outline-light btn-lg">
+                Link
+            </button>
+        </div>
+        </a>
+        </div>
+
+        <div class="carousel-item">
+        <a href="#">
+        <img src="gradient3.jpg" class="d-block w-100" alt="..." height="400px">
+        <div class="carousel-caption d-none d-md-block">
+            <h5>Third slide label</h5>
+            <p>Some representative placeholder content for the third slide.</p>
+            <button type="button" class="btn btn-outline-light btn-lg">
+                Link
+            </button>
+        </div>
+        </a>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+    </div>
+    
+    <br>
+    <div class="row">
+    <div class="col-sm-6 mb-3 mb-sm-0">
+        <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Special title treatment</h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Special title treatment</h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+        </div>
+    </div>
+    </div>
+
+
+
+    <br>
+    <div class="container-fluid">
+        
+        <div class="row">
+
+            <div class="col-sm-6">
+            <a href="#" aria-current="page">
+                <img src="gradient2.jpg" class="d-block w-100" alt="..." height="400px">
+            </a>
+            </div>
+
+            <div class="col-sm-6">
+            <a href="#" aria-current="page">
+                <img src="gradient2.jpg" class="d-block w-100" alt="..." height="400px">
+            </a>
+            </div>
+
+        </div>
+    </div>
+
+
+    <br>
+    <footer class="text-center text-lg-start" style="background-color: lavender;">
+        <br>
+        Text
+    </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>
