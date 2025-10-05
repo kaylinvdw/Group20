@@ -8,6 +8,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link href="css/image-zoom.css" rel="stylesheet">
 </head>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
 <body>
     <!--Primary Navigation-->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -73,8 +76,18 @@
     
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-4">
 
-            <li class="nav-item">
-            <a class="nav-link active fs-5" aria-current="page" href="#">Universities</a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle active fs-5" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Universities
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="universitiesDropdown">
+                    <li><a class="dropdown-item" href="University_pages/stellies.html">Stellenbosch University</a></li>
+                    <li><a class="dropdown-item" href="University_pages/uct.html">University of Cape Town</a></li>
+                    <li><a class="dropdown-item" href="University_pages/uj.html">University of Johannesburg</a></li>
+                    <li><a class="dropdown-item" href="University_pages/up.html">University of Pretoria</a></li>
+                    <li><a class="dropdown-item" href="University_pages/wits.html">Witswaterstrand University</a></li>
+                    <li><a class="dropdown-item" href="#">Other...</a></li>
+                </ul>
             </li>
 
             <li class="nav-item">
