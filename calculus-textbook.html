@@ -95,7 +95,7 @@
                 <img src="textbook-images/calculus-textbook.jpeg" class="d-block w-145" alt="Calculus: Early Transcendentals" height="580px">
             </div>
 
-            <div class="col-sm-6" style="min-height: 600px; background-color:lavender; border-radius: 8px; display: flex; flex-direction: column; justify-content: flex-start; margin: 1%; width: 47%;">
+            <div class="col-sm-6" style="min-height: 600px; background-color:lavender; border-radius: 8px; display: flex; flex-direction: column; justify-content: flex-start; margin: 1%; width: 47%; padding-bottom: 20px;">
                 <div style="font-size: 31px; font-weight: bold; color: rgba(136, 64, 136, 0.486); margin-top: 30px; text-align: left;">Calculus: Early Transcendentals (9th Edition)</div>
                 <div style="font-size: 20px; color: rgba(136, 64, 136, 0.486); margin-bottom: 10px; text-align: left;">James Stewart - Daniel Clegg - Saleem Watson</div>
 
@@ -212,48 +212,48 @@
                 <script>
                     let wishlist = [];
 
-                    function addToWishlist() {
-    const btn = document.getElementById('wishlistBtn');
-    const btnText = document.getElementById('btnText');
-    const heart = btn.querySelector('.heart');
-    const notification = document.getElementById('wishlistNotification');
-    
-    const book = {
-        title: "Basic Accounting for Non-Accountants (4th Edition)",
-        authors: "Melanie Cloete - Ferina Marimuthu",
-        timestamp: new Date().toISOString()
-    };
-    
-    // Check if already in wishlist
-    const alreadyAdded = wishlist.some(item => item.title === book.title);
-    
-    if (!alreadyAdded) {
-        wishlist.push(book);
-        
-        // Update button appearance
-        heart.textContent = '♥';
-        btnText.textContent = 'Added to Wishlist';
-        btn.classList.add('added');
-        
-        // Show notification
-        notification.style.display = 'block';
-        setTimeout(() => {
-            notification.style.display = 'none';
-        }, 3000);
-        
-        console.log('Wishlist:', wishlist);
-    } else {
-        // Remove from wishlist
-        wishlist = wishlist.filter(item => item.title !== book.title);
-        
-        // Reset button appearance
-        heart.textContent = '♡';
-        btnText.textContent = 'Add to Wishlist';
-        btn.classList.remove('added');
-        
-        console.log('Removed from wishlist. Current wishlist:', wishlist);
-    }
-}
+                        function addToWishlist() {
+                        const btn = document.getElementById('wishlistBtn');
+                        const btnText = document.getElementById('btnText');
+                        const heart = btn.querySelector('.heart');
+                        const notification = document.getElementById('wishlistNotification');
+                        
+                        const book = {
+                            title: "Basic Accounting for Non-Accountants (4th Edition)",
+                            authors: "Melanie Cloete - Ferina Marimuthu",
+                            timestamp: new Date().toISOString()
+                        };
+                        
+                        // Check if already in wishlist
+                        const alreadyAdded = wishlist.some(item => item.title === book.title);
+                        
+                        if (!alreadyAdded) {
+                            wishlist.push(book);
+                            
+                            // Update button appearance
+                            heart.textContent = '♥';
+                            btnText.textContent = 'Added to Wishlist';
+                            btn.classList.add('added');
+                            
+                            // Show notification
+                            notification.style.display = 'block';
+                            setTimeout(() => {
+                                notification.style.display = 'none';
+                            }, 3000);
+                            
+                            console.log('Wishlist:', wishlist);
+                        } else {
+                            // Remove from wishlist
+                            wishlist = wishlist.filter(item => item.title !== book.title);
+                            
+                            // Reset button appearance
+                            heart.textContent = '♡';
+                            btnText.textContent = 'Add to Wishlist';
+                            btn.classList.remove('added');
+                            
+                            console.log('Removed from wishlist. Current wishlist:', wishlist);
+                        }
+                    }
                         document.querySelectorAll('.book-type-link').forEach(function(link) {
                             link.addEventListener('click', function(e) {
                                 e.preventDefault();
@@ -334,44 +334,6 @@
                 </div>
 
                 <script>
-                    let wishlist = [];
-
-                        function addToWishlist() {
-                            const btn = document.getElementById('wishlistBtn');
-                            const btnText = document.getElementById('btnText');
-                            const heart = btn.querySelector('.heart');
-                            const notification = document.getElementById('wishlistNotification');
-                            
-                            const book = {
-                                title: "Basic Accounting for Non-Accountants (4th Edition)",
-                                authors: "Melanie Cloete - Ferina Marimuthu",
-                                timestamp: new Date().toISOString()
-                            };
-                            
-                            // Check if already in wishlist
-                            const alreadyAdded = wishlist.some(item => item.title === book.title);
-                            
-                            if (!alreadyAdded) {
-                                wishlist.push(book);
-                                
-                                // Update button appearance
-                                heart.textContent = '♥';
-                                btnText.textContent = 'Added to Wishlist';
-                                btn.classList.add('added');
-                                
-                                console.log('Wishlist:', wishlist);
-                            } else {
-                                // Remove from wishlist
-                                wishlist = wishlist.filter(item => item.title !== book.title);
-                                
-                                // Reset button appearance
-                                heart.textContent = '♡';
-                                btnText.textContent = 'Add to Wishlist';
-                                btn.classList.remove('added');
-                                
-                                console.log('Removed from wishlist. Current wishlist:', wishlist);
-                            }
-                        }
                     
                     document.querySelectorAll('.book-info-link').forEach(function(link) {
                         link.addEventListener('click', function(e) {
