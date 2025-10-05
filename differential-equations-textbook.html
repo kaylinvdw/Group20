@@ -99,6 +99,15 @@
                 <div style="font-size: 31px; font-weight: bold; color: rgba(136, 64, 136, 0.486); margin-top: 30px; text-align: left;">Differential Equations with Boundary Value Problems (9th Edition)</div>
                 <div style="font-size: 20px; color: rgba(136, 64, 136, 0.486); margin-bottom: 10px; text-align: left;">Dennis G. Zill</div>
 
+                <div style="text-align: right;">
+                    <button class="wishlist-btn" id="wishlistBtn" onclick="addToWishlist()">
+                        <span class="heart">♡</span>
+                        <span id="btnText">Add to Wishlist</span>
+                    </button>
+                </div>
+                
+                <br>
+
                 <div id="book-info" class="row" style="margin-top: 10px; text-align: center;">
                     <div class="row" style="margin-bottom: 15px;">
                         <div class="col-sm-4">
@@ -113,20 +122,20 @@
                     </div>
 
                     <!-- New book info -->
-                    <div id="new-book-info" class="row" style="margin-top: 10px; justify-content: center; display: flex;">
-                        <div class="col-sm-4" style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
+                    <div id="new-book-info" class="row" style="margin-top: 10px; justify-content: center; display: flex; flex-wrap: wrap; gap: 10px;">
+                        <div class="col-12 col-sm-6 col-md-3 price-card" style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
                             <span style="font-size: 16px; color: plum; font-weight: bold;">WizeBooks</span>
                             <br>
                             <span style="font-size: 14px; color:black">R879.00</span>
                         </div> 
 
-                        <div class="col-sm-4" style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
+                        <div class="col-12 col-sm-6 col-md-3 price-card" style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
                             <span style="font-size: 16px; color: plum; font-weight: bold;">Takealot</span>
                             <br>
                             <span style="font-size: 14px; color:black">R979.99</span>
                         </div>
 
-                        <div class="col-sm-4" style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
+                        <div class="col-12 col-sm-6 col-md-3 price-card"style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
                             <span style="font-size: 16px; color: plum; font-weight: bold;">Amazon</span>
                             <br>
                             <span style="font-size: 14px; color:black">R1 010.00</span>
@@ -134,8 +143,8 @@
                     </div>
 
                     <!-- Used book info -->
-                    <div id="used-book-info" class="row" style="margin-top: 10px; justify-content: center; display:none;">
-                        <div class="col-sm-4" style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
+                    <div id="used-book-info" class="row" style="margin-top: 10px; justify-content: center; display:none; flex-wrap: wrap; gap: 10px;">
+                        <div class="col-12 col-sm-6 col-md-3 price-card" style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
                             <span style="font-size: 16px; color: plum; font-weight: bold;">Textbook Trader</span>
                             <br>
                             <span style="font-size: 14px; color:black">R799.00</span>
@@ -143,7 +152,7 @@
                             <span style="font-size: 12px; color: grey;">Excellent Condition</span>
                         </div> 
 
-                        <div class="col-sm-4" style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
+                        <div class="col-12 col-sm-6 col-md-3 price-card" style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
                             <span style="font-size: 16px; color: plum; font-weight: bold;">Textbook Trader</span>
                             <br>
                             <span style="font-size: 14px; color:black">R690.00</span>
@@ -151,7 +160,7 @@
                             <span style="font-size: 12px; color: grey;">Average Condition</span>
                         </div>
 
-                        <div class="col-sm-4" style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
+                        <div class="col-12 col-sm-6 col-md-3 price-card" style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
                             <span style="font-size: 16px; color: plum; font-weight: bold;">Bob Shop</span>
                             <br>
                             <span style="font-size: 14px; color:black">R560.00</span>
@@ -161,8 +170,8 @@
                     </div>
 
                     <!-- E-book info -->
-                    <div id="ebook-info" class="row" style="margin-top: 10px; justify-content: center; display:none;">
-                        <div class="col-sm-4" style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
+                    <div id="ebook-info" class="row" style="margin-top: 10px; justify-content: center; display:none; flex-wrap: wrap; gap: 10px;">
+                        <div class="col-12 col-sm-6 col-md-3 price-card" style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
                             <span style="font-size: 16px; color: plum; font-weight: bold;">Cengage</span>
                             <br>
                             <span style="font-size: 14px; color:black">R789.55</span>
@@ -170,13 +179,13 @@
                             <span style="font-size: 12px; color: grey;">Until 03 April 2026</span>
                         </div> 
 
-                        <div class="col-sm-4" style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
+                        <div class="col-12 col-sm-6 col-md-3 price-card" style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
                             <span style="font-size: 16px; color: plum; font-weight: bold;">Amazon</span>
                             <br>
                             <span style="font-size: 14px; color:black">R968.97</span>
                         </div>
 
-                        <div class="col-sm-4" style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
+                        <div class="col-12 col-sm-6 col-md-3 price-card" style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
                             <span style="font-size: 16px; color: plum; font-weight: bold;">UP Library</span>
                             <br>
                             <span style="font-size: 12px; color: grey;">Download Not Available</span>
@@ -184,6 +193,50 @@
                     </div>
 
                 <script>
+                    let wishlist = [];
+
+                        function addToWishlist() {
+                            const btn = document.getElementById('wishlistBtn');
+                            const btnText = document.getElementById('btnText');
+                            const heart = btn.querySelector('.heart');
+                            const notification = document.getElementById('wishlistNotification');
+                            
+                            const book = {
+                                title: "Basic Accounting for Non-Accountants (4th Edition)",
+                                authors: "Melanie Cloete - Ferina Marimuthu",
+                                timestamp: new Date().toISOString()
+                            };
+                            
+                            // Check if already in wishlist
+                            const alreadyAdded = wishlist.some(item => item.title === book.title);
+                            
+                            if (!alreadyAdded) {
+                                wishlist.push(book);
+                                
+                                // Update button appearance
+                                heart.textContent = '♥';
+                                btnText.textContent = 'Added to Wishlist';
+                                btn.classList.add('added');
+                                
+                                // Show notification
+                                notification.style.display = 'block';
+                                setTimeout(() => {
+                                    notification.style.display = 'none';
+                                }, 3000);
+                                
+                                console.log('Wishlist:', wishlist);
+                            } else {
+                                // Remove from wishlist
+                                wishlist = wishlist.filter(item => item.title !== book.title);
+                                
+                                // Reset button appearance
+                                heart.textContent = '♡';
+                                btnText.textContent = 'Add to Wishlist';
+                                btn.classList.remove('added');
+                                
+                                console.log('Removed from wishlist. Current wishlist:', wishlist);
+                            }
+                        }
                     document.querySelectorAll('.book-type-link').forEach(function(link) {
                         link.addEventListener('click', function(e) {
                             e.preventDefault();
