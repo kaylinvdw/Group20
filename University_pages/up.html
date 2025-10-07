@@ -81,11 +81,11 @@
                 Universities
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="universitiesDropdown">
-                    <li><a class="dropdown-item" href="University_pages/stellies.html">Stellenbosch University</a></li>
-                    <li><a class="dropdown-item" href="University_pages/uct.html">University of Cape Town</a></li>
-                    <li><a class="dropdown-item" href="University_pages/uj.html">University of Johannesburg</a></li>
-                    <li><a class="dropdown-item" href="University_pages/up.html">University of Pretoria</a></li>
-                    <li><a class="dropdown-item" href="University_pages/wits.html">Witswaterstrand University</a></li>
+                    <li><a class="dropdown-item" href="stellies.html">Stellenbosch University</a></li>
+                    <li><a class="dropdown-item" href="uct.html">University of Cape Town</a></li>
+                    <li><a class="dropdown-item" href="uj.html">University of Johannesburg</a></li>
+                    <li><a class="dropdown-item" href="up.html">University of Pretoria</a></li>
+                    <li><a class="dropdown-item" href="wits.html">Witswaterstrand University</a></li>
                     <li><a class="dropdown-item" href="#">Other...</a></li>
                 </ul>
             </li>
@@ -115,9 +115,6 @@
                 </button>
             </div>
 
-            <!-- <div style="font-size: 15px; color: black; margin-top: 10px; text-align: left;">
-                The University of Pretoria (UP) is a leading South African university known for its academic excellence, research output, and diverse student body. Established in 1908, UP offers a wide range of undergraduate and postgraduate programs across various faculties, including Engineering, Health Sciences, Humanities, and Natural Sciences. The university is committed to innovation, community engagement, and fostering a supportive learning environment. UP's campus is located in Pretoria, the administrative capital of South Africa, providing students with access to numerous cultural and professional opportunities.
-            </div> -->
         </div>
     </div>
 </div>
@@ -125,96 +122,87 @@
     <div id="filtering info" class="row" style="margin-top: 10px; justify-content: center; display: flex;">
         <div class="col-sm-12 text-center">
             <span style="font-size: 15px; color: black;">
-                Please select from the dropboxes below your current <strong>year</strong> of studies, <strong>level</strong> of studies and <strong>faculty</strong> of studies to filter out your textbook requirements.  
+                Please select from the dropboxes below your current <strong>faculty</strong> of studies, <strong>level</strong> of studies, <strong>degree</strong> and <strong>year</strong> of studies to filter out your textbook requirements.  
             </span>
         </div>
     </div>  
     <br>
 
     <!--Course selection-->
-
-
-                <!-- <div id="book-info" class="row" style="margin-top: 10px; text-align: center;">
-                    <div class="row" style="margin-bottom: 15px;">
-                        <div class="col-sm-4">
-                            <a href="#" class="book-type-link" data-type="new" style="text-decoration: none; color: inherit;">New Book</a>
+    <div class="container-fluid">
+        <div class="d-flex justify-content-end">  
+                    <div class="d-grid gap-5 col-6 mx-auto">
+                        <div class="btn-group">
+                            <button class="btn btn-outline-light btn-lg" type="button" style="background-color: rgb(22, 1, 64);" >Choose your faculty of studies</button>
+                            <button class = "btn btn-outline-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: rgb(22, 1, 64);" >
+                                <span class="visually-hidden">Toggle Dropdown</span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a class="dropdown-item" href="#" onclick="showNewBookInfo()">Economic and Management Sciences</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="showUsedBookInfo()">Education</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="showEbookInfo()">Engineering, Built Environment and Information Technology</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="showEbookInfo()">Health Sciences</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="showEbookInfo()">Humanities</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="showEbookInfo()">Law</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="showEbookInfo()">Natural and Agricultural Sciences</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="showEbookInfo()">Theology and Religion</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="showEbookInfo()">Veterinary Sciences</a></li>
+                            </ul>
                         </div>
-                        <div class="col-sm-4">
-                            <a href="#" class="book-type-link" data-type="used" style="text-decoration: none; color: inherit;">Used Book</a>
+                        <div class="btn-group">
+                        <button class="btn btn-outline-light btn-lg" type="button" style="background-color: rgb(22, 1, 64);" >Choose your level of studies</button>
+                        <button class = "btn btn-outline-light dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: rgb(22, 1, 64);">
+                                <span class="visually-hidden">Toggle Dropdown</span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a class="dropdown-item" href="#" onclick="showNewBookInfo()">Doctorate</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="showUsedBookInfo()">Masters</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="showUsedBookInfo()">Honours</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="showEbookInfo()">Undergraduate</a></li>
+                            </ul>
                         </div>
-                        <div class="col-sm-4">
-                            <a href="#" class="book-type-link" data-type="ebook" style="text-decoration: none; color: inherit;">E-Book</a>
+                        <div class="btn-group">
+                        <button class="btn btn-outline-light btn-lg" type="button" style="background-color: rgb(22, 1, 64);" >Choose your degree</button>
+                        <button class = "btn btn-outline-light dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: rgb(22, 1, 64);">
+                                <span class="visually-hidden">Toggle Dropdown</span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a class="dropdown-item" href="#" onclick="showNewBookInfo()">Bachelor of Information Sciences</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="showUsedBookInfo()">Bachelor of Information Technology in Information Systems</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="showEbookInfo()">Bachelor of Town and Regional Planning</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="showEbookInfo()">BEng Chemical Engineering</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="showNewBookInfo()">BEng Civil Engineering</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="showUsedBookInfo()">BEng Computer Engineering</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="showEbookInfo()">BEng Electrical Engineering</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="showEbookInfo()">BEng Electronic Engineering</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="showUsedBookInfo()">BEng Industrial Engineering</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="showEbookInfo()">BEng Mechanical Engineering</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="showEbookInfo()">BEng Metallurgical Engineering</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="showUsedBookInfo()">BEng Mining Engineering</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="showEbookInfo()">BSc in Architecture </a></li>
+                                <li><a class="dropdown-item" href="#" onclick="showEbookInfo()">BSc in Computer Science</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="showUsedBookInfo()">BSc in Construction Management</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="showEbookInfo()">BSc in Quantity Surveying</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="showEbookInfo()">BSc in Real Estate</a></li>
+                            </ul>
                         </div>
-                    </div> -->
+                        <div class="btn-group dropdown-menu-end">
+                        <button class="btn btn-outline-light btn-lg" type="button" style="background-color: rgb(22, 1, 64);">Choose your year of studies</button>
+                        <button class = "btn btn-outline-light dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: rgb(22, 1, 64);">
+                                <span class="visually-hidden">Toggle Dropdown</span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#" onclick="showNewBookInfo()">1st Year</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="showUsedBookInfo()">2nd Year</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="showEbookInfo()">3rd Year</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="showEbookInfo()">4th Year</a></li>
 
-                    <!-- New book info -->
-                    <div id="new-book-info" class="row" style="margin-top: 10px; justify-content: center; display: flex; flex-wrap: wrap; gap: 10px;">
-                        <div class="col-12 col-sm-6 col-md-3 price-card" style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
-                            <span style="font-size: 16px; color: plum; font-weight: bold;">WizeBooks</span>
-                            <br>
-                            <span style="font-size: 14px; color:black">R899.00</span>
-                        </div> 
-
-                        <div class="col-12 col-sm-6 col-md-3 price-card" style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
-                            <span style="font-size: 16px; color: plum; font-weight: bold;">Takealot</span>
-                            <br>
-                            <span style="font-size: 14px; color:black">R789.99</span>
-                        </div>
-
-                        <div class="col-12 col-sm-6 col-md-3 price-card" style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
-                            <span style="font-size: 16px; color: plum; font-weight: bold;">Amazon</span>
-                            <br>
-                            <span style="font-size: 14px; color:black">R890.00</span>
-                        </div>
-                    </div>
-
-                    <!-- Used book info -->
-                    <div id="used-book-info" class="row" style="margin-top: 10px; justify-content: center; display:none; flex-wrap: wrap; gap: 10px;">
-                        <div class="col-12 col-sm-6 col-md-3 price-card" style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
-                            <span style="font-size: 16px; color: plum; font-weight: bold;">Textbook Trader</span>
-                            <br>
-                            <span style="font-size: 14px; color:black">R679.00</span>
-                            <br>
-                            <span style="font-size: 12px; color: grey;">Excellent Condition</span>
-                        </div> 
-
-                        <div class="col-12 col-sm-6 col-md-3 price-card" style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
-                            <span style="font-size: 16px; color: plum; font-weight: bold;">Textbook Trader</span>
-                            <br>
-                            <span style="font-size: 14px; color:black">R650.00</span>
-                            <br>
-                            <span style="font-size: 12px; color: grey;">Average Condition</span>
-                        </div>
-
-                        <div class="col-12 col-sm-6 col-md-3 price-card" style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
-                            <span style="font-size: 16px; color: plum; font-weight: bold;">Bob Shop</span>
-                            <br>
-                            <span style="font-size: 14px; color:black">R720.00</span>
-                            <br>
-                            <span style="font-size: 12px; color: grey;">Average Condition</span>
-                        </div>
-                    </div>
-
-                    <!-- E-book info -->
-                    <div id="ebook-info" class="row" style="margin-top: 10px; justify-content: center; display:none; flex-wrap: wrap; gap: 10px;">
-                        <div class="col-12 col-sm-6 col-md-3 price-card" style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
-                            <span style="font-size: 16px; color: plum; font-weight: bold;">Cengage</span>
-                            <br>
-                            <span style="font-size: 14px; color:black">R689.55</span>
-                        </div> 
-
-                        <div class="col-12 col-sm-6 col-md-3 price-card" style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
-                            <span style="font-size: 16px; color: plum; font-weight: bold;">Amazon</span>
-                            <br>
-                            <span style="font-size: 14px; color:black">R568.97</span>
-                        </div>
-
-                        <div class="col-12 col-sm-6 col-md-3 price-card" style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
-                            <span style="font-size: 16px; color: plum; font-weight: bold;">UP Library</span>
-                            <br>
-                            <span style="font-size: 12px; color: grey;">Download Not Available</span>
+                            </ul>
                         </div>
                     </div>
+        </div>
+    </div>
+
 
                 <script>
                     let wishlist = [];
@@ -255,97 +243,6 @@
                                 console.log('Removed from wishlist. Current wishlist:', wishlist);
                             }
                         }
-
-                    document.querySelectorAll('.book-type-link').forEach(function(link) {
-                        link.addEventListener('click', function(e) {
-                            e.preventDefault();
-                            
-                            // Remove bold from all links
-                            document.querySelectorAll('.book-type-link').forEach(function(l) {
-                                l.style.fontWeight = 'normal';
-                            });
-                            
-                            // Make clicked link bold
-                            this.style.fontWeight = 'bold';
-                            
-                            // Get the data-type attribute
-                            var type = this.getAttribute('data-type');
-                            
-                            // Hide all sections
-                            document.getElementById('new-book-info').style.display = 'none';
-                            document.getElementById('used-book-info').style.display = 'none';
-                            document.getElementById('ebook-info').style.display = 'none';
-                            
-                            // Show the selected section
-                            if (type === 'new') {
-                                document.getElementById('new-book-info').style.display = 'flex';
-                            } else if (type === 'used') {
-                                document.getElementById('used-book-info').style.display = 'flex';
-                            } else if (type === 'ebook') {
-                                document.getElementById('ebook-info').style.display = 'flex';
-                            }
-                        });
-                    });
-
-                    // Set "New Book" as bold by default on page load
-                    document.querySelector('.book-type-link[data-type="new"]').style.fontWeight = 'bold';
-                </script>
-                </div>
-
-                <!--Textbook and Courses Info-->
-                <br>
-                <div id="textbook-info" class="row" style="margin-top: 10px; text-align: center;">
-                    <div class="row" style="margin-bottom: 15px;">
-                        <div class="col-sm-4">
-                            <a href="#" class="book-info-link" data-type="info" style="text-decoration: none; color: inherit;">Textbook Information</a>
-                        </div>
-                        <div class="col-sm-4">
-                            <a href="#" class="book-info-link" data-type="courses" style="text-decoration: none; color: inherit;">Linked Courses</a>
-                        </div>
-                    </div>
-
-                    <!-- Linked Courses info -->
-                    <div id="linked-courses-info" class="row" style="margin-top: 10px; justify-content: center; display:none;">
-                        <div class="col-sm-12" style="max-width: 90%;">
-                            <span style="font-size: 12px; color: black;">BEng Industrial (University of Pretoria)</span>
-                            <br>
-                            <span style="font-size: 12px; color: black;">BEng Mechanical (University of Pretoria)</span>
-                            <br>
-                        </div>
-                    </div>
-                </div>
-
-                <script>
-                    document.querySelectorAll('.book-info-link').forEach(function(link) {
-                        link.addEventListener('click', function(e) {
-                            e.preventDefault();
-                            
-                            // Remove bold from all links
-                            document.querySelectorAll('.book-info-link').forEach(function(l) {
-                                l.style.fontWeight = 'normal';
-                            });
-                            
-                            // Make clicked link bold
-                            this.style.fontWeight = 'bold';
-                            
-                            // Get the data-type attribute
-                            var type = this.getAttribute('data-type');
-                            
-                            // Hide all sections
-                            document.getElementById('general-book-info').style.display = 'none';
-                            document.getElementById('linked-courses-info').style.display = 'none';
-                            
-                            // Show the selected section
-                            if (type === 'info') {
-                                document.getElementById('general-book-info').style.display = 'flex';
-                            } else if (type === 'courses') {
-                                document.getElementById('linked-courses-info').style.display = 'flex';
-                            }
-                        });
-                    });
-
-                    // Set "Textbook Information" as bold by default on page load
-                    document.querySelector('.book-info-link[data-type="info"]').style.fontWeight = 'bold';
                 </script>
             </div>
         </div>
