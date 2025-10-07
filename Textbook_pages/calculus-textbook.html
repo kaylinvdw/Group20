@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Engineering Mechanics: Dynamics</title>
+    <title>Calculus: Early Transcendentals</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link href="css/image-zoom.css" rel="stylesheet">
 </head>
@@ -15,8 +15,8 @@
     <!--Primary Navigation-->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-        <a class="navbar-brand" href="index.html">
-            <img src="bootstrap-logo.svg" alt="Bootstrap" width="30" height="24">
+        <a class="navbar-brand" href="../index.html">
+            <img src="../bootstrap-logo.svg" alt="Bootstrap" width="30" height="24">
             Name
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -51,7 +51,7 @@
 
             <!-- Login/Register -->
             <li class="nav-item">
-            <a class="navbar-brand" href="login.html">
+            <a class="navbar-brand" href="../login.html">
                 Login/Register
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="plum" class="bi bi-person-circle" viewBox="0 0 16 16">
             <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
@@ -91,9 +91,9 @@
             </li>
 
             <li class="nav-item">
-            <a class="nav-link active fs-5" aria-current="page" href="newBooks.html">Textbooks</a>
+            <a class="nav-link active fs-5" aria-current="page" href="../newBooks.html">Textbooks</a>
             </li>
-
+            
         </ul>
         </div>
     </div>
@@ -105,12 +105,12 @@
         <div class="row">
 
             <div class="col-sm-6" style="min-height: 600px; display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 1%; width: 45%;">
-                <img src="textbook-images/dynamics-textbook.webp" class="d-block w-145" alt="Supply Chain Management" height="580px">
+                <img src="../textbook-images/calculus-textbook.jpeg" class="d-block w-145" alt="Calculus: Early Transcendentals" height="580px">
             </div>
 
             <div class="col-sm-6" style="min-height: 600px; background-color:lavender; border-radius: 8px; display: flex; flex-direction: column; justify-content: flex-start; margin: 1%; width: 47%; padding-bottom: 20px;">
-                <div style="font-size: 31px; font-weight: bold; color: rgba(136, 64, 136, 0.486); margin-top: 30px; text-align: left;">Engineering Mechanics: Dynamics (8th Edition)</div>
-                <div style="font-size: 20px; color: rgba(136, 64, 136, 0.486); margin-bottom: 10px; text-align: left;">Meriam - Kraige - Bolton</div>
+                <div style="font-size: 31px; font-weight: bold; color: rgba(136, 64, 136, 0.486); margin-top: 30px; text-align: left;">Calculus: Early Transcendentals (9th Edition)</div>
+                <div style="font-size: 20px; color: rgba(136, 64, 136, 0.486); margin-bottom: 10px; text-align: left;">James Stewart - Daniel Clegg - Saleem Watson</div>
 
                 <div style="text-align: right;">
                     <button class="wishlist-btn" id="wishlistBtn" onclick="addToWishlist()">
@@ -120,7 +120,6 @@
                 </div>
                 
                 <br>
-
                 <div id="book-info" class="row" style="margin-top: 10px; text-align: center;">
                     <div class="row" style="margin-bottom: 15px;">
                         <div class="col-sm-4">
@@ -137,67 +136,87 @@
                     <!-- New book info -->
                     <div id="new-book-info" class="row" style="margin-top: 10px; justify-content: center; display: flex; flex-wrap: wrap; gap: 10px;">
                         <div class="col-12 col-sm-6 col-md-3 price-card" style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
-                            <span style="font-size: 16px; color: plum; font-weight: bold;">WizeBooks</span>
+                            <a href="https://www.wizebooks.co.za/get/9780357113516-calculus-early-transcendentals?srsltid=AfmBOoqdu_17bJ0v3poLk6DwJ5hGwEnbkfHQYvtCKQVwOtB-1wz3sZwy" style="text-decoration: none; font-size: 16px; color: plum; font-weight: bold;" target="_blank">
+                                WizeBooks
+                            </a>
                             <br>
-                            <span style="font-size: 14px; color:black">R910.00</span>
+                            <span style="font-size: 14px; color:black">R1 410.00</span>
                         </div> 
 
                         <div class="col-12 col-sm-6 col-md-3 price-card" style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
-                            <span style="font-size: 16px; color: plum; font-weight: bold;">Takealot</span>
+                            <a href="https://www.takealot.com/calculus/PLID62023633" style="text-decoration: none; font-size: 16px; color: plum; font-weight: bold;" target="_blank">
+                                Takealot
+                            </a>
                             <br>
-                            <span style="font-size: 14px; color:black">R999.99</span>
+                            <span style="font-size: 14px; color:black">R1 698.00</span>
                         </div>
 
                         <div class="col-12 col-sm-6 col-md-3 price-card" style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
-                            <span style="font-size: 16px; color: plum; font-weight: bold;">Amazon</span>
+                            <a href="https://www.amazon.co.za/Calculus-Transcendentals-Daniel-K-Clegg/dp/0357113519/ref=sr_1_1?crid=XJYG04SW3U7V&dib=eyJ2IjoiMSJ9.Y55zrVuWFHmaAxFzK1DeHr0KI_0gW0a6HgdYkSBuOmT6KS9Lf-23auFXHwenlZCCOppZ05g8ysQC7H5rhoNP_OUNOjlEfTcDtpUKH2Hc-knGZDREMaUAcvg1dpZZmjogOm9xvOKYw6g2jY2YwWIB_ZemIiKIxroxLcEJd4EaRrNzK6AyIvUQXRVzc66UpxbTPYdLlychTrAPRiD3pI-iU0RAL3eDlnRNmAvuW-ZlTSE.SaHK9ASiPLOXt2A0x2c4mqa2OPBBixe0dQKfwjG0x38&dib_tag=se&keywords=calculus&qid=1759658977&s=books&sprefix=calculu%2Cstripbooks%2C343&sr=1-1" style="text-decoration: none; font-size: 16px; color: plum; font-weight: bold;" target="_blank">
+                                Amazon
+                            </a>
                             <br>
-                            <span style="font-size: 14px; color:black">R860.00</span>
+                            <span style="font-size: 14px; color:black">R1 334.00</span>
                         </div>
                     </div>
 
                     <!-- Used book info -->
                     <div id="used-book-info" class="row" style="margin-top: 10px; justify-content: center; display:none; flex-wrap: wrap; gap: 10px;">
                         <div class="col-12 col-sm-6 col-md-3 price-card" style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
-                            <span style="font-size: 16px; color: plum; font-weight: bold;">Textbook Trader</span>
+                            <a href="https://textbooktrader.co.za/calculus-early-transcendentals-metric-edition" style="text-decoration: none; font-size: 16px; color: plum; font-weight: bold;" target="_blank">
+                                Textbook Trader
+                            </a>
                             <br>
-                            <span style="font-size: 14px; color:black">R798.00</span>
+                            <span style="font-size: 14px; color:black">R899.00</span>
                             <br>
                             <span style="font-size: 12px; color: grey;">Excellent Condition</span>
                         </div> 
 
                         <div class="col-12 col-sm-6 col-md-3 price-card" style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
-                            <span style="font-size: 16px; color: plum; font-weight: bold;">Textbook Trader</span>
+                            <a href="https://textbooktrader.co.za/single-variable-calculus-early-transcendentals-metric-edition" style="text-decoration: none; font-size: 16px; color: plum; font-weight: bold;" target="_blank">
+                                Textbook Trader
+                            </a>
                             <br>
-                            <span style="font-size: 14px; color:black">R879.00</span>
+                            <span style="font-size: 14px; color:black">R940.00</span>
                             <br>
                             <span style="font-size: 12px; color: grey;">Average Condition</span>
                         </div>
 
                         <div class="col-12 col-sm-6 col-md-3 price-card" style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
-                            <span style="font-size: 16px; color: plum; font-weight: bold;">Bob Shop</span>
+                            <a href="https://www.bobshop.co.za/calculus-early-transcendentals-7th-edition-james-stewart-hardcover/p/655893893?gad_source=1&gad_campaignid=15305361599&gbraid=0AAAAADkeLXC0RouRnBzMRSC55OhVFkTLv&gclid=Cj0KCQjwrojHBhDdARIsAJdEJ_ddI0bTQAojrSigOMMJUgMQrFk1mKxlRe2YnpKrijZMd9SozIDPj9UaAoXAEALw_wcB" style="text-decoration: none; font-size: 16px; color: plum; font-weight: bold;" target="_blank">
+                                Bob Shop
+                            </a>
                             <br>
-                            <span style="font-size: 14px; color:black">R920.00</span>
+                            <span style="font-size: 14px; color:black">R900.00</span>
                             <br>
-                            <span style="font-size: 12px; color: grey;">Average Condition</span>
+                            <span style="font-size: 12px; color: grey;">Average (7th Edition)</span>
                         </div>
                     </div>
 
                     <!-- E-book info -->
                     <div id="ebook-info" class="row" style="margin-top: 10px; justify-content: center; display:none; flex-wrap: wrap; gap: 10px;">
                         <div class="col-12 col-sm-6 col-md-3 price-card" style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
-                            <span style="font-size: 16px; color: plum; font-weight: bold;">Cengage</span>
+                            <a href="https://www.cengage.com/c/calculus-early-transcendentals-9e-stewart-clegg-watson/9781337613927/" style="text-decoration: none; font-size: 16px; color: plum; font-weight: bold;" target="_blank">
+                                Cengage
+                            </a>
                             <br>
-                            <span style="font-size: 14px; color:black">R790.55</span>
+                            <span style="font-size: 14px; color:black">R1 188.55</span>
+                            <br>
+                            <span style="font-size: 12px; color: grey;">Until 03 April 2026</span>
                         </div> 
 
                         <div class="col-12 col-sm-6 col-md-3 price-card" style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
-                            <span style="font-size: 16px; color: plum; font-weight: bold;">Amazon</span>
+                            <a href="https://www.amazon.com/Calculus-Early-Transcendentals-James-Stewart-ebook/dp/B00T9X7THG/ref=tmm_kin_swatch_0" style="text-decoration: none; font-size: 16px; color: plum; font-weight: bold;" target="_blank">
+                                Amazon
+                            </a>
                             <br>
-                            <span style="font-size: 14px; color:black">R860.00</span>
+                            <span style="font-size: 14px; color:black">R1 488.97</span>
                         </div>
 
                         <div class="col-12 col-sm-6 col-md-3 price-card" style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
-                            <span style="font-size: 16px; color: plum; font-weight: bold;">UP Library</span>
+                            <a href="https://www.library.up.ac.za/home" style="text-decoration: none; font-size: 16px; color: plum; font-weight: bold;" target="_blank">
+                                Up Library
+                            </a>
                             <br>
                             <span style="font-size: 12px; color: grey;">Download Not Available</span>
                         </div>
@@ -207,73 +226,77 @@
                     let wishlist = [];
 
                         function addToWishlist() {
-                            const btn = document.getElementById('wishlistBtn');
-                            const btnText = document.getElementById('btnText');
-                            const heart = btn.querySelector('.heart');
-                            const notification = document.getElementById('wishlistNotification');
+                        const btn = document.getElementById('wishlistBtn');
+                        const btnText = document.getElementById('btnText');
+                        const heart = btn.querySelector('.heart');
+                        const notification = document.getElementById('wishlistNotification');
+                        
+                        const book = {
+                            title: "Basic Accounting for Non-Accountants (4th Edition)",
+                            authors: "Melanie Cloete - Ferina Marimuthu",
+                            timestamp: new Date().toISOString()
+                        };
+                        
+                        // Check if already in wishlist
+                        const alreadyAdded = wishlist.some(item => item.title === book.title);
+                        
+                        if (!alreadyAdded) {
+                            wishlist.push(book);
                             
-                            const book = {
-                                title: "Basic Accounting for Non-Accountants (4th Edition)",
-                                authors: "Melanie Cloete - Ferina Marimuthu",
-                                timestamp: new Date().toISOString()
-                            };
+                            // Update button appearance
+                            heart.textContent = '♥';
+                            btnText.textContent = 'Added to Wishlist';
+                            btn.classList.add('added');
                             
-                            // Check if already in wishlist
-                            const alreadyAdded = wishlist.some(item => item.title === book.title);
+                            // Show notification
+                            notification.style.display = 'block';
+                            setTimeout(() => {
+                                notification.style.display = 'none';
+                            }, 3000);
                             
-                            if (!alreadyAdded) {
-                                wishlist.push(book);
-                                
-                                // Update button appearance
-                                heart.textContent = '♥';
-                                btnText.textContent = 'Added to Wishlist';
-                                btn.classList.add('added');
+                            console.log('Wishlist:', wishlist);
+                        } else {
+                            // Remove from wishlist
+                            wishlist = wishlist.filter(item => item.title !== book.title);
                             
-                                
-                                console.log('Wishlist:', wishlist);
-                            } else {
-                                // Remove from wishlist
-                                wishlist = wishlist.filter(item => item.title !== book.title);
-                                
-                                // Reset button appearance
-                                heart.textContent = '♡';
-                                btnText.textContent = 'Add to Wishlist';
-                                btn.classList.remove('added');
-                                
-                                console.log('Removed from wishlist. Current wishlist:', wishlist);
-                            }
+                            // Reset button appearance
+                            heart.textContent = '♡';
+                            btnText.textContent = 'Add to Wishlist';
+                            btn.classList.remove('added');
+                            
+                            console.log('Removed from wishlist. Current wishlist:', wishlist);
                         }
-
-                    document.querySelectorAll('.book-type-link').forEach(function(link) {
-                        link.addEventListener('click', function(e) {
-                            e.preventDefault();
-                            
-                            // Remove bold from all links
-                            document.querySelectorAll('.book-type-link').forEach(function(l) {
-                                l.style.fontWeight = 'normal';
+                    }
+                        document.querySelectorAll('.book-type-link').forEach(function(link) {
+                            link.addEventListener('click', function(e) {
+                                e.preventDefault();
+                                
+                                // Remove bold from all links
+                                document.querySelectorAll('.book-type-link').forEach(function(l) {
+                                    l.style.fontWeight = 'normal';
+                                });
+                                
+                                // Make clicked link bold
+                                this.style.fontWeight = 'bold';
+                                
+                                // Get the data-type attribute
+                                var type = this.getAttribute('data-type');
+                                
+                                // Hide all sections
+                                document.getElementById('new-book-info').style.display = 'none';
+                                document.getElementById('used-book-info').style.display = 'none';
+                                document.getElementById('ebook-info').style.display = 'none';
+                                
+                                // Show the selected section
+                                if (type === 'new') {
+                                    document.getElementById('new-book-info').style.display = 'flex';
+                                } else if (type === 'used') {
+                                    document.getElementById('used-book-info').style.display = 'flex';
+                                } else if (type === 'ebook') {
+                                    document.getElementById('ebook-info').style.display = 'flex';
+                                }
                             });
-                            
-                            // Make clicked link bold
-                            this.style.fontWeight = 'bold';
-                            
-                            // Get the data-type attribute
-                            var type = this.getAttribute('data-type');
-                            
-                            // Hide all sections
-                            document.getElementById('new-book-info').style.display = 'none';
-                            document.getElementById('used-book-info').style.display = 'none';
-                            document.getElementById('ebook-info').style.display = 'none';
-                            
-                            // Show the selected section
-                            if (type === 'new') {
-                                document.getElementById('new-book-info').style.display = 'flex';
-                            } else if (type === 'used') {
-                                document.getElementById('used-book-info').style.display = 'flex';
-                            } else if (type === 'ebook') {
-                                document.getElementById('ebook-info').style.display = 'flex';
-                            }
                         });
-                    });
 
                     // Set "New Book" as bold by default on page load
                     document.querySelector('.book-type-link[data-type="new"]').style.fontWeight = 'bold';
@@ -295,24 +318,36 @@
                     <!-- General Textbook info -->
                     <div id="general-book-info" class="row" style="margin-top: 10px; justify-content: center; display: flex;">
                         <div class="col-sm-12" style="max-width: 90%;">
-                            <span style="font-size: 12px; color: black;">Engineering Mechanics: Dynamics provides a solid foundation of mechanics principles and helps students develop their problem-solving skills with an extensive variety of engaging problems related to engineering design. More than 50% of the homework problems are new, and there are also a number of new sample problems. To help students build necessary visualization and problem-solving skills, this product strongly emphasizes drawing free–body diagrams, the most important skill needed to solve mechanics problems.</span>
+                            <span style="font-size: 12px; color: black;">CALCULUS: EARLY TRANSCENDENTALS, 9th Edition, provides you with the strongest foundation for a STEM future. James Stewart's Calculus series is the top-seller in the world because of its problem-solving focus, mathematical precision and accuracy, and outstanding examples and problem sets. Selected and mentored by Stewart, coauthors Daniel Clegg and Saleem Watson continue his legacy, and their careful refinements retain Stewart's clarity of exposition and make the 9th Edition an even more usable learning tool. The accompanying WebAssign includes helpful learning support and new resources like Explore It interactive learning modules. Showing that Calculus is both practical and beautiful, the Stewart approach and WebAssign resources enhance understanding and build confidence for millions of students worldwide.</span>
                         </div>
                     </div>
 
                     <!-- Linked Courses info -->
                     <div id="linked-courses-info" class="row" style="margin-top: 10px; justify-content: center; display:none;">
                         <div class="col-sm-12" style="max-width: 90%;">
+                            <span style="font-size: 12px; color: black;">BEng Chemical (University of Pretoria)</span>
+                            <br>
+                            <span style="font-size: 12px; color: black;">BEng Civil (University of Pretoria)</span>
+                            <br>
+                            <span style="font-size: 12px; color: black;">BEng Computer (University of Pretoria)</span>
+                            <br>
+                            <span style="font-size: 12px; color: black;">BEng Electrical (University of Pretoria)</span>
+                            <br>
                             <span style="font-size: 12px; color: black;">BEng Electronic (University of Pretoria)</span>
                             <br>
                             <span style="font-size: 12px; color: black;">BEng Industrial (University of Pretoria)</span>
                             <br>
                             <span style="font-size: 12px; color: black;">BEng Mechanical (University of Pretoria)</span>
                             <br>
+                            <span style="font-size: 12px; color: black;">BEng Metallurgical (University of Pretoria)</span>
+                            <br>
+                            <span style="font-size: 12px; color: black;">BEng Mining (University of Pretoria)</span>
                         </div>
                     </div>
                 </div>
 
                 <script>
+                    
                     document.querySelectorAll('.book-info-link').forEach(function(link) {
                         link.addEventListener('click', function(e) {
                             e.preventDefault();
