@@ -40,7 +40,7 @@
 
             <!-- Wishlist -->
             <li class="nav-item">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="../wishlist.html">
                 Wishlist
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="plum" class="bi bi-heart" viewBox="0 0 16 16">
                     <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
@@ -76,12 +76,22 @@
     
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-4">
 
-            <li class="nav-item">
-            <a class="nav-link active fs-5" aria-current="page" href="#">Universities</a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle active fs-5" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Universities
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="universitiesDropdown">
+                    <li><a class="dropdown-item" href="University_pages/stellies.html">Stellenbosch University</a></li>
+                    <li><a class="dropdown-item" href="University_pages/uct.html">University of Cape Town</a></li>
+                    <li><a class="dropdown-item" href="University_pages/uj.html">University of Johannesburg</a></li>
+                    <li><a class="dropdown-item" href="University_pages/up.html">University of Pretoria</a></li>
+                    <li><a class="dropdown-item" href="University_pages/wits.html">Witswaterstrand University</a></li>
+                    <li><a class="dropdown-item" href="#">Other...</a></li>
+                </ul>
             </li>
 
             <li class="nav-item">
-            <a class="nav-link active fs-5" aria-current="page" href="../newBooks.html">Textbooks</a>
+            <a class="nav-link active fs-5" aria-current="page" href="newBooks.html">Textbooks</a>
             </li>
 
         </ul>
@@ -99,11 +109,11 @@
             </div>
 
             <div class="col-sm-6" style="min-height: 600px; background-color:lavender; border-radius: 8px; display: flex; flex-direction: column; justify-content: flex-start; margin: 1%; width: 47%; padding-bottom: 20px;">
-                <div style="font-size: 31px; font-weight: bold; color: rgba(136, 64, 136, 0.486); margin-top: 30px; text-align: left;">Basic Accounting for Non-Accountants (4th Edition)</div>
+                <div style="font-size: 31px; font-weight: bold; color: balck; margin-top: 30px; text-align: left;">Basic Accounting for Non-Accountants (4th Edition)</div>
                 <div style="font-size: 20px; color: rgba(136, 64, 136, 0.486); margin-bottom: 10px; text-align: left;">Melanie Cloete - Ferina Marimuthu</div>
 
                 <div style="text-align: right;">
-                    <button class="wishlist-btn" id="wishlistBtn" onclick="addToWishlist()">
+                    <button type="button" class="btn btn-primary" id="wishlistBtn" onclick="addToWishlist()" style="background-color: plum; border-color: plum;">
                         <span class="heart">♡</span>
                         <span id="btnText">Add to Wishlist</span>
                     </button>
@@ -193,6 +203,107 @@
                     </div>
 
                 <script>
+                    // Wishlist Manager
+                    const WishlistManager = {
+                        getWishlist: function() {
+                            const stored = sessionStorage.getItem('wishlist');
+                            return stored ? JSON.parse(stored) : [];
+                        },
+                        saveWishlist: function(wishlist) {
+                            sessionStorage.setItem('wishlist', JSON.stringify(wishlist));
+                        },
+                        addItem: function(item) {
+                            const wishlist = this.getWishlist();
+                            const exists = wishlist.some(w => w.title === item.title);
+                            
+                            if (!exists) {
+                                wishlist.push(item);
+                                this.saveWishlist(wishlist);
+                                return true;
+                            }
+                            return false;
+                        },
+                        removeItem: function(title) {
+                            let wishlist = this.getWishlist();
+                            wishlist = wishlist.filter(item => item.title !== title);
+                            this.saveWishlist(wishlist);
+                        },
+                        isInWishlist: function(title) {
+                            const wishlist = this.getWishlist();
+                            return wishlist.some(item => item.title === title);
+                        }
+                    };
+
+                    // Add to wishlist function
+                    function addToWishlist() {
+                        const btn = document.getElementById('wishlistBtn');
+                        const btnText = document.getElementById('btnText');
+                        const heart = btn.querySelector('.heart');
+                        
+                        const book = {
+                            title: "Basic Accounting for Non-Accountants (4th Edition)",
+                            authors: "Melanie Cloete - Ferina Marimuthu",
+                            image: "../textbook-images/basic-accounting-for-non-accountants-textbook.webp",
+                            timestamp: new Date().toISOString()
+                        };
+                        
+                        // Check if already in wishlist
+                        const alreadyAdded = WishlistManager.isInWishlist(book.title);
+                        
+                        if (!alreadyAdded) {
+                            // Add to wishlist
+                            WishlistManager.addItem(book);
+                            
+                            // Update button appearance
+                            heart.textContent = '♥';
+                            btnText.textContent = 'Added to Wishlist';
+                            btn.classList.add('added');
+                            
+                            // Show success message
+                            showNotification('Added to wishlist!');
+                        } else {
+                            // Remove from wishlist
+                            WishlistManager.removeItem(book.title);
+                            
+                            // Reset button appearance
+                            heart.textContent = '♡';
+                            btnText.textContent = 'Add to Wishlist';
+                            btn.classList.remove('added');
+                            
+                            showNotification('Removed from wishlist');
+                        }
+                    }
+
+                    // Show notification helper
+                    function showNotification(message) {
+                        let notification = document.getElementById('wishlistNotification');
+                        if (!notification) {
+                            notification = document.createElement('div');
+                            notification.id = 'wishlistNotification';
+                            notification.style.cssText = `
+                                position: fixed;
+                                top: 20px;
+                                right: 20px;
+                                background-color: plum;
+                                color: white;
+                                padding: 15px 25px;
+                                border-radius: 5px;
+                                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                                z-index: 9999;
+                                display: none;
+                            `;
+                            document.body.appendChild(notification);
+                        }
+                        
+                        notification.textContent = message;
+                        notification.style.display = 'block';
+                        
+                        setTimeout(() => {
+                            notification.style.display = 'none';
+                        }, 3000);
+                    }
+
+                    // Book type switching
                     document.querySelectorAll('.book-type-link').forEach(function(link) {
                         link.addEventListener('click', function(e) {
                             e.preventDefault();
@@ -265,51 +376,6 @@
                 </div>
 
                 <script>
-                    let wishlist = [];
-
-                        function addToWishlist() {
-                            const btn = document.getElementById('wishlistBtn');
-                            const btnText = document.getElementById('btnText');
-                            const heart = btn.querySelector('.heart');
-                            const notification = document.getElementById('wishlistNotification');
-                            
-                            const book = {
-                                title: "Basic Accounting for Non-Accountants (4th Edition)",
-                                authors: "Melanie Cloete - Ferina Marimuthu",
-                                timestamp: new Date().toISOString()
-                            };
-                            
-                            // Check if already in wishlist
-                            const alreadyAdded = wishlist.some(item => item.title === book.title);
-                            
-                            if (!alreadyAdded) {
-                                wishlist.push(book);
-                                
-                                // Update button appearance
-                                heart.textContent = '♥';
-                                btnText.textContent = 'Added to Wishlist';
-                                btn.classList.add('added');
-                                
-                                // Show notification
-                                notification.style.display = 'block';
-                                setTimeout(() => {
-                                    notification.style.display = 'none';
-                                }, 3000);
-                                
-                                console.log('Wishlist:', wishlist);
-                            } else {
-                                // Remove from wishlist
-                                wishlist = wishlist.filter(item => item.title !== book.title);
-                                
-                                // Reset button appearance
-                                heart.textContent = '♡';
-                                btnText.textContent = 'Add to Wishlist';
-                                btn.classList.remove('added');
-                                
-                                console.log('Removed from wishlist. Current wishlist:', wishlist);
-                            }
-                        }
-                        
                     document.querySelectorAll('.book-info-link').forEach(function(link) {
                         link.addEventListener('click', function(e) {
                             e.preventDefault();
@@ -340,7 +406,57 @@
 
                     // Set "Textbook Information" as bold by default on page load
                     document.querySelector('.book-info-link[data-type="info"]').style.fontWeight = 'bold';
+
+                    // IMPORTANT: Initialize button state on page load
+                    document.addEventListener('DOMContentLoaded', function() {
+                        const btn = document.getElementById('wishlistBtn');
+                        if (btn) {
+                            const bookTitle = "Basic Accounting for Non-Accountants";
+                            const isAdded = WishlistManager.isInWishlist(bookTitle);
+                            
+                            if (isAdded) {
+                                const heart = btn.querySelector('.heart');
+                                const btnText = document.getElementById('btnText');
+                                heart.textContent = '♥';
+                                btnText.textContent = 'Added to Wishlist';
+                                btn.classList.add('added');
+                            }
+                        }
+                    });
                 </script>
             </div>
         </div>
     </div>
+    <!--Footer-->
+        <br>
+    <footer class="text-center text-lg-start" style="background-color: lavender;">
+        <div class="container p-4">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h5 class="fw-bold">About Us</h5>
+                    <p class="mb-0" style="font-size:14px;">We connect students with the books they need — new, used and digital — at fair prices.</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5 class="fw-bold">Customer Care</h5>
+                    <ul class="list-unstyled mb-0" style="font-size:14px;">
+                        <li><a href="#" class="text-reset">Help Center</a></li>
+                        <li><a href="mailto:support@books.example" class="text-reset">support@books.example</a></li>
+                        <li><a href="#" class="text-reset">Shipping & Returns</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5 class="fw-bold">Supplier Info</h5>
+                    <ul class="list-unstyled mb-0" style="font-size:14px;">
+                        <li><a href="#" class="text-reset">Sell with us</a></li>
+                        <li><a href="#" class="text-reset">Supplier FAQs</a></li>
+                        <li><a href="#" class="text-reset">Become a Supplier</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="text-center p-3" style="background-color: rgba(0,0,0,0.05);">© 2025 Name</div>
+    </footer>
+
+    </div>
+</body>
+</html>

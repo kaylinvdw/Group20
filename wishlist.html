@@ -3,8 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login/Register</title>
+    <title>Wishlist</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <style>
+        .wishlist-card {
+            border: 2px solid plum;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: box-shadow 0.3s ease;
+        }
+        .wishlist-card:hover {
+            box-shadow: 0 4px 12px rgba(221,160,221,0.3);
+        }
+        .remove-btn {
+            background-color: #dc3545;
+            border-color: #dc3545;
+            color: white;
+        }
+        .remove-btn:hover {
+            background-color: #c82333;
+            border-color: #bd2130;
+        }
+        .empty-wishlist {
+            text-align: center;
+            padding: 60px 20px;
+            color: #666;
+        }
+        .empty-wishlist svg {
+            opacity: 0.3;
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 <body>
     <!--Primary Navigation-->
@@ -20,8 +50,6 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
     
         <ul class="navbar-nav w-100 d-flex justify-content-end align-items-center mb-2 mb-lg-0" style="gap: 1rem;">
-
-            <!-- Search Bar -->
             <li class="nav-item">
             <form class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Search Books/Modules/Courses" aria-label="Search" style="width: 300px; border-color: plum; box-shadow: 0 0 0 0.2rem rgba(221,160,221,.25);"/>
@@ -32,19 +60,14 @@
                 </button>
             </form>
             </li>
-
-            <!-- Wishlist -->
             <li class="nav-item">
             <a class="navbar-brand" href="wishlist.html">
                 Wishlist
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="plum" class="bi bi-heart" viewBox="0 0 16 16">
                     <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
                 </svg>
-                
             </a>
             </li>
-
-            <!-- Login/Register -->
             <li class="nav-item">
             <a class="navbar-brand" href="login.html">
                 Login/Register
@@ -54,12 +77,11 @@
             </svg>
             </a>
             </li>     
-
         </ul>
         </div>
     </div>
     </nav>
-
+    
     <!--Secondary Navigation-->
     <nav class="navbar navbar-expand-lg" style="background-color: plum;" data-bs-theme="light">
     <div class="container-fluid">
@@ -92,38 +114,85 @@
         </div>
     </div>
     </nav>
-
-    <!-- Login/Register Form -->
-    <div class="container mt-5" style="max-width: 500px;">
-        <div class="card shadow" style="border-color: plum;">
-            <div class="card-body">
-                <h2 class="mb-4 text-center" style="color: plum;">Login</h2>
-                <form>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="email" placeholder="Enter email">
-                    </div>
-                    <div class="mb-3">
-                        <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password" placeholder="Password">
-                    </div>
-                    <div class="d-flex justify-content-center mb-3">
-                        <button type="submit" class="btn btn-primary" style="background-color: plum; border-color: plum;">Login</button>
-                    </div>
-                    <div class="text-center">
-                        <span>Don't have an account?</span>
-                        <a href="register.html" class="btn btn-outline-secondary ms-2" style="border-color: plum; color: plum;">Register here</a>
-                    </div>
-                </form>
-                <script>
-                document.querySelector('form').addEventListener('submit', function(e) {
-                  e.preventDefault();
-                  window.location.href = 'index.html';
-                });
-                </script>
-            </div>
+    
+    <div class="container mt-4">
+        <h1 class="text-left mb-4" style="color: plum;">My Wishlist</h1>
+        
+        <div id="wishlistContainer">
+            <!-- Wishlist items will be populated here -->
         </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz4YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    
+    <script>
+        // Wishlist Manager
+        const WishlistManager = {
+            getWishlist: function() {
+                const stored = sessionStorage.getItem('wishlist');
+                return stored ? JSON.parse(stored) : [];
+            },
+            saveWishlist: function(wishlist) {
+                sessionStorage.setItem('wishlist', JSON.stringify(wishlist));
+            },
+            removeItem: function(title) {
+                let wishlist = this.getWishlist();
+                wishlist = wishlist.filter(item => item.title !== title);
+                this.saveWishlist(wishlist);
+            }
+        };
+
+        // Display wishlist items
+        function displayWishlist() {
+            const wishlist = WishlistManager.getWishlist();
+            const container = document.getElementById('wishlistContainer');
+            
+            if (wishlist.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-wishlist">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="plum" class="bi bi-heart" viewBox="0 0 16 16">
+                            <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                        </svg>
+                        <h3>Your wishlist is empty</h3>
+                        <p>Start adding textbooks to your wishlist!</p>
+                        <a href="newBooks.html" class="btn btn-primary" style="background-color: plum; border-color: plum;">Browse Textbooks</a>
+                    </div>
+                `;
+                return;
+            }
+            
+            container.innerHTML = wishlist.map(item => `
+                <div class="wishlist-card">
+                    <div class="row align-items-center">
+                        <div class="col-md-2">
+                            ${item.image ? `<img src="${item.image}" alt="${item.title}" class="img-fluid" style="max-height: 150px; object-fit: contain;">` : '<div style="height:150px;background:#f0f0f0;display:flex;align-items:center;justify-content:center;color:#999;">No Image</div>'}
+                        </div>
+                        <div class="col-md-8">
+                            <h4>${item.title}</h4>
+                            <p class="text-muted mb-1">${item.authors}</p>
+                            <small class="text-muted">Added: ${new Date(item.timestamp).toLocaleDateString()}</small>
+                        </div>
+                        <div class="col-md-2 text-end">
+                            <button class="btn remove-btn" onclick="removeFromWishlist('${item.title.replace(/'/g, "\\'")}')">
+                                Remove
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Remove item from wishlist
+        function removeFromWishlist(title) {
+            WishlistManager.removeItem(title);
+            displayWishlist();
+        }
+
+        // Load wishlist on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            displayWishlist();
+        });
+    </script>
 
     <!--Footer-->
         <br>
@@ -155,6 +224,6 @@
         <div class="text-center p-3" style="background-color: rgba(0,0,0,0.05);">© 2025 Name</div>
     </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    </div>
 </body>
 </html>
