@@ -37,6 +37,7 @@
     </style>
 </head>
 <body>
+    
     <!--Primary Navigation-->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
@@ -85,10 +86,10 @@
     <!--Secondary Navigation-->
     <nav class="navbar navbar-expand-lg" style="background-color: plum;" data-bs-theme="light">
     <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent2" aria-controls="navbarSupportedContent2" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent2">
     
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-4">
 
@@ -123,7 +124,38 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz4YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <br>
+    
+    <!--Footer-->
+    <footer class="text-center text-lg-start" style="background-color: lavender;">
+        <div class="container p-4">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h5 class="fw-bold">About Us</h5>
+                    <p class="mb-0" style="font-size:14px;">We connect students with the books they need — new, used and digital — at fair prices.</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5 class="fw-bold">Customer Care</h5>
+                    <ul class="list-unstyled mb-0" style="font-size:14px;">
+                        <li><a href="#" class="text-reset">Help Center</a></li>
+                        <li><a href="mailto:support@books.example" class="text-reset">support@books.example</a></li>
+                        <li><a href="#" class="text-reset">Shipping & Returns</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5 class="fw-bold">Supplier Info</h5>
+                    <ul class="list-unstyled mb-0" style="font-size:14px;">
+                        <li><a href="#" class="text-reset">Sell with us</a></li>
+                        <li><a href="#" class="text-reset">Supplier FAQs</a></li>
+                        <li><a href="#" class="text-reset">Become a Supplier</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="text-center p-3" style="background-color: rgba(0,0,0,0.05);">© 2025 Name</div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     
     <script>
         // Wishlist Manager
@@ -173,7 +205,7 @@
                             <small class="text-muted">Added: ${new Date(item.timestamp).toLocaleDateString()}</small>
                         </div>
                         <div class="col-md-2 text-end">
-                            <button class="btn remove-btn" data-index="${index}">
+                            <button class="btn remove-btn" onclick="removeFromWishlist('${item.title}')">
                                 Remove
                             </button>
                         </div>
@@ -194,36 +226,5 @@
         });
     </script>
 
-    <!--Footer-->
-        <br>
-    <footer class="text-center text-lg-start" style="background-color: lavender;">
-        <div class="container p-4">
-            <div class="row">
-                <div class="col-md-4 mb-3">
-                    <h5 class="fw-bold">About Us</h5>
-                    <p class="mb-0" style="font-size:14px;">We connect students with the books they need — new, used and digital — at fair prices.</p>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <h5 class="fw-bold">Customer Care</h5>
-                    <ul class="list-unstyled mb-0" style="font-size:14px;">
-                        <li><a href="#" class="text-reset">Help Center</a></li>
-                        <li><a href="mailto:support@books.example" class="text-reset">support@books.example</a></li>
-                        <li><a href="#" class="text-reset">Shipping & Returns</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <h5 class="fw-bold">Supplier Info</h5>
-                    <ul class="list-unstyled mb-0" style="font-size:14px;">
-                        <li><a href="#" class="text-reset">Sell with us</a></li>
-                        <li><a href="#" class="text-reset">Supplier FAQs</a></li>
-                        <li><a href="#" class="text-reset">Become a Supplier</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="text-center p-3" style="background-color: rgba(0,0,0,0.05);">© 2025 Name</div>
-    </footer>
-
-    </div>
 </body>
 </html>

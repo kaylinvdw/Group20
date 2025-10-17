@@ -1,15 +1,79 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mechniacal Engineering Design</title>
+    <title>University of Witwatersrand</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link href="css/image-zoom.css" rel="stylesheet">
+    <style>
+        .dropdown-container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .dropdown-container.active {
+            z-index: 1000;
+        }
+        
+        .selection-dropdown {
+            background: plum !important;
+            border: plum;
+            border-radius: 12px;
+            padding: 18px 25px;
+            color: black !important;
+            font-size: 18px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .selection-dropdown:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(221,160,221,0.4);
+            background: linear-gradient(135deg, rgb(32, 11, 84) 0%, rgb(52, 31, 114) 100%) !important;
+        }
+        
+        .selection-dropdown .dropdown-toggle {
+            background-color: transparent !important;
+            border: none !important;
+            color: white !important;
+            padding: 0 !important;
+        }
+        
+        .selection-dropdown .dropdown-toggle::after {
+            margin-left: 15px;
+            vertical-align: middle;
+        }
+        
+        .custom-dropdown-menu {
+            border: 2px solid plum !important;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            margin-top: 8px;
+        }
+        
+        .custom-dropdown-menu .dropdown-item {
+            padding: 12px 20px;
+            transition: all 0.2s ease;
+            color: rgb(22, 1, 64) !important;
+            font-weight: 500;
+        }
+        
+        .custom-dropdown-menu .dropdown-item:hover {
+            background-color: lavender !important;
+            color: rgb(22, 1, 64) !important;
+            padding-left: 25px;
+        }
+        
+        .selection-label {
+            font-size: 16px;
+            font-weight: 600;
+            color: rgb(22, 1, 64);
+            margin-bottom: 8px;
+            display: block;
+        }
+    </style>
 </head>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 
 <body>
     <!--Primary Navigation-->
@@ -45,7 +109,6 @@
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="plum" class="bi bi-heart" viewBox="0 0 16 16">
                     <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
                 </svg>
-                
             </a>
             </li>
 
@@ -62,17 +125,16 @@
 
         </ul>
         </div>
-    </body>
-    </html>
+    </div>
     </nav>
 
     <!--Secondary Navigation-->
     <nav class="navbar navbar-expand-lg" style="background-color: plum;" data-bs-theme="light">
     <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent2" aria-controls="navbarSupportedContent2" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent2">
     
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-4">
 
@@ -107,186 +169,214 @@
                 <div style="display: flex; align-items: center; gap: 20px;">
                     <img src="../uni_logos/wits.webp" alt="Wits" height="140" style="width:auto;">
                     <div style="font-size: 31px; font-weight: bold; color: rgb(22, 1, 64); text-align: left;">
-                        University of Witswaterstrand Johannesburg
+                        University of Witwatersrand Johannesburg
                     </div>
                 </div>
-                <button class="btn btn-link" type="button" onclick="window.location.href='https://www.wits.ac.za/faculties-and-schools/?gad_source=1&gad_campaignid=23070279814&gbraid=0AAAAADwoY4dn6nrBlpZXGnMNil5TS05Yx&gclid=Cj0KCQjw9JLHBhC-ARIsAK4PhcroIx0QhTgjSybH_56Q6hSBPQeaw_I5cueEkBT3s3oiDHUVSsiOHYMaAvEwEALw_wcB';">
+                <button class="btn btn-link" type="button" onclick="window.location.href='https://www.wits.ac.za/faculties-and-schools/';">
                     Click here to visit the Wits' official website.
                 </button>
             </div>
-
-            <!-- <div style="font-size: 15px; color: black; margin-top: 10px; text-align: left;">
-                The University of Pretoria (UP) is a leading South African university known for its academic excellence, research output, and diverse student body. Established in 1908, UP offers a wide range of undergraduate and postgraduate programs across various faculties, including Engineering, Health Sciences, Humanities, and Natural Sciences. The university is committed to innovation, community engagement, and fostering a supportive learning environment. UP's campus is located in Pretoria, the administrative capital of South Africa, providing students with access to numerous cultural and professional opportunities.
-            </div> -->
         </div>
     </div>
 </div>
-     <!-- General Filtering Info -->
-    <div id="filtering info" class="row" style="margin-top: 10px; justify-content: center; display: flex;">
-        <div class="col-sm-12 text-center">
-            <span style="font-size: 15px; color: black;">
-                Please select from the dropboxes below your current <strong>faculty</strong> of studies, <strong>level</strong> of studies, <strong>degree</strong> and <strong>year</strong> of studies to filter out your textbook requirements.  
-            </span>
-        </div>
-    </div>  
-    <br>
 
-    <!--Course selection-->
-    <div class="container-fluid">
-        <div class="d-flex justify-content-end">  
-                    <div class="d-grid gap-5 col-6 mx-auto">
-                        <div class="btn-group">
-                            <button class="btn btn-outline-light btn-lg" type="button" style="background-color: rgb(22, 1, 64);" >Choose your faculty of studies</button>
-                            <button class = "btn btn-outline-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: rgb(22, 1, 64);" >
-                                <span class="visually-hidden">Toggle Dropdown</span>
-                            </button>
-                            <ul class="dropdown-menu dropdown-menu-end">
-                                <li><a class="dropdown-item" href="#" onclick="showNewBookInfo()">Commerce, Law and Management</a></li>
-                                <li><a class="dropdown-item" href="#" onclick="showEbookInfo()">Engineering and the Built Envuronment</a></li>
-                                <li><a class="dropdown-item" href="#" onclick="showEbookInfo()">Health Sciences</a></li>
-                                <li><a class="dropdown-item" href="#" onclick="showEbookInfo()">Humanities</a></li>
-                                <li><a class="dropdown-item" href="#" onclick="showEbookInfo()">Science</a></li>
-                            </ul>
-                        </div>
-                        <div class="btn-group">
-                        <button class="btn btn-outline-light btn-lg" type="button" style="background-color: rgb(22, 1, 64);" >Choose your level of studies</button>
-                        <button class = "btn btn-outline-light dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: rgb(22, 1, 64);">
-                                <span class="visually-hidden">Toggle Dropdown</span>
-                            </button>
-                            <ul class="dropdown-menu dropdown-menu-end">
-                                <li><a class="dropdown-item" href="#" onclick="showNewBookInfo()">Doctrate</a></li>
-                                <li><a class="dropdown-item" href="#" onclick="showUsedBookInfo()">Masters</a></li>
-                                <li><a class="dropdown-item" href="#" onclick="showEbookInfo()">Honours</a></li>
-                                <li><a class="dropdown-item" href="#" onclick="showEbookInfo()">Undergrad</a></li>
-                            </ul>
-                        </div>
-                        <div class="btn-group">
-                        <button class="btn btn-outline-light btn-lg" type="button" style="background-color: rgb(22, 1, 64);" >Choose your degree</button>
-                        <button class = "btn btn-outline-light dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: rgb(22, 1, 64);">
-                                <span class="visually-hidden">Toggle Dropdown</span>
-                            </button>
-                            <ul class="dropdown-menu dropdown-menu-end">
-                                <li><a class="dropdown-item" href="#" onclick="showNewBookInfo()">Architecture and Planning</a></li>
-                                <li><a class="dropdown-item" href="#" onclick="showNewBookInfo()">Civil and Environmental Engineering</a></li>
-                                <li><a class="dropdown-item" href="#" onclick="showUsedBookInfo()">Chemical and Metallurgical Engineering</a></li>
-                                <li><a class="dropdown-item" href="#" onclick="showEbookInfo()">Construction, Economics and Management</a></li>
-                                <li><a class="dropdown-item" href="#" onclick="showEbookInfo()">Electrical and Information Engineering</a></li>
-                                <li><a class="dropdown-item" href="#" onclick="showUsedBookInfo()">Mechanical, Industrial and Aeronautical Engineering</a></li>
-                                <li><a class="dropdown-item" href="#" onclick="showUsedBookInfo()">Mining Engineering</a></li>
-                            </ul>
-                        </div>
-                        <div class="btn-group dropdown-menu-end">
-                        <button class="btn btn-outline-light btn-lg" type="button" style="background-color: rgb(22, 1, 64);">Choose your year of studies</button>
-                        <button class = "btn btn-outline-light dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: rgb(22, 1, 64);">
-                                <span class="visually-hidden">Toggle Dropdown</span>
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#" onclick="showNewBookInfo()">1st Year</a></li>
-                                <li><a class="dropdown-item" href="#" onclick="showUsedBookInfo()">2nd Year</a></li>
-                                <li><a class="dropdown-item" href="#" onclick="showEbookInfo()">3rd Year</a></li>
-                                <li><a class="dropdown-item" href="#" onclick="showEbookInfo()">4th Year</a></li>
+<!-- General Filtering Info -->
+<div id="filtering info" class="row" style="margin-top: 30px; justify-content: center; display: flex;">
+    <div class="col-sm-10 text-center">
+        <span style="font-size: 18px; color: rgb(22, 1, 64); font-weight: 600;">
+            Please select from the dropboxes below your current <strong style="color: plum;">faculty</strong> of studies, <strong style="color: plum;">level</strong> of studies, <strong style="color: plum;">degree</strong> and <strong style="color: plum;">year</strong> of studies to filter out your textbook requirements.  
+        </span>
+    </div>
+</div>  
+<br>
 
-                            </ul>
-                        </div>
+<!--Course selection-->
+<div class="container-fluid">
+    <div class="row justify-content-center">  
+        <div class="col-lg-8 col-md-10">
+            <div class="d-grid gap-4">
+                
+                <!-- Faculty Dropdown -->
+                <div class="dropdown-container">
+                    <label class="selection-label">Faculty of Studies</label>
+                    <div class="dropdown selection-dropdown">
+                        <button id="facultyBtn" class="btn dropdown-toggle w-100 text-start d-flex justify-content-between align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: transparent; border: none; color: white; font-size: 18px; font-weight: 600;">
+                            Choose your faculty of studies
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end w-100 custom-dropdown-menu">
+                            <li><a class="dropdown-item" href="#" onclick="selectFaculty('Commerce, Law and Management'); return false;">Commerce, Law and Management</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="selectFaculty('Engineering and the Built Environment'); return false;">Engineering and the Built Environment</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="selectFaculty('Health Sciences'); return false;">Health Sciences</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="selectFaculty('Humanities'); return false;">Humanities</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="selectFaculty('Science'); return false;">Science</a></li>
+                        </ul>
                     </div>
-        </div>
-    </div>
+                </div>
 
+                <!-- Level Dropdown -->
+                <div class="dropdown-container">
+                    <label class="selection-label">Level of Studies</label>
+                    <div class="dropdown selection-dropdown">
+                        <button id="levelBtn" class="btn dropdown-toggle w-100 text-start d-flex justify-content-between align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: transparent; border: none; color: white; font-size: 18px; font-weight: 600;">
+                            Choose your level of studies
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end w-100 custom-dropdown-menu">
+                            <li><a class="dropdown-item" href="#" onclick="selectLevel('Doctorate'); return false;">Doctorate</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="selectLevel('Masters'); return false;">Masters</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="selectLevel('Honours'); return false;">Honours</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="selectLevel('Undergrad'); return false;">Undergrad</a></li>
+                        </ul>
+                    </div>
+                </div>
 
-                <script>
-                    let wishlist = [];
+                <!-- Degree Dropdown -->
+                <div class="dropdown-container">
+                    <label class="selection-label">Degree Program</label>
+                    <div class="dropdown selection-dropdown">
+                        <button id="degreeBtn" class="btn dropdown-toggle w-100 text-start d-flex justify-content-between align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: transparent; border: none; color: white; font-size: 18px; font-weight: 600;">
+                            Choose your degree
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end w-100 custom-dropdown-menu">
+                            <li><a class="dropdown-item" href="#" onclick="selectDegree('Architecture and Planning'); return false;">Architecture and Planning</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="selectDegree('Civil and Environmental Engineering'); return false;">Civil and Environmental Engineering</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="selectDegree('Chemical and Metallurgical Engineering'); return false;">Chemical and Metallurgical Engineering</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="selectDegree('Construction, Economics and Management'); return false;">Construction, Economics and Management</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="selectDegree('Electrical and Information Engineering'); return false;">Electrical and Information Engineering</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="selectDegree('Mechanical, Industrial and Aeronautical Engineering'); return false;">Mechanical, Industrial and Aeronautical Engineering</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="selectDegree('Mining Engineering'); return false;">Mining Engineering</a></li>
+                        </ul>
+                    </div>
+                </div>
 
-                        function addToWishlist() {
-                            const btn = document.getElementById('wishlistBtn');
-                            const btnText = document.getElementById('btnText');
-                            const heart = btn.querySelector('.heart');
-                            const notification = document.getElementById('wishlistNotification');
-                            
-                            const book = {
-                                title: "Basic Accounting for Non-Accountants (4th Edition)",
-                                authors: "Melanie Cloete - Ferina Marimuthu",
-                                timestamp: new Date().toISOString()
-                            };
-                            
-                            // Check if already in wishlist
-                            const alreadyAdded = wishlist.some(item => item.title === book.title);
-                            
-                            if (!alreadyAdded) {
-                                wishlist.push(book);
-                                
-                                // Update button appearance
-                                heart.textContent = '♥';
-                                btnText.textContent = 'Added to Wishlist';
-                                btn.classList.add('added');
-                                
-                                console.log('Wishlist:', wishlist);
-                            } else {
-                                // Remove from wishlist
-                                wishlist = wishlist.filter(item => item.title !== book.title);
-                                
-                                // Reset button appearance
-                                heart.textContent = '♡';
-                                btnText.textContent = 'Add to Wishlist';
-                                btn.classList.remove('added');
-                                
-                                console.log('Removed from wishlist. Current wishlist:', wishlist);
-                            }
-                        }
-                </script>
+                <!-- Year Dropdown -->
+                <div class="dropdown-container">
+                    <label class="selection-label">Year of Studies</label>
+                    <div class="dropdown selection-dropdown">
+                        <button id="yearBtn" class="btn dropdown-toggle w-100 text-start d-flex justify-content-between align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: transparent; border: none; color: white; font-size: 18px; font-weight: 600;">
+                            Choose your year of studies
+                        </button>
+                        <ul class="dropdown-menu w-100 custom-dropdown-menu">
+                            <li><a class="dropdown-item" href="#" onclick="selectYear('1st Year'); return false;">1st Year</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="selectYear('2nd Year'); return false;">2nd Year</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="selectYear('3rd Year'); return false;">3rd Year</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="selectYear('4th Year'); return false;">4th Year</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Filter Button -->
+                <div class="text-center mt-4">
+                    <button class="btn btn-lg" onclick="applyFilters()" style="background: plum; color: black; padding: 15px 50px; font-size: 20px; font-weight: 600; border: none; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+                        Filter Textbooks
+                    </button>
+                </div>
+
             </div>
         </div>
     </div>
-    <!--Footer-->
-        <br>
-    <footer class="text-center text-lg-start" style="background-color: lavender;">
-        <div class="container p-4">
-            <div class="row">
-                <div class="col-md-4 mb-3">
-                    <h5 class="fw-bold">About Us</h5>
-                    <p class="mb-0" style="font-size:14px;">We connect students with the books they need — new, used and digital — at fair prices.</p>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <h5 class="fw-bold">Customer Care</h5>
-                    <ul class="list-unstyled mb-0" style="font-size:14px;">
-                        <li><a href="#" class="text-reset">Help Center</a></li>
-                        <li><a href="mailto:support@books.example" class="text-reset">support@books.example</a></li>
-                        <li><a href="#" class="text-reset">Shipping & Returns</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <h5 class="fw-bold">Supplier Info</h5>
-                    <ul class="list-unstyled mb-0" style="font-size:14px;">
-                        <li><a href="#" class="text-reset">Sell with us</a></li>
-                        <li><a href="#" class="text-reset">Supplier FAQs</a></li>
-                        <li><a href="#" class="text-reset">Become a Supplier</a></li>
-                    </ul>
-                </div>
+</div>
+
+<br><br>
+
+<!--Footer-->
+<footer class="text-center text-lg-start" style="background-color: lavender;">
+    <div class="container p-4">
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <h5 class="fw-bold">About Us</h5>
+                <p class="mb-0" style="font-size:14px;">We connect students with the books they need — new, used and digital — at fair prices.</p>
+            </div>
+            <div class="col-md-4 mb-3">
+                <h5 class="fw-bold">Customer Care</h5>
+                <ul class="list-unstyled mb-0" style="font-size:14px;">
+                    <li><a href="#" class="text-reset">Help Center</a></li>
+                    <li><a href="mailto:support@books.example" class="text-reset">support@books.example</a></li>
+                    <li><a href="#" class="text-reset">Shipping & Returns</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4 mb-3">
+                <h5 class="fw-bold">Supplier Info</h5>
+                <ul class="list-unstyled mb-0" style="font-size:14px;">
+                    <li><a href="#" class="text-reset">Sell with us</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="selectDegree('Supplier FAQs')">Supplier FAQs</a></li>
+                    <li><a href="#" class="text-reset">Become a Supplier</a></li>
+                </ul>
             </div>
         </div>
-        <div class="text-center p-3" style="background-color: rgba(0,0,0,0.05);">© 2025 Name</div>
-    </footer>
-
     </div>
+    <div class="text-center p-3" style="background-color: rgba(0,0,0,0.05);">© 2025 Name</div>
+</footer>
 
-    <script>
-        function addToWishlist() {
-            const textbook = {
-                title: "Calculus: Early Transcendentals",
-                author: "Stewart",
-                image: "../textbook-images/calculus-textbook.jpeg"
-            };
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 
-            const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
-            const isAlreadyInWishlist = wishlist.some(item => item.title === textbook.title);
+<script>
+    // Store selections
+    let selections = {
+        faculty: '',
+        level: '',
+        degree: '',
+        year: ''
+    };
 
-            if (!isAlreadyInWishlist) {
-                wishlist.push(textbook);
-                localStorage.setItem('wishlist', JSON.stringify(wishlist));
-                alert('Added to Wishlist!');
-            } else {
-                alert('This item is already in your Wishlist.');
-            }
+    function selectFaculty(faculty) {
+        selections.faculty = faculty;
+        document.getElementById('facultyBtn').textContent = faculty;
+        console.log('Selected faculty:', faculty);
+    }
+
+    function selectLevel(level) {
+        selections.level = level;
+        document.getElementById('levelBtn').textContent = level;
+        console.log('Selected level:', level);
+    }
+
+    function selectDegree(degree) {
+        selections.degree = degree;
+        document.getElementById('degreeBtn').textContent = degree;
+        console.log('Selected degree:', degree);
+    }
+
+    function selectYear(year) {
+        selections.year = year;
+        document.getElementById('yearBtn').textContent = year;
+        console.log('Selected year:', year);
+        console.log('All selections:', selections);
+    }
+
+    function applyFilters() {
+        console.log('Applying filters with selections:', selections);
+        
+        // Check if all selections are made
+        if (!selections.faculty || !selections.level || !selections.degree || !selections.year) {
+            alert('Please make all selections before filtering.');
+            return;
         }
-    </script>
+        
+        // Here you can add your filtering logic
+        alert(`Filtering textbooks for:\nFaculty: ${selections.faculty}\nLevel: ${selections.level}\nDegree: ${selections.degree}\nYear: ${selections.year}`);
+        
+        // Add your actual filtering functionality here
+        // For example, redirect to results page or load filtered content
+    }
+
+    // Handle z-index for dropdowns
+    document.addEventListener('DOMContentLoaded', function() {
+        const containers = document.querySelectorAll('.dropdown-container');
+        
+        containers.forEach(container => {
+            const dropdownElement = container.querySelector('.dropdown');
+            
+            dropdownElement.addEventListener('show.bs.dropdown', function() {
+                containers.forEach(c => c.classList.remove('active'));
+                container.classList.add('active');
+            });
+            
+            dropdownElement.addEventListener('hide.bs.dropdown', function() {
+                container.classList.remove('active');
+            });
+        });
+    });
+</script>
+
 </body>
 </html>
