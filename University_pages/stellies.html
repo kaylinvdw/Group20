@@ -207,15 +207,30 @@
                             Choose your faculty of studies
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end w-100 custom-dropdown-menu">
-                            <li><a class="dropdown-item" href="#" onclick="selectFaculty('Economic and Management Sciences'); return false;">Economic and Management Sciences</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="selectFaculty('Education'); return false;">Education</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="selectFaculty('Engineering, Built Environment and Information Technology'); return false;">Engineering, Built Environment and Information Technology</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="selectFaculty('Commerce, Law and Management'); return false;">Commerce, Law and Management</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="selectFaculty('Engineering and the Built Environment'); return false;">Engineering and the Built Environment</a></li>
                             <li><a class="dropdown-item" href="#" onclick="selectFaculty('Health Sciences'); return false;">Health Sciences</a></li>
                             <li><a class="dropdown-item" href="#" onclick="selectFaculty('Humanities'); return false;">Humanities</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="selectFaculty('Law'); return false;">Law</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="selectFaculty('Natural and Agricultural Sciences'); return false;">Natural and Agricultural Sciences</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="selectFaculty('Theology and Religion'); return false;">Theology and Religion</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="selectFaculty('Veterinary Sciences'); return false;">Veterinary Sciences</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="selectFaculty('Science'); return false;">Science</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Degree Dropdown -->
+                <div class="dropdown-container">
+                    <label class="selection-label">Degree Program</label>
+                    <div class="dropdown selection-dropdown">
+                        <button id="degreeBtn" class="btn dropdown-toggle w-100 text-start d-flex justify-content-between align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: transparent; border: none; color: white; font-size: 18px; font-weight: 600;">
+                            Choose your degree
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end w-100 custom-dropdown-menu">
+                            <li><a class="dropdown-item" href="#" onclick="selectDegree('Architecture and Planning'); return false;">Architecture and Planning</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="selectDegree('Civil and Environmental Engineering'); return false;">Civil and Environmental Engineering</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="selectDegree('Chemical and Metallurgical Engineering'); return false;">Chemical and Metallurgical Engineering</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="selectDegree('Construction, Economics and Management'); return false;">Construction, Economics and Management</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="selectDegree('Electrical and Information Engineering'); return false;">Electrical and Information Engineering</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="selectDegree('Mechanical, Industrial and Aeronautical Engineering'); return false;">Mechanical, Industrial and Aeronautical Engineering</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="selectDegree('Mining Engineering'); return false;">Mining Engineering</a></li>
                         </ul>
                     </div>
                 </div>
@@ -236,37 +251,9 @@
                     </div>
                 </div>
 
-                <!-- Degree Dropdown -->
-                <div class="dropdown-container">
-                    <label class="selection-label">Degree Program</label>
-                    <div class="dropdown selection-dropdown">
-                        <button id="degreeBtn" class="btn dropdown-toggle w-100 text-start d-flex justify-content-between align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: transparent; border: none; color: white; font-size: 18px; font-weight: 600;">
-                            Choose your degree
-                        </button>
-                        <ul class="dropdown-menu dropdown-menu-end w-100 custom-dropdown-menu">
-                            <li><a class="dropdown-item" href="#" onclick="selectDegree('Bachelor of Information Sciences'); return false;">Bachelor of Information Sciences</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="selectDegree('Bachelor of Information Technology in Information Systems'); return false;">Bachelor of Information Technology in Information Systems</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="selectDegree('Bachelor of Town and Regional Planning'); return false;">Bachelor of Town and Regional Planning</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="selectDegree('BEng Chemical Engineering'); return false;">BEng Chemical Engineering</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="selectDegree('BEng Civil Engineering'); return false;">BEng Civil Engineering</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="selectDegree('BEng Computer Engineering'); return false;">BEng Computer Engineering</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="selectDegree('BEng Electrical Engineering'); return false;">BEng Electrical Engineering</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="selectDegree('BEng Electronic Engineering'); return false;">BEng Electronic Engineering</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="selectDegree('BEng Industrial Engineering'); return false;">BEng Industrial Engineering</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="selectDegree('BEng Mechanical Engineering'); return false;">BEng Mechanical Engineering</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="selectDegree('BEng Metallurgical Engineering'); return false;">BEng Metallurgical Engineering</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="selectDegree('BEng Mining Engineering'); return false;">BEng Mining Engineering</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="selectDegree('BSc in Architecture'); return false;">BSc in Architecture</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="selectDegree('BSc in Computer Science'); return false;">BSc in Computer Science</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="selectDegree('BSc in Construction Management'); return false;">BSc in Construction Management</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="selectDegree('BSc in Quantity Surveying'); return false;">BSc in Quantity Surveying</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="selectDegree('BSc in Real Estate'); return false;">BSc in Real Estate</a></li>
-                        </ul>
-                    </div>
-                </div>
 
                 <!-- Year Dropdown -->
-                <div class="dropdown-container">
+                <div class="dropdown-container" id="yearDropdownContainer" style="display: none;">
                     <label class="selection-label">Year of Studies</label>
                     <div class="dropdown selection-dropdown">
                         <button id="yearBtn" class="btn dropdown-toggle w-100 text-start d-flex justify-content-between align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: transparent; border: none; color: white; font-size: 18px; font-weight: 600;">
@@ -345,6 +332,39 @@
         selections.level = level;
         document.getElementById('levelBtn').textContent = level;
         console.log('Selected level:', level);
+        
+        // Show/hide year dropdown based on level selection
+        const yearContainer = document.getElementById('yearDropdownContainer');
+        const yearMenu = yearContainer.querySelector('.dropdown-menu');
+        
+        if (level === 'Undergraduate') {
+            // Show all 4 years for Undergraduate
+            yearMenu.innerHTML = `
+                <li><a class="dropdown-item" href="#" onclick="selectYear('1st Year'); return false;">1st Year</a></li>
+                <li><a class="dropdown-item" href="#" onclick="selectYear('2nd Year'); return false;">2nd Year</a></li>
+                <li><a class="dropdown-item" href="#" onclick="selectYear('3rd Year'); return false;">3rd Year</a></li>
+                <li><a class="dropdown-item" href="#" onclick="selectYear('4th Year'); return false;">4th Year</a></li>
+            `;
+            yearContainer.style.display = 'block';
+        } else if (level === 'Masters') {
+            // Show only 2 years for Masters
+            yearMenu.innerHTML = `
+                <li><a class="dropdown-item" href="#" onclick="selectYear('Year 1'); return false;">Year 1</a></li>
+                <li><a class="dropdown-item" href="#" onclick="selectYear('Year 2'); return false;">Year 2</a></li>
+            `;
+            yearContainer.style.display = 'block';
+        } else {
+            yearContainer.style.display = 'none';
+            // Reset year selection if switching away from Undergraduate/Masters
+            selections.year = '';
+            document.getElementById('yearBtn').textContent = 'Choose your year of studies';
+        }
+        
+        // Reset year selection when changing level
+        if (level === 'Undergraduate' || level === 'Masters') {
+            selections.year = '';
+            document.getElementById('yearBtn').textContent = 'Choose your year of studies';
+        }
     }
 
     function selectDegree(degree) {
@@ -363,14 +383,24 @@
     function applyFilters() {
         console.log('Applying filters with selections:', selections);
         
-        // Check if all selections are made
-        if (!selections.faculty || !selections.level || !selections.degree || !selections.year) {
-            alert('Please make all selections before filtering.');
+        // Check if all required selections are made
+        if (!selections.faculty || !selections.level || !selections.degree) {
+            alert('Please make all required selections before filtering.');
+            return;
+        }
+        
+        // Check if year is required (only for Undergraduate)
+        if (selections.level === 'Undergraduate' && !selections.year) {
+            alert('Please select your year of studies.');
             return;
         }
         
         // Here you can add your filtering logic
-        alert(`Filtering textbooks for:\nFaculty: ${selections.faculty}\nLevel: ${selections.level}\nDegree: ${selections.degree}\nYear: ${selections.year}`);
+        let filterMessage = `Filtering textbooks for:\nFaculty: ${selections.faculty}\nLevel: ${selections.level}\nDegree: ${selections.degree}`;
+        if (selections.level === 'Undergraduate') {
+            filterMessage += `\nYear: ${selections.year}`;
+        }
+        alert(filterMessage);
         
         // Add your actual filtering functionality here
         // For example, redirect to results page or load filtered content

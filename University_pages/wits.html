@@ -213,22 +213,6 @@
                     </div>
                 </div>
 
-                <!-- Level Dropdown -->
-                <div class="dropdown-container">
-                    <label class="selection-label">Level of Studies</label>
-                    <div class="dropdown selection-dropdown">
-                        <button id="levelBtn" class="btn dropdown-toggle w-100 text-start d-flex justify-content-between align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: transparent; border: none; color: white; font-size: 18px; font-weight: 600;">
-                            Choose your level of studies
-                        </button>
-                        <ul class="dropdown-menu dropdown-menu-end w-100 custom-dropdown-menu">
-                            <li><a class="dropdown-item" href="#" onclick="selectLevel('Doctorate'); return false;">Doctorate</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="selectLevel('Masters'); return false;">Masters</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="selectLevel('Honours'); return false;">Honours</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="selectLevel('Undergrad'); return false;">Undergrad</a></li>
-                        </ul>
-                    </div>
-                </div>
-
                 <!-- Degree Dropdown -->
                 <div class="dropdown-container">
                     <label class="selection-label">Degree Program</label>
@@ -248,8 +232,25 @@
                     </div>
                 </div>
 
-                <!-- Year Dropdown -->
+                <!-- Level Dropdown -->
                 <div class="dropdown-container">
+                    <label class="selection-label">Level of Studies</label>
+                    <div class="dropdown selection-dropdown">
+                        <button id="levelBtn" class="btn dropdown-toggle w-100 text-start d-flex justify-content-between align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: transparent; border: none; color: white; font-size: 18px; font-weight: 600;">
+                            Choose your level of studies
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end w-100 custom-dropdown-menu">
+                            <li><a class="dropdown-item" href="#" onclick="selectLevel('Doctorate'); return false;">Doctorate</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="selectLevel('Masters'); return false;">Masters</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="selectLevel('Honours'); return false;">Honours</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="selectLevel('Undergraduate'); return false;">Undergraduate</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+
+                <!-- Year Dropdown -->
+                <div class="dropdown-container" id="yearDropdownContainer" style="display: none;">
                     <label class="selection-label">Year of Studies</label>
                     <div class="dropdown selection-dropdown">
                         <button id="yearBtn" class="btn dropdown-toggle w-100 text-start d-flex justify-content-between align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: transparent; border: none; color: white; font-size: 18px; font-weight: 600;">
@@ -328,6 +329,39 @@
         selections.level = level;
         document.getElementById('levelBtn').textContent = level;
         console.log('Selected level:', level);
+        
+        // Show/hide year dropdown based on level selection
+        const yearContainer = document.getElementById('yearDropdownContainer');
+        const yearMenu = yearContainer.querySelector('.dropdown-menu');
+        
+        if (level === 'Undergraduate') {
+            // Show all 4 years for Undergraduate
+            yearMenu.innerHTML = `
+                <li><a class="dropdown-item" href="#" onclick="selectYear('1st Year'); return false;">1st Year</a></li>
+                <li><a class="dropdown-item" href="#" onclick="selectYear('2nd Year'); return false;">2nd Year</a></li>
+                <li><a class="dropdown-item" href="#" onclick="selectYear('3rd Year'); return false;">3rd Year</a></li>
+                <li><a class="dropdown-item" href="#" onclick="selectYear('4th Year'); return false;">4th Year</a></li>
+            `;
+            yearContainer.style.display = 'block';
+        } else if (level === 'Masters') {
+            // Show only 2 years for Masters
+            yearMenu.innerHTML = `
+                <li><a class="dropdown-item" href="#" onclick="selectYear('Year 1'); return false;">Year 1</a></li>
+                <li><a class="dropdown-item" href="#" onclick="selectYear('Year 2'); return false;">Year 2</a></li>
+            `;
+            yearContainer.style.display = 'block';
+        } else {
+            yearContainer.style.display = 'none';
+            // Reset year selection if switching away from Undergraduate/Masters
+            selections.year = '';
+            document.getElementById('yearBtn').textContent = 'Choose your year of studies';
+        }
+        
+        // Reset year selection when changing level
+        if (level === 'Undergraduate' || level === 'Masters') {
+            selections.year = '';
+            document.getElementById('yearBtn').textContent = 'Choose your year of studies';
+        }
     }
 
     function selectDegree(degree) {
@@ -346,14 +380,24 @@
     function applyFilters() {
         console.log('Applying filters with selections:', selections);
         
-        // Check if all selections are made
-        if (!selections.faculty || !selections.level || !selections.degree || !selections.year) {
-            alert('Please make all selections before filtering.');
+        // Check if all required selections are made
+        if (!selections.faculty || !selections.level || !selections.degree) {
+            alert('Please make all required selections before filtering.');
+            return;
+        }
+        
+        // Check if year is required (only for Undergraduate)
+        if (selections.level === 'Undergraduate' && !selections.year) {
+            alert('Please select your year of studies.');
             return;
         }
         
         // Here you can add your filtering logic
-        alert(`Filtering textbooks for:\nFaculty: ${selections.faculty}\nLevel: ${selections.level}\nDegree: ${selections.degree}\nYear: ${selections.year}`);
+        let filterMessage = `Filtering textbooks for:\nFaculty: ${selections.faculty}\nLevel: ${selections.level}\nDegree: ${selections.degree}`;
+        if (selections.level === 'Undergraduate') {
+            filterMessage += `\nYear: ${selections.year}`;
+        }
+        alert(filterMessage);
         
         // Add your actual filtering functionality here
         // For example, redirect to results page or load filtered content
