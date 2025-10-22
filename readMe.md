@@ -28,7 +28,7 @@ A website connecting students with textbook suppliers
 ```mermaid
 erDiagram
     users {
-        INTEGER PK user_id
+        INTEGER user_id PK
         TEXT username
         TEXT email
         TEXT password_hash
@@ -36,22 +36,22 @@ erDiagram
     }
     
     books {
-        INTEGER PK book_id
+        INTEGER book_id PK
         TEXT title
         TEXT author
         TEXT isbn
     }
     
     wishlists {
-        INTEGER PK wishlist_id
-        INTEGER FK user_id
-        INTEGER FK book_id
+        INTEGER wishlist_id PK
+        INTEGER user_id FK
+        INTEGER book_id FK
         TEXT update_type
         DATETIME added_at
     }
     
     institutions {
-        INTEGER PK institution_id
+        INTEGER institution_id PK
         TEXT name
         TEXT address
         DATETIME created_at
@@ -59,8 +59,8 @@ erDiagram
     }
 
     courses {
-        INTEGER PK course_id
-        INTEGER FK institution_id
+        INTEGER course_id PK
+        INTEGER institution_id FK
         TEXT name
         TEXT course_code
         DATETIME created_at
@@ -68,14 +68,13 @@ erDiagram
     }
 
     course_books {
-        INTEGER PK course_book_id
-        INTEGER FK course_id
-        INTEGER FK book_id
+        INTEGER course_book_id PK
+        INTEGER course_id FK
+        INTEGER book_id FK
     }
 
     vendors {
-        INTEGER PK vendor_id
-        TEXT name
+        INTEGER vendor_id PK
         TEXT contact_email
         TEXT website_url
         DATETIME created_at
