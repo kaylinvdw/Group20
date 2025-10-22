@@ -87,7 +87,7 @@ create table vendors (
 INSERT INTO users (username, email, password_hash) VALUES ('Tonya', 'u23748878@tuks.co.za', 'Tony@878');
 INSERT INTO users (username, email, password_hash) VALUES ('Tiana', 'u23560445@tuks.co.za', 'Ti@naGrobler445');
 INSERT INTO users (username, email, password_hash) VALUES ('Leandri', 'u23539331@tuks.co.za', 'Le@ndri$wanepoel331');
-INSERT INTO users (username, email, password_hash) VALUES ('Kaylin' ,'u23555557@tuks.co.za', 'K@ylin557');
+INSERT INTO users (username, email, password_hash)VALUES ('Kaylin' ,'u23555557@tuks.co.za', 'K@ylin557');
 INSERT INTO users (username, email, password_hash) VALUES ('Ibrahim', 'ibrahim.akanbi@tuks.co.za', 'Ibr@him100');
 SELECT* from users;
 
@@ -106,11 +106,11 @@ SELECT* from books;
 
 
 --Insert sample data into institutions table
-INSERT INTO institutions ('Stellenbosch University', 'Plein Street, Stellenbosch, 7600');
-INSERT INTO institutions ('University of Pretoria', 'Lynnwood Rd, Hatfield, Pretoria, 0002');
-INSERT INTO institutions ('University of the Witwatersrand', '1 Jan Smuts Ave, Braamfontein, Johannesburg, 2000');
-INSERT INTO institutions ('University of Cape Town', 'Rondebosch, Cape Town, 7701');
-INSERT INTO institutions ('University of Johannesburg', 'Auckland Park, Johannesburg, 2006');
+INSERT INTO institutions (name, address) VALUES ('Stellenbosch University', 'Plein Street, Stellenbosch, 7600');
+INSERT INTO institutions (name, address) VALUES ('University of Pretoria', 'Lynnwood Rd, Hatfield, Pretoria, 0002');
+INSERT INTO institutions (name, address) VALUES ('University of the Witwatersrand', '1 Jan Smuts Ave, Braamfontein, Johannesburg, 2000');
+INSERT INTO institutions (name, address) VALUES ('University of Cape Town', 'Rondebosch, Cape Town, 7701');
+INSERT INTO institutions (name, address) VALUES ('University of Johannesburg', 'Auckland Park, Johannesburg, 2006');
 SELECT* from institutions;
 
 --Insert into wishlists to show activity
