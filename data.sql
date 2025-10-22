@@ -37,6 +37,7 @@ create table wishlists (
     wishlist_id INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id INTEGER NOT NULL,
     book_id INTEGER NOT NULL,
+    update_type TEXT NOT NULL CHECK (update_type IN ('add', 'remove', 'set')),
     added_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE,
     FOREIGN KEY (book_id) REFERENCES books(book_id) ON DELETE CASCADE,
@@ -93,9 +94,9 @@ SELECT* from users;
 
 -- Insert sample data into books table
 --still has the three extra columns, how to delete that!
-INSERT INTO books (title, author, isbn) VALUES ('Basic Accounting for Non-Accountants (4th Edition', 'Melanie Cloete, Ferina Marimuthu', '9780627038907');
+INSERT INTO books (title, author, isbn) VALUES ('Basic Accounting for Non-Accountants (4th Edition)', 'Melanie Cloete, Ferina Marimuthu', '9780627038907');
 INSERT INTO books (title, author, isbn) VALUES ('Calculus: Early Transcendentals (9th Edition)', 'James Stewart, Daniel Clegg, Saleem Watsona', '9780357113516');
-INSERT INTO books (title, author, isbn) VALUES ('Chemistry and Chemical Reactivity (10th Edition', 'Kotz, Treichel, Townsend', '9781337399074');
+INSERT INTO books (title, author, isbn) VALUES ('Chemistry and Chemical Reactivity (10th Edition)', 'Kotz, Treichel, Townsend', '9781337399074');
 INSERT INTO books (title, author, isbn) VALUES ('Differential Equations with Boundary Value Problems (9th Edition)', 'Dennis G. Zill', '9781337559881');
 INSERT INTO books (title, author, isbn) VALUES ('Physics for Scientists and Engineers (10th Edition)', 'Serway, Jewett', '9781337553292');
 INSERT INTO books (title, author, isbn) VALUES ('Engineering Mechanics: Dynamics (8th Edition)', 'Meriam, Kraige, Bolton', '9781118885840');
@@ -108,12 +109,12 @@ SELECT* from books;
 --Insert sample data into institutions table
 INSERT INTO institutions (name, address) VALUES ('Stellenbosch University', 'Plein Street, Stellenbosch, 7600');
 INSERT INTO institutions (name, address) VALUES ('University of Pretoria', 'Lynnwood Rd, Hatfield, Pretoria, 0002');
-INSERT INTO institutions (name, address) VALUES ('University of the Witwatersrand', '1 Jan Smuts Ave, Braamfontein, Johannesburg, 2000');
+INSERT INTO institutions (name, address) VALUES ('University of Witwatersrand', '1 Jan Smuts Ave, Braamfontein, Johannesburg, 2000');
 INSERT INTO institutions (name, address) VALUES ('University of Cape Town', 'Rondebosch, Cape Town, 7701');
 INSERT INTO institutions (name, address) VALUES ('University of Johannesburg', 'Auckland Park, Johannesburg, 2006');
 SELECT* from institutions;
 
 --Insert into wishlists to show activity
-INSERT INTO wishlists (user_id, book_id) VALUES (1, 2);
-INSERT INTO wishlists (user_id, book_id) VALUES (2, 3);
+INSERT INTO wishlists (user_id, book_id, update_type) VALUES (1, 2, 'add');
+INSERT INTO wishlists (user_id, book_id, update_type) VALUES (2, 3), 'add';
 SELECT* from wishlists;
