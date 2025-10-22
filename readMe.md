@@ -25,7 +25,67 @@ A website connecting students with textbook suppliers
 
 ### Entity Relationship Diagram (ERD)
 
-#put ERD here
+```mermaid
+erDiagram
+    users {
+        INTEGER PK user_id
+        TEXT username
+        TEXT email
+        TEXT password_hash
+        DATETIME created_at
+    }
+    
+    books {
+        INTEGER PK book_id
+        TEXT title
+        TEXT author
+        TEXT isbn
+    }
+    
+    wishlists {
+        INTEGER PK wishlist_id
+        INTEGER FK user_id
+        INTEGER FK book_id
+        TEXT update_type
+        DATETIME added_at
+    }
+    
+    institutions {
+        INTEGER PK institution_id
+        TEXT name
+        TEXT address
+        DATETIME created_at
+        DATETIME updated_at
+    }
+
+    courses {
+        INTEGER PK course_id
+        INTEGER FK institution_id
+        TEXT name
+        TEXT course_code
+        DATETIME created_at
+        DATETIME updated_at
+    }
+
+    course_books {
+        INTEGER PK course_book_id
+        INTEGER FK course_id
+        INTEGER FK book_id
+    }
+
+    vendors {
+        INTEGER PK vendor_id
+        TEXT name
+        TEXT contact_email
+        TEXT website_url
+        DATETIME created_at
+        DATETIME updated_at
+    }
+
+    users ||--|| wishlists : "assigned to"
+    user o{--|| institution : "is in"
+    vendors ||--o{ books : "sells"
+```
 
 The database includes the following tables:
 
