@@ -44,10 +44,10 @@ erDiagram
     
     wishlists {
         INTEGER wishlist_id PK
-        INTEGER user_id FK
-        INTEGER book_id FK
         TEXT update_type
         DATETIME added_at
+        INTEGER user_id FK
+        INTEGER book_id FK
     }
     
     institutions {
@@ -60,11 +60,11 @@ erDiagram
 
     courses {
         INTEGER course_id PK
-        INTEGER institution_id FK
         TEXT name
         TEXT course_code
         DATETIME created_at
         DATETIME updated_at
+        INTEGER institution_id FK
     }
 
     course_books {
@@ -81,9 +81,24 @@ erDiagram
         DATETIME updated_at
     }
 
-    users ||--|| wishlists : "assigned to"
-    user o{--|| institution : "is in"
-    vendors ||--o{ books : "sells"
+    inventory {
+        INTEGER inventory_id PK
+        TEXT price
+        INTEGER stock_level
+        DATETIME created_at
+        DATETIME updated_at
+        INTEGER book_id FK
+        INTEGER vendor_id FK
+    }
+
+    users o{--o| institutions: "belongs to"
+    users ||--o{ wishlists: "is linked to"
+    wishlists |{--|| books: "is linked to"
+    institution ||--|{ courses: "offers"
+    courses ||--o{ course_books: "is linked to"
+    course_books o{--|| books: "is linked to"
+    books ||--|{ inventory: "is linked to"
+    vendors ||--|{ inventory: "is linked to"
 ```
 
 The database includes the following tables:
@@ -92,9 +107,12 @@ The database includes the following tables:
 
 1. **users**: Registered user data such as contact details and login information.
 2. **books**: Textbook data with authors and isbn.
-3. **wishlists**: Textbooks that users have identified as a want.
-4. **insitutions**: Institution data with address.
-5. **vendors**: Supplier data with contact details and website url.
+3. **courses**: Course data with name and course code.
+4. **course_books**: Data for the book used for a specific course.
+5. **wishlists**: Textbooks that users have identified as a want.
+6. **insitutions**: Institution data with address.
+7. **vendors**: Supplier data with contact details and website url.
+8. **inventory**: Keeps inventory of a specific book.
 
 ### Views
 
