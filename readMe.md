@@ -9,6 +9,7 @@ A website connecting students with textbook suppliers
 - **Vendor Management**: Login and registration system for vendors
 - **Textbook Management**: Organize textbooks by universisties and suppliers
 - **Price Comparisons**: Comparing textbook prices from different suppliers
+- **Easy Purchasing Access**: Click on prices to go directly to the supplier of the textbook (only on Calculus tetxbook currently)
 
 ## Database Setup
 
@@ -38,8 +39,8 @@ The database includes the following tables:
 
 ### Views
 
-1. **low_stock_products**: View of products with low stock alerts
-2. **inventory_summary**: Summary statistics for the dashboard
+1. **wishlist**: Create groups of textbooks you want to buy.
+2. **textbook_price_comparison**: See prices from different suppliers for new, used and e-textbooks.
 
 ## Sample Data
 
