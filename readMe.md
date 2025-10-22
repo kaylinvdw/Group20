@@ -80,11 +80,23 @@ Physics for Scientists and Engineers (10th Edition), Engineering Mechanics: Dyna
 └── readme.md              # This file
 ```
 
-## Usage
+## Usage - Textbooks
 
 1. Initialize the database using the SQLite command line method above
 2. Open `index.html` in your web browser
-3. Navigate through the different pages to manage your inventory
+3. Navigate to the textbook tab
+4. Select the textbook you are looking for
+5. Click on the new books, used books and e-books tabs to compare prices
+6. Click on the prices to be taken to the textbook supplier page (currently only on Calculus textbook)
+7. Add textbooks to the wishlist
+8. Navigate to the wishlist page to view textbooks and remove them
+
+## Usage - Universities
+1. Initialize the database using the SQLite command line method above
+2. Open `index.html` in your web browser
+3. Navigate to the university tab
+4. Select your university
+5. Select your faculty, degree, level of studies and year of studies
 
 ## Technologies Used
 
@@ -92,6 +104,7 @@ Physics for Scientists and Engineers (10th Edition), Engineering Mechanics: Dyna
 - **Bootstrap 5.3.8**: UI framework and styling
 - **Bootstrap Icons**: Icon set
 - **SQLite**: Database for data persistence
+- **CSS**: Styling
 
 ## Browser Compatibility
 
