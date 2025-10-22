@@ -94,7 +94,7 @@ erDiagram
     users o{--o| institutions: "belongs to"
     users ||--o{ wishlists: "is linked to"
     wishlists |{--|| books: "is linked to"
-    institution ||--|{ courses: "offers"
+    institutions ||--|{ courses: "offers"
     courses ||--o{ course_books: "is linked to"
     course_books o{--|| books: "is linked to"
     books ||--|{ inventory: "is linked to"
