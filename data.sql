@@ -116,5 +116,5 @@ SELECT* from institutions;
 
 --Insert into wishlists to show activity
 INSERT INTO wishlists (user_id, book_id, update_type) VALUES (1, 2, 'add');
-INSERT INTO wishlists (user_id, book_id, update_type) VALUES (2, 3), 'add';
+INSERT INTO wishlists (user_id, book_id, update_type) VALUES (2, 3, 'add');
 SELECT* from wishlists;

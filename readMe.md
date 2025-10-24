@@ -4,7 +4,7 @@ A website connecting students with textbook suppliers
 
 ## Features
 
-- **User Management**: Login and regiistration system for users
+- **User Management**: Login and registration system for users
 - **Wishlist Management**: Add, view, and update wishlist information
 - **Vendor Management**: Login and registration system for vendors
 - **Textbook Management**: Organize textbooks by universisties and suppliers
