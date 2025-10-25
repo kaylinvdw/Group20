@@ -11,6 +11,7 @@ DROP TABLE IF EXISTS institutions;
 DROP TABLE IF EXISTS courses;
 DROP TABLE IF EXISTS course_books;
 DROP TABLE IF EXISTS vendors;
+DROP TABLE IF EXISTS inventory;
 
 PRAGMA foreign_keys = ON;
 
@@ -82,6 +83,20 @@ create table vendors (
     website_url VARCHAR(255),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Create inventory table
+create table inventory (
+    inventory_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    book_id INTEGER NOT NULL,
+    vendor_id INTEGER NOT NULL,
+    stock_level INTEGER DEFAULT 0,
+    price DECIMAL(10, 2) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (book_id) REFERENCES books(book_id) ON DELETE CASCADE,
+    FOREIGN KEY (vendor_id) REFERENCES vendors(vendor_id) ON DELETE CASCADE,
+    UNIQUE (book_id, vendor_id)
 );
 
 -- Insert sample data into users table
