@@ -18,6 +18,16 @@
         .wishlist-card:hover {
             box-shadow: 0 4px 12px rgba(221,160,221,0.3);
         }
+        .wishlist-item-clickable {
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        .wishlist-item-clickable:hover .wishlist-title {
+            color: plum;
+            text-decoration: underline;
+        }
         .remove-btn {
             background-color: #dc3545;
             border-color: #dc3545;
@@ -204,16 +214,22 @@
             container.innerHTML = wishlist.map((item, index) => `
                 <div class="wishlist-card">
                     <div class="row align-items-center">
-                        <div class="col-md-3">
-                            <img src="${item.image}" alt="${item.title}" class="img-fluid rounded" style="max-height: 150px; object-fit: contain;">
-                        </div>
-                        <div class="col-md-7 ps-2">
-                            <h4>${item.title}</h4>
-                            <p class="text-muted mb-1">${item.authors}</p>
-                            <small class="text-muted">Added: ${new Date(item.timestamp).toLocaleDateString()}</small>
+                        <div class="col-md-10">
+                            <a href="${item.sourceUrl || 'newBooks.html'}" class="wishlist-item-clickable">
+                                <div class="row align-items-center">
+                                    <div class="col-md-3">
+                                        <img src="${item.image}" alt="${item.title}" class="img-fluid rounded" style="max-height: 150px; object-fit: contain;">
+                                    </div>
+                                    <div class="col-md-9 ps-2">
+                                        <h4 class="wishlist-title">${item.title}</h4>
+                                        <p class="text-muted mb-1">${item.authors}</p>
+                                        <small class="text-muted">Added: ${new Date(item.timestamp).toLocaleDateString()}</small>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
                         <div class="col-md-2 text-end">
-                            <button class="btn remove-btn" onclick="removeFromWishlist('${item.title}')">
+                            <button class="btn remove-btn" onclick="removeFromWishlist('${item.title.replace(/'/g, "\\'")}')">
                                 Remove
                             </button>
                         </div>
