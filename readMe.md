@@ -4,10 +4,10 @@ A website connecting students with textbook suppliers
 
 ## Group Members
 
-Tiana Grobler (u23560445)
-Tonya Li (u23748878)
-Leandri Swanepoel (u23539331)
-Kaylin van der Westhuizen (u23555557)
+- Tiana Grobler (u23560445)
+- Tonya Li (u23748878)
+- Leandri Swanepoel (u23539331)
+- Kaylin van der Westhuizen (u23555557)
 
 ## Features
 
