@@ -4,20 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Engineering Mechanics: Dynamics</title>
-    <link rel="icon" type="image/x-icon" href="../Icon.png">
+    <title>Chemistry and Chemical Reactivity</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='Icon.png') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link href="css/image-zoom.css" rel="stylesheet">
+
+</div>
 </head>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-
 <body>
+    
     <!--Primary Navigation-->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
         <a class="navbar-brand" href="../index.html">
-            <img src="../Icon.png" alt="Books for Brains" width="30" height="24">
+            <img src="{{ url_for('static', filename='Icon.png') }}" alt="Books for Brains" width="30" height="24">
             Books For Brains
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,7 +41,7 @@
 
             <!-- Wishlist -->
             <li class="nav-item">
-            <a class="navbar-brand" href="../wishlist.html">
+            <a class="navbar-brand" href="../wishlist.html>
                 Wishlist
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="plum" class="bi bi-heart" viewBox="0 0 16 16">
                     <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
@@ -92,7 +92,7 @@
             </li>
 
             <li class="nav-item">
-            <a class="nav-link active fs-5" aria-current="page" href="../newBooks.html">Textbooks</a>
+            <a class="nav-link active fs-5" aria-current="page" href="{{ url_for('view_textbooks_page') }}">Textbooks</a>
             </li>
 
         </ul>
@@ -100,18 +100,18 @@
     </div>
     </nav>
 
-    <!--Tetxtbook Information-->
+    <!--Textbook Information-->
     <br>
     <div class="container-fluid">
         <div class="row">
 
             <div class="col-sm-6" style="min-height: 600px; display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 1%; width: 45%;">
-                <img src="../textbook-images/dynamics-textbook.webp" class="d-block w-145" alt="Supply Chain Management" height="580px">
+                <img src="../textbook-images/chemistry-textbook.jpeg" class="d-block w-145" alt="Chemistry and Chemical Reactivity" height="580px">
             </div>
 
             <div class="col-sm-6" style="min-height: 600px; background-color:lavender; border-radius: 8px; display: flex; flex-direction: column; justify-content: flex-start; margin: 1%; width: 47%; padding-bottom: 20px;">
-                <div style="font-size: 31px; font-weight: bold; color: black; margin-top: 30px; text-align: left;">Engineering Mechanics: Dynamics (8th Edition)</div>
-                <div style="font-size: 20px; color: rgba(136, 64, 136, 0.486); margin-bottom: 10px; text-align: left;">Meriam - Kraige - Bolton</div>
+                <div style="font-size: 31px; font-weight: bold; color: black; margin-top: 30px; text-align: left;">Chemistry and Chemical Reactivity (10th Edition)</div>
+                <div style="font-size: 20px; color: rgba(136, 64, 136, 0.486); margin-bottom: 10px; text-align: left;">Kotz - Treichel - Townsend - Treichel</div>
 
                 <div style="text-align: right;">
                     <button type="button" class="btn btn-primary" id="wishlistBtn" onclick="addToWishlist()" style="background-color: plum; border-color: plum;">
@@ -137,22 +137,22 @@
 
                     <!-- New book info -->
                     <div id="new-book-info" class="row" style="margin-top: 10px; justify-content: center; display: flex; flex-wrap: wrap; gap: 10px;">
-                        <div class="col-12 col-sm-6 col-md-3 price-card" style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
+                        <div class="col-12 col-sm-6 col-md-3 price-card"style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
                             <span style="font-size: 16px; color: plum; font-weight: bold;">WizeBooks</span>
                             <br>
-                            <span style="font-size: 14px; color:black">R910.00</span>
+                            <span style="font-size: 14px; color:black">R1 250.00</span>
                         </div> 
 
                         <div class="col-12 col-sm-6 col-md-3 price-card" style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
                             <span style="font-size: 16px; color: plum; font-weight: bold;">Takealot</span>
                             <br>
-                            <span style="font-size: 14px; color:black">R999.99</span>
+                            <span style="font-size: 14px; color:black">R1 329.99</span>
                         </div>
 
                         <div class="col-12 col-sm-6 col-md-3 price-card" style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
                             <span style="font-size: 16px; color: plum; font-weight: bold;">Amazon</span>
                             <br>
-                            <span style="font-size: 14px; color:black">R860.00</span>
+                            <span style="font-size: 14px; color:black">R1 179.00</span>
                         </div>
                     </div>
 
@@ -161,7 +161,7 @@
                         <div class="col-12 col-sm-6 col-md-3 price-card" style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
                             <span style="font-size: 16px; color: plum; font-weight: bold;">Textbook Trader</span>
                             <br>
-                            <span style="font-size: 14px; color:black">R798.00</span>
+                            <span style="font-size: 14px; color:black">R1 019.00</span>
                             <br>
                             <span style="font-size: 12px; color: grey;">Excellent Condition</span>
                         </div> 
@@ -169,7 +169,7 @@
                         <div class="col-12 col-sm-6 col-md-3 price-card" style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
                             <span style="font-size: 16px; color: plum; font-weight: bold;">Textbook Trader</span>
                             <br>
-                            <span style="font-size: 14px; color:black">R879.00</span>
+                            <span style="font-size: 14px; color:black">R970.00</span>
                             <br>
                             <span style="font-size: 12px; color: grey;">Average Condition</span>
                         </div>
@@ -177,9 +177,9 @@
                         <div class="col-12 col-sm-6 col-md-3 price-card" style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
                             <span style="font-size: 16px; color: plum; font-weight: bold;">Bob Shop</span>
                             <br>
-                            <span style="font-size: 14px; color:black">R920.00</span>
+                            <span style="font-size: 14px; color:black">R965.00</span>
                             <br>
-                            <span style="font-size: 12px; color: grey;">Average Condition</span>
+                            <span style="font-size: 12px; color: grey;">Average (6th Edition)</span>
                         </div>
                     </div>
 
@@ -188,13 +188,14 @@
                         <div class="col-12 col-sm-6 col-md-3 price-card" style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
                             <span style="font-size: 16px; color: plum; font-weight: bold;">Cengage</span>
                             <br>
-                            <span style="font-size: 14px; color:black">R790.55</span>
+                            <span style="font-size: 14px; color:black">R989.55</span>
+                            <br>
                         </div> 
 
                         <div class="col-12 col-sm-6 col-md-3 price-card" style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
                             <span style="font-size: 16px; color: plum; font-weight: bold;">Amazon</span>
                             <br>
-                            <span style="font-size: 14px; color:black">R860.00</span>
+                            <span style="font-size: 14px; color:black">R808.97</span>
                         </div>
 
                         <div class="col-12 col-sm-6 col-md-3 price-card" style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
@@ -243,9 +244,9 @@
                         const heart = btn.querySelector('.heart');
                         
                         const book = {
-                            title: "Engineering Mechanics: Dynamics (8th Edition)",
-                            authors: "Meriam - Kraige - Bolton",
-                            image: "textbook-images/dynamics-textbook.webp",
+                            title: "Chemistry and Chemical Reactivity (10th Edition)",
+                            authors: "Kotz - Treichel - Townsend - Treichel",
+                            image: "textbook-images/chemistry-textbook.jpeg",
                             timestamp: new Date().toISOString(),
                             sourceUrl: window.location.pathname
                         };
@@ -358,19 +359,28 @@
                     <!-- General Textbook info -->
                     <div id="general-book-info" class="row" style="margin-top: 10px; justify-content: center; display: flex;">
                         <div class="col-sm-12" style="max-width: 90%;">
-                            <span style="font-size: 12px; color: black;">Engineering Mechanics: Dynamics provides a solid foundation of mechanics principles and helps students develop their problem-solving skills with an extensive variety of engaging problems related to engineering design. More than 50% of the homework problems are new, and there are also a number of new sample problems. To help students build necessary visualization and problem-solving skills, this product strongly emphasizes drawing free–body diagrams, the most important skill needed to solve mechanics problems.</span>
+                            <span style="font-size: 12px; color: black;">Succeed in chemistry with the clear explanations, problem-solving strategies, and dynamic study tools of CHEMISTRY & CHEMICAL REACTIVITY. Thorough instruction helps you develop a deeper understanding of general chemistry concepts through an emphasis on the visual nature of chemistry and the close interrelationship of the macroscopic, symbolic, and particulate levels of chemistry. The art program illustrates each of these levels in engaging detail.. Interactive study aids in OWLv2, such as Interactive Examples and Adaptive Learning Activities, help you master concepts.</span>
                         </div>
                     </div>
 
                     <!-- Linked Courses info -->
                     <div id="linked-courses-info" class="row" style="margin-top: 10px; justify-content: center; display:none;">
                         <div class="col-sm-12" style="max-width: 90%;">
+                            <span style="font-size: 12px; color: black;">BEng Chemical (University of Pretoria)</span>
+                            <br>
+                            <span style="font-size: 12px; color: black;">BEng Civil (University of Pretoria)</span>
+                            <br>
+                            <span style="font-size: 12px; color: black;">BEng Electrical (University of Pretoria)</span>
+                            <br>
                             <span style="font-size: 12px; color: black;">BEng Electronic (University of Pretoria)</span>
                             <br>
                             <span style="font-size: 12px; color: black;">BEng Industrial (University of Pretoria)</span>
                             <br>
                             <span style="font-size: 12px; color: black;">BEng Mechanical (University of Pretoria)</span>
                             <br>
+                            <span style="font-size: 12px; color: black;">BEng Metallurgical (University of Pretoria)</span>
+                            <br>
+                            <span style="font-size: 12px; color: black;">BEng Mining (University of Pretoria)</span>
                         </div>
                     </div>
                 </div>
@@ -411,7 +421,7 @@
                     document.addEventListener('DOMContentLoaded', function() {
                         const btn = document.getElementById('wishlistBtn');
                         if (btn) {
-                            const bookTitle = "Engineering Mechanics: Dynamics";
+                            const bookTitle = "Chemistry and Chemical Reactivity";
                             const isAdded = WishlistManager.isInWishlist(bookTitle);
                             
                             if (isAdded) {

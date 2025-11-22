@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Accounting for Non-Accountants</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='Icon.png') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="css/image-zoom.css" rel="stylesheet">
+
+</div>
+</head>
+<body>
+    
+    <!--Primary Navigation-->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="../index.html">
+            <img src="{{ url_for('static', filename='Icon.png') }}" alt="Books for Brains" width="30" height="24">
+            Books For Brains
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    
+        <ul class="navbar-nav w-100 d-flex justify-content-end align-items-center mb-2 mb-lg-0" style="gap: 1rem;">
+
+            <!-- Search Bar -->
+            <li class="nav-item">
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search Books/Modules/Courses" aria-label="Search" style="width: 300px; border-color: plum; box-shadow: 0 0 0 0.2rem rgba(221,160,221,.25);"/>
+                <button class="btn btn-outline-success" type="submit" style="border-color: plum;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="black" class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                    </svg>
+                </button>
+            </form>
+            </li>
+
+            <!-- Wishlist -->
+            <li class="nav-item">
+            <a class="navbar-brand" href="../wishlist.html>
+                Wishlist
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="plum" class="bi bi-heart" viewBox="0 0 16 16">
+                    <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                </svg>
+                
+            </a>
+            </li>
+
+            <!-- Login/Register -->
+            <li class="nav-item">
+            <a class="navbar-brand" href="../login.html">
+                Login/Register
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="plum" class="bi bi-person-circle" viewBox="0 0 16 16">
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+            </svg>
+            </a>
+            </li>     
+
+        </ul>
+        </div>
+    </body>
+    </html>
+    </nav>
+
+    <!--Secondary Navigation-->
+    <nav class="navbar navbar-expand-lg" style="background-color: plum;" data-bs-theme="light">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-4">
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle active fs-5" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Universities
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="universitiesDropdown">
+                    <li><a class="dropdown-item" href="../University_pages/stellies.html">Stellenbosch University</a></li>
+                    <li><a class="dropdown-item" href="../University_pages/uct.html">University of Cape Town</a></li>
+                    <li><a class="dropdown-item" href="../University_pages/uj.html">University of Johannesburg</a></li>
+                    <li><a class="dropdown-item" href="../University_pages/up.html">University of Pretoria</a></li>
+                    <li><a class="dropdown-item" href="../University_pages/wits.html">Witswaterstrand University</a></li>
+                    <li><a class="dropdown-item" href="#">Other...</a></li>
+                </ul>
+            </li>
+
+            <li class="nav-item">
+            <a class="nav-link active fs-5" aria-current="page" href="{{ url_for('view_textbooks_page') }}">Textbooks</a>
+            </li>
+
+        </ul>
+        </div>
+    </div>
+    </nav>
+
+    <!--Textbook Information-->
+    <br>
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-sm-6" style="min-height: 600px; display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 1%; width: 45%;">
+                <img src="{{ url_for('static', filename='textbook-images/basic-accounting-for-non-accountants-textbook.webp') }}" class="d-block w-145" alt="Basic Accounting for Non-Accountants" height="580px">
+            </div>
+
+            <div class="col-sm-6" style="min-height: 600px; background-color:lavender; border-radius: 8px; display: flex; flex-direction: column; justify-content: flex-start; margin: 1%; width: 47%; padding-bottom: 20px;">
+                <div style="font-size: 31px; font-weight: bold; color: balck; margin-top: 30px; text-align: left;">Basic Accounting for Non-Accountants (4th Edition)</div>
+                <div style="font-size: 20px; color: rgba(136, 64, 136, 0.486); margin-bottom: 10px; text-align: left;">Melanie Cloete - Ferina Marimuthu</div>
+
+                <div style="text-align: right;">
+                    <button type="button" class="btn btn-primary" id="wishlistBtn" onclick="addToWishlist()" style="background-color: plum; border-color: plum;">
+                        <span class="heart">♡</span>
+                        <span id="btnText">Add to Wishlist</span>
+                    </button>
+                </div>
+                
+                <div class="container" style="margin-top:20px;">
+                    <!-- Textbooks and Prices -->
+                    <div class="row" style="justify-content:center; display:flex; flex-wrap:wrap; gap:10px;">
+                        {% if inventory_rows %}
+                            {% for item in inventory_rows %}
+                            <div class="col-12 col-sm-6 col-md-3 price-card" style="border:1mm solid plum; border-radius:8px; padding:10px; max-width:30%; text-align:center; margin-left:10px; margin-right:10px;">
+                                <a style="font-size:16px; color:plum; font-weight:bold;" href="{{ item.website_url }}" target="_blank">{{ item.vendor_name }}</a><br>
+                                <a style="font-size:14px; color:black;">R{{ "%.2f"|format(item.price) }}</a><br>
+                                <a style="font-size:12px; color:grey;">{{ item.book_type }}</a><br>
+                            </div>
+                            {% endfor %}
+                        {% else %}
+                            <p style="text-align:center; width:100%;">No vendor options available for this book.</p>
+                        {% endif %}
+                    </div>
+
+                    <!-- Linked Courses -->
+                     <br>
+                    <div class="row" id="linked-courses-row" style="margin-top:20px; justify-content:left; display:flex; flex-wrap:wrap; gap:10px;">
+                        <div style="font-size: 20px; color: rgba(136, 64, 136, 0.486); margin-bottom: 10px; text-align: left;">Linked Courses</div>
+                        {% if linked_courses %}
+                            {% for course in linked_courses %}
+                            <a style="justify-content: left;">{{ course.institution_name }} - {{course.course_name}} ({{course.course_code}})</a>
+                            {% endfor %}
+                        {% else %}
+                            <p style="font-size:14px; color:grey;">No linked courses available for this textbook.</p>
+                        {% endif %}
+                    </div>
+
+                <script>
+                    // Wishlist Manager
+                    const WishlistManager = {
+                        getWishlist: function() {
+                            const stored = sessionStorage.getItem('wishlist');
+                            return stored ? JSON.parse(stored) : [];
+                        },
+                        saveWishlist: function(wishlist) {
+                            sessionStorage.setItem('wishlist', JSON.stringify(wishlist));
+                        },
+                        addItem: function(item) {
+                            const wishlist = this.getWishlist();
+                            const exists = wishlist.some(w => w.title === item.title);
+                            
+                            if (!exists) {
+                                wishlist.push(item);
+                                this.saveWishlist(wishlist);
+                                return true;
+                            }
+                            return false;
+                        },
+                        removeItem: function(title) {
+                            let wishlist = this.getWishlist();
+                            wishlist = wishlist.filter(item => item.title !== title);
+                            this.saveWishlist(wishlist);
+                        },
+                        isInWishlist: function(title) {
+                            const wishlist = this.getWishlist();
+                            return wishlist.some(item => item.title === title);
+                        }
+                    };
+
+                    // Add to wishlist function
+                    function addToWishlist() {
+                        const btn = document.getElementById('wishlistBtn');
+                        const btnText = document.getElementById('btnText');
+                        const heart = btn.querySelector('.heart');
+                        
+                        const book = {
+                            title: "Basic Accounting for Non-Accountants (4th Edition)",
+                            authors: "Melanie Cloete - Ferina Marimuthu",
+                            image: "textbook-images/basic-accounting-for-non-accountants-textbook.webp",
+                            timestamp: new Date().toISOString()
+                        };
+                        
+                        // Check if already in wishlist
+                        const alreadyAdded = WishlistManager.isInWishlist(book.title);
+                        
+                        if (!alreadyAdded) {
+                            // Add to wishlist
+                            WishlistManager.addItem(book);
+                            
+                            // Update button appearance
+                            heart.textContent = '♥';
+                            btnText.textContent = 'Added to Wishlist';
+                            btn.classList.add('added');
+                            
+                            // Show success message
+                            showNotification('Added to wishlist!');
+                        } else {
+                            // Remove from wishlist
+                            WishlistManager.removeItem(book.title);
+                            
+                            // Reset button appearance
+                            heart.textContent = '♡';
+                            btnText.textContent = 'Add to Wishlist';
+                            btn.classList.remove('added');
+                            
+                            showNotification('Removed from wishlist');
+                        }
+                    }
+
+                    // Show notification helper
+                    function showNotification(message) {
+                        let notification = document.getElementById('wishlistNotification');
+                        if (!notification) {
+                            notification = document.createElement('div');
+                            notification.id = 'wishlistNotification';
+                            notification.style.cssText = `
+                                position: fixed;
+                                top: 20px;
+                                right: 20px;
+                                background-color: plum;
+                                color: white;
+                                padding: 15px 25px;
+                                border-radius: 5px;
+                                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                                z-index: 9999;
+                                display: none;
+                            `;
+                            document.body.appendChild(notification);
+                        }
+                        
+                        notification.textContent = message;
+                        notification.style.display = 'block';
+                        
+                        setTimeout(() => {
+                            notification.style.display = 'none';
+                        }, 3000);
+                    }
+                </script>
+            </div>
+        </div>
+    </div>
+
+    <!--Footer-->
+   <br>
+    <footer class="text-center text-lg-start" style="background-color: lavender;">
+        <div class="container p-4">
+            <div class="row">
+                <div class="col-md-2 mb-2">
+                    <center>
+                    <img src="{{ url_for('static', filename='Icon.png') }}" alt="Bootstrap" width="125" height="100">
+                    </center>
+                </div>
+                <div class="col-md-4 mb-2">
+                    <h5 class="fw-bold">About Us</h5>
+                    <p class="mb-0" style="font-size:14px;">We connect students with the books they need — new, used and digital — at fair prices.</p>
+                </div>
+                <div class="col-md-3 mb-2">
+                    <h5 class="fw-bold">Customer Care</h5>
+                    <ul class="list-unstyled mb-0" style="font-size:14px;">
+                        <li><a href="#" class="text-reset">Help Center</a></li>
+                        <li><a href="mailto:support@books.example" class="text-reset">support@books.example</a></li>
+                        <li><a href="#" class="text-reset">Shipping & Returns</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-2">
+                    <h5 class="fw-bold">Supplier Info</h5>
+                    <ul class="list-unstyled mb-0" style="font-size:14px;">
+                        <li><a href="#" class="text-reset">Sell with us</a></li>
+                        <li><a href="#" class="text-reset">Supplier FAQs</a></li>
+                        <li><a href="#" class="text-reset">Become a Supplier</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="text-center p-3" style="background-color: rgba(0,0,0,0.05);">© 2025 Books for Brains</div>
+    </footer>
+
+    </div>
+</body>
+</html>

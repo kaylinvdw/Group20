@@ -4,20 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Differential Equations</title>
-    <link rel="icon" type="image/x-icon" href="../Icon.png">
+    <title>Calculus Early Transcendentals</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='Icon.png') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link href="css/image-zoom.css" rel="stylesheet">
+
+</div>
 </head>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-
 <body>
+    
     <!--Primary Navigation-->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
         <a class="navbar-brand" href="../index.html">
-            <img src="../Icon.png" alt="Books for Brains" width="30" height="24">
+            <img src="{{ url_for('static', filename='Icon.png') }}" alt="Books for Brains" width="30" height="24">
             Books For Brains
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,7 +41,7 @@
 
             <!-- Wishlist -->
             <li class="nav-item">
-            <a class="navbar-brand" href="../wishlist.html">
+            <a class="navbar-brand" href="../wishlist.html>
                 Wishlist
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="plum" class="bi bi-heart" viewBox="0 0 16 16">
                     <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
@@ -92,7 +92,7 @@
             </li>
 
             <li class="nav-item">
-            <a class="nav-link active fs-5" aria-current="page" href="../newBooks.html">Textbooks</a>
+            <a class="nav-link active fs-5" aria-current="page" href="{{ url_for('view_textbooks_page') }}">Textbooks</a>
             </li>
 
         </ul>
@@ -106,12 +106,12 @@
         <div class="row">
 
             <div class="col-sm-6" style="min-height: 600px; display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 1%; width: 45%;">
-                <img src="../textbook-images/differential-equations-textbook.webp" class="d-block w-145" alt="Differential Equations" height="580px">
+                <img src="../textbook-images/calculus-textbook.jpeg" class="d-block w-145" alt="Calculus: Early Transcendentals" height="580px">
             </div>
 
             <div class="col-sm-6" style="min-height: 600px; background-color:lavender; border-radius: 8px; display: flex; flex-direction: column; justify-content: flex-start; margin: 1%; width: 47%; padding-bottom: 20px;">
-                <div style="font-size: 31px; font-weight: bold; color: black; margin-top: 30px; text-align: left;">Differential Equations with Boundary Value Problems (9th Edition)</div>
-                <div style="font-size: 20px; color: rgba(136, 64, 136, 0.486); margin-bottom: 10px; text-align: left;">Dennis G. Zill</div>
+                <div style="font-size: 31px; font-weight: bold; color: black; margin-top: 30px; text-align: left;">Calculus: Early Transcendentals (9th Edition)</div>
+                <div style="font-size: 20px; color: rgba(136, 64, 136, 0.486); margin-bottom: 10px; text-align: left;">James Stewart - Daniel Clegg - Saleem Watsona</div>
 
                 <div style="text-align: right;">
                     <button type="button" class="btn btn-primary" id="wishlistBtn" onclick="addToWishlist()" style="background-color: plum; border-color: plum;">
@@ -121,7 +121,6 @@
                 </div>
                 
                 <br>
-
                 <div id="book-info" class="row" style="margin-top: 10px; text-align: center;">
                     <div class="row" style="margin-bottom: 15px;">
                         <div class="col-sm-4">
@@ -138,21 +137,27 @@
                     <!-- New book info -->
                     <div id="new-book-info" class="row" style="margin-top: 10px; justify-content: center; display: flex; flex-wrap: wrap; gap: 10px;">
                         <div class="col-12 col-sm-6 col-md-3 price-card" style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
-                            <span style="font-size: 16px; color: plum; font-weight: bold;">WizeBooks</span>
-                            <br>
-                            <span style="font-size: 14px; color:black">R879.00</span>
+                            <a href="https://www.wizebooks.co.za/get/9780357113516-calculus-early-transcendentals" target="_blank" style="text-decoration: none; color: inherit;">
+                                <span style="font-size: 16px; color: plum; font-weight: bold;">WizeBooks</span>
+                                <br>
+                                <span style="font-size: 14px; color:black">R1 410.00</span>
+                            </a>
                         </div> 
 
                         <div class="col-12 col-sm-6 col-md-3 price-card" style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
-                            <span style="font-size: 16px; color: plum; font-weight: bold;">Takealot</span>
-                            <br>
-                            <span style="font-size: 14px; color:black">R979.99</span>
+                            <a href="https://www.takealot.com/calculus/PLID62023633" target="_blank" style="text-decoration: none; color: inherit;">
+                                <span style="font-size: 16px; color: plum; font-weight: bold;">Takealot</span>
+                                <br>
+                                <span style="font-size: 14px; color:black">R1 698.00</span>
+                            </a>
                         </div>
 
-                        <div class="col-12 col-sm-6 col-md-3 price-card"style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
-                            <span style="font-size: 16px; color: plum; font-weight: bold;">Amazon</span>
-                            <br>
-                            <span style="font-size: 14px; color:black">R1 010.00</span>
+                        <div class="col-12 col-sm-6 col-md-3 price-card" style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
+                            <a href="https://www.amazon.com/Calculus-Early-Transcendentals-James-Stewart/dp/1337613924/ref=sr_1_1?dib=eyJ2IjoiMSJ9.DPImeTUNBh39Mu9La_-QLFPkukWDV_QPU8SncAN75Kt7oGx3_QKpEhtALLuXRp_Au2jQAFWn_wTZ2UmjRas2bZnPgt5a8bBZKZnT7rjQ159MGN9HgHWdc1BUHHKMwKB57PL134g6_5jZbUfmBLZJaq5YtTQGO9SShm5byYuyACZ6GG7z8bVFKO21MfTuU1AHJ6lSxhB6v5wS54iA-RgnU6SU0kd4ao0yEmR6cs2cqqA.kmHZb5Yi6ihGnKAEovtJNL2pWjM8uRFhy-u8A7NtLA8&dib_tag=se&keywords=Calculus%3A+Early+Transcendentals&qid=1760624250&sr=8-1" target="_blank" style="text-decoration: none; color: inherit;">
+                                <span style="font-size: 16px; color: plum; font-weight: bold;">Amazon</span>
+                                <br>
+                                <span style="font-size: 14px; color:black">R1 334.00</span>
+                            </a>
                         </div>
                     </div>
 
@@ -161,7 +166,7 @@
                         <div class="col-12 col-sm-6 col-md-3 price-card" style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
                             <span style="font-size: 16px; color: plum; font-weight: bold;">Textbook Trader</span>
                             <br>
-                            <span style="font-size: 14px; color:black">R799.00</span>
+                            <span style="font-size: 14px; color:black">R899.00</span>
                             <br>
                             <span style="font-size: 12px; color: grey;">Excellent Condition</span>
                         </div> 
@@ -169,7 +174,7 @@
                         <div class="col-12 col-sm-6 col-md-3 price-card" style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
                             <span style="font-size: 16px; color: plum; font-weight: bold;">Textbook Trader</span>
                             <br>
-                            <span style="font-size: 14px; color:black">R690.00</span>
+                            <span style="font-size: 14px; color:black">R940.00</span>
                             <br>
                             <span style="font-size: 12px; color: grey;">Average Condition</span>
                         </div>
@@ -177,7 +182,7 @@
                         <div class="col-12 col-sm-6 col-md-3 price-card" style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
                             <span style="font-size: 16px; color: plum; font-weight: bold;">Bob Shop</span>
                             <br>
-                            <span style="font-size: 14px; color:black">R560.00</span>
+                            <span style="font-size: 14px; color:black">R900.00</span>
                             <br>
                             <span style="font-size: 12px; color: grey;">Average (7th Edition)</span>
                         </div>
@@ -188,15 +193,14 @@
                         <div class="col-12 col-sm-6 col-md-3 price-card" style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
                             <span style="font-size: 16px; color: plum; font-weight: bold;">Cengage</span>
                             <br>
-                            <span style="font-size: 14px; color:black">R789.55</span>
+                            <span style="font-size: 14px; color:black">R1 188.55</span>
                             <br>
-                            <span style="font-size: 12px; color: grey;">Until 03 April 2026</span>
                         </div> 
 
                         <div class="col-12 col-sm-6 col-md-3 price-card" style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
                             <span style="font-size: 16px; color: plum; font-weight: bold;">Amazon</span>
                             <br>
-                            <span style="font-size: 14px; color:black">R968.97</span>
+                            <span style="font-size: 14px; color:black">R1 488.97</span>
                         </div>
 
                         <div class="col-12 col-sm-6 col-md-3 price-card" style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
@@ -245,9 +249,9 @@
                         const heart = btn.querySelector('.heart');
                         
                         const book = {
-                            title: "Differential Equations with Boundary Value Problems (9th Edition)",
-                            authors: "Dennis G. Zill",
-                            image: "textbook-images/differential-equations-textbook.webp",
+                            title: "Calculus: Early Transcendentals (9th Edition)",
+                            authors: "James Stewart - Daniel Clegg - Saleem Watson",
+                            image: "textbook-images/calculus-textbook.jpeg",
                             timestamp: new Date().toISOString(),
                             sourceUrl: window.location.pathname
                         };
@@ -360,7 +364,7 @@
                     <!-- General Textbook info -->
                     <div id="general-book-info" class="row" style="margin-top: 10px; justify-content: center; display: flex;">
                         <div class="col-sm-12" style="max-width: 90%;">
-                            <span style="font-size: 12px; color: black;">Straightforward and easy to read, DIFFERENTIAL EQUATIONS WITH BOUNDARY-VALUE PROBLEMS, 9th Edition, gives you a thorough overview of the topics typically taught in a first course in Differential Equations as well as an introduction to boundary-value problems and partial Differential Equations. Your study will be supported by a bounty of pedagogical aids, including an abundance of examples, explanations, "Remarks" boxes, definitions, and more.</span>
+                            <span style="font-size: 12px; color: black;">CALCULUS: EARLY TRANSCENDENTALS, 9th Edition, provides you with the strongest foundation for a STEM future. James Stewart's Calculus series is the top-seller in the world because of its problem-solving focus, mathematical precision and accuracy, and outstanding examples and problem sets. Selected and mentored by Stewart, coauthors Daniel Clegg and Saleem Watson continue his legacy, and their careful refinements retain Stewart's clarity of exposition and make the 9th Edition an even more usable learning tool. The accompanying WebAssign includes helpful learning support and new resources like Explore It interactive learning modules. Showing that Calculus is both practical and beautiful, the Stewart approach and WebAssign resources enhance understanding and build confidence for millions of students worldwide.</span>
                         </div>
                     </div>
 
@@ -424,7 +428,7 @@
                     document.addEventListener('DOMContentLoaded', function() {
                         const btn = document.getElementById('wishlistBtn');
                         if (btn) {
-                            const bookTitle = "Differential Equations";
+                            const bookTitle = "Calculus: Early Transcendentals (9th Edition)";
                             const isAdded = WishlistManager.isInWishlist(bookTitle);
                             
                             if (isAdded) {
@@ -441,7 +445,7 @@
         </div>
     </div>
     <!--Footer-->
- <br>
+  <br>
     <footer class="text-center text-lg-start" style="background-color: lavender;">
         <div class="container p-4">
             <div class="row">
@@ -474,5 +478,7 @@
         </div>
         <div class="text-center p-3" style="background-color: rgba(0,0,0,0.05);">© 2025 Books for Brains</div>
     </footer>
+
+    </div>
 </body>
 </html>

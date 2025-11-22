@@ -1,20 +1,23 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="Icon.png">
-    <title>Books for Brains | Home</title>
+    <title>Books For Brains</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='Icon.png') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="css/image-zoom.css" rel="stylesheet">
+
+</div>
 </head>
 <body>
-
+    
     <!--Primary Navigation-->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-            <img src="Icon.png" alt="Bootstrap" width="30" height="24">
+        <a class="navbar-brand" href="../index.html">
+            <img src="{{ url_for('static', filename='Icon.png') }}" alt="Books for Brains" width="30" height="24">
             Books For Brains
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,7 +41,7 @@
 
             <!-- Wishlist -->
             <li class="nav-item">
-            <a class="navbar-brand" href="wishlist.html">
+            <a class="navbar-brand" href="../wishlist.html>
                 Wishlist
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="plum" class="bi bi-heart" viewBox="0 0 16 16">
                     <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
@@ -49,7 +52,7 @@
 
             <!-- Login/Register -->
             <li class="nav-item">
-            <a class="navbar-brand" href="login.html">
+            <a class="navbar-brand" href="../login.html">
                 Login/Register
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="plum" class="bi bi-person-circle" viewBox="0 0 16 16">
             <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
@@ -60,9 +63,9 @@
 
         </ul>
         </div>
-    </div>
+    </body>
+    </html>
     </nav>
-
 
     <!--Secondary Navigation-->
     <nav class="navbar navbar-expand-lg" style="background-color: plum;" data-bs-theme="light">
@@ -79,17 +82,17 @@
                 Universities
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="universitiesDropdown">
-                    <li><a class="dropdown-item" href="University_pages/stellies.html">Stellenbosch University</a></li>
-                    <li><a class="dropdown-item" href="University_pages/uct.html">University of Cape Town</a></li>
-                    <li><a class="dropdown-item" href="University_pages/uj.html">University of Johannesburg</a></li>
-                    <li><a class="dropdown-item" href="University_pages/up.html">University of Pretoria</a></li>
-                    <li><a class="dropdown-item" href="University_pages/wits.html">Witswaterstrand University</a></li>
+                    <li><a class="dropdown-item" href="../University_pages/stellies.html">Stellenbosch University</a></li>
+                    <li><a class="dropdown-item" href="../University_pages/uct.html">University of Cape Town</a></li>
+                    <li><a class="dropdown-item" href="../University_pages/uj.html">University of Johannesburg</a></li>
+                    <li><a class="dropdown-item" href="../University_pages/up.html">University of Pretoria</a></li>
+                    <li><a class="dropdown-item" href="../University_pages/wits.html">Witswaterstrand University</a></li>
                     <li><a class="dropdown-item" href="#">Other...</a></li>
                 </ul>
             </li>
 
             <li class="nav-item">
-            <a class="nav-link active fs-5" aria-current="page" href="newBooks.html">Textbooks</a>
+            <a class="nav-link active fs-5" aria-current="page" href="{{ url_for('view_textbooks_page') }}">Textbooks</a>
             </li>
 
         </ul>
@@ -101,9 +104,9 @@
     <!-- Image  --> 
     <div class="container-fluid px-0">
         <div class="row g-0">
-            <a href="newBooks.html">
+            <a href="{{ url_for('view_textbooks_page') }}">
             <div class="col-sm-12">
-                <img src="Banner.png" class="d-block w-100" alt="...">
+                <img src="{{ url_for('static', filename='Banner.png')}}" class="d-block w-100" alt="...">
             </div>
             </a>
         </div>

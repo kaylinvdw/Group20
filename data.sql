@@ -30,7 +30,9 @@ create table books (
     book_id INTEGER PRIMARY KEY AUTOINCREMENT,
     title VARCHAR(255) NOT NULL,
     author VARCHAR(255) NOT NULL,
-    isbn VARCHAR(20) UNIQUE
+    isbn VARCHAR(20) UNIQUE,
+    html_page VARCHAR(255),
+    image_path VARCHAR(255)
 );
 
 -- Create wishlists table
@@ -91,6 +93,7 @@ create table inventory (
     book_id INTEGER NOT NULL,
     vendor_id INTEGER NOT NULL,
     stock_level INTEGER DEFAULT 0,
+    book_type VARCHAR(50) DEFAULT 'new' CHECK (book_type IN ('New', 'Used', 'eBook')),
     price DECIMAL(10, 2) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -108,17 +111,15 @@ INSERT INTO users (username, email, password_hash) VALUES ('Ibrahim', 'ibrahim.a
 SELECT* from users;
 
 -- Insert sample data into books table
---still has the three extra columns, how to delete that!
-INSERT INTO books (title, author, isbn) VALUES ('Basic Accounting for Non-Accountants (4th Edition)', 'Melanie Cloete, Ferina Marimuthu', '9780627038907');
-INSERT INTO books (title, author, isbn) VALUES ('Calculus: Early Transcendentals (9th Edition)', 'James Stewart, Daniel Clegg, Saleem Watsona', '9780357113516');
-INSERT INTO books (title, author, isbn) VALUES ('Chemistry and Chemical Reactivity (10th Edition)', 'Kotz, Treichel, Townsend', '9781337399074');
-INSERT INTO books (title, author, isbn) VALUES ('Differential Equations with Boundary Value Problems (9th Edition)', 'Dennis G. Zill', '9781337559881');
-INSERT INTO books (title, author, isbn) VALUES ('Physics for Scientists and Engineers (10th Edition)', 'Serway, Jewett', '9781337553292');
-INSERT INTO books (title, author, isbn) VALUES ('Engineering Mechanics: Dynamics (8th Edition)', 'Meriam, Kraige, Bolton', '9781118885840');
-INSERT INTO books (title, author, isbn) VALUES ('Mechanical Engineering Design (11th Edition)', 'Richard G. Budynas, J. Keith Nisbett', '9789813158986');
-INSERT INTO books (title, author, isbn) VALUES ('Supply Chain Management: A Logistics Perspective (12th Edition)', 'Langley, Novack, Gibson, Coyle', '9780357984925');
+INSERT INTO books (title, author, isbn, html_page, image_path) VALUES ('Basic Accounting for Non-Accountants (4th Edition)', 'Melanie Cloete, Ferina Marimuthu', '9780627038907', 'accounting-textbook.html', 'textbook-images/basic-accounting-for-non-accountants-textbook.webp');
+INSERT INTO books (title, author, isbn, html_page, image_path) VALUES ('Calculus: Early Transcendentals (9th Edition)', 'James Stewart, Daniel Clegg, Saleem Watsona', '9780357113516', 'calculus-textbook.html', 'textbook-images/calculus-textbook.jpeg');
+INSERT INTO books (title, author, isbn, html_page, image_path) VALUES ('Chemistry and Chemical Reactivity (10th Edition)', 'Kotz, Treichel, Townsend', '9781337399074', 'chemistry-textbook.html', 'textbook-images/chemistry-textbook.jpeg');
+INSERT INTO books (title, author, isbn, html_page, image_path) VALUES ('Differential Equations with Boundary Value Problems (9th Edition)', 'Dennis G. Zill', '9781337559881', 'differential-equations-textbook.html', 'textbook-images/differential-equations-textbook.webp');
+INSERT INTO books (title, author, isbn, html_page, image_path) VALUES ('Physics for Scientists and Engineers (10th Edition)', 'Serway, Jewett', '9781337553292', 'physics-textbook.html', 'textbook-images/physics-for-engineers-textbook.jpeg');
+INSERT INTO books (title, author, isbn, html_page, image_path) VALUES ('Engineering Mechanics: Dynamics (8th Edition)', 'Meriam, Kraige, Bolton', '9781118885840', 'engineering-mechanics-textbook.html', 'textbook-images/dynamics-textbook.webp');
+INSERT INTO books (title, author, isbn, html_page, image_path) VALUES ('Mechanical Engineering Design (11th Edition)', 'Richard G. Budynas, J. Keith Nisbett', '9789813158986', 'mechanical-engineering-design-textbook.html ', 'textbook-images/mechanical-engineering-design.jpg');
+INSERT INTO books (title, author, isbn, html_page, image_path) VALUES ('Supply Chain Management: A Logistics Perspective (12th Edition)', 'Langley, Novack, Gibson, Coyle', '9780357984925', 'supply-chain-management-textbook.html', 'textbook-images/supply-chain-management-textbook.jpeg');
 SELECT* from books;
-
 
 
 --Insert sample data into institutions table
@@ -133,3 +134,44 @@ SELECT* from institutions;
 INSERT INTO wishlists (user_id, book_id, update_type) VALUES (1, 2, 'add');
 INSERT INTO wishlists (user_id, book_id, update_type) VALUES (2, 3, 'add');
 SELECT* from wishlists;
+
+--Insert sample data into vendors table
+INSERT INTO vendors (name, contact_email, website_url) VALUES ('WizeBooks', 'wizebooks@gmail.com', 'https://www.wizebooks.co.za/');
+INSERT INTO vendors (name, contact_email, website_url) VALUES ('Amazon', 'amazon@gmail.com', 'https://www.amazon.co.za/');
+INSERT INTO vendors (name, contact_email, website_url) VALUES ('Takealot', 'takealot@gmail.com', 'https://www.takealot.com/');
+INSERT INTO vendors (name, contact_email, website_url) VALUES ('Textbook Trader', 'textbooktrader@gmail.com', 'https://www.textbooktrader.co.za/');
+INSERT INTO vendors (name, contact_email, website_url) VALUES ('BobShop', 'bobshop@gmail.com', 'https://www.bobshop.co.za/');
+INSERT INTO vendors (name, contact_email, website_url) VALUES ('UP Library', 'up@ac.za', 'https://www.library.up.ac.za/home');
+SELECT* from vendors;
+
+-- Insert sample data into inventory table
+INSERT INTO inventory (book_id, vendor_id, book_type, price) VALUES (1, 1, 'New', 779.00);
+INSERT INTO inventory (book_id, vendor_id, book_type, price) VALUES (1, 2, 'New', 679.99);
+INSERT INTO inventory (book_id, vendor_id, book_type, price) VALUES (1, 3, 'New', 810.00);
+INSERT INTO inventory (book_id, vendor_id, book_type, price) VALUES (1, 4, 'Used', 599.00);
+INSERT INTO inventory (book_id, vendor_id, book_type, price) VALUES (1, 5, 'Used', 560.00);
+INSERT INTO inventory (book_id, vendor_id, book_type, price) VALUES (1, 6, 'eBook', 0.00);
+SELECT* from inventory; 
+
+-- Insert sample data into institutions table
+INSERT INTO institutions (name) VALUES ('University of Pretoria');
+INSERT INTO institutions (name) VALUES ('University of Cape Town');
+INSERT INTO institutions (name) VALUES ('Stellenbosch University');
+INSERT INTO institutions (name) VALUES ('University of the Witwatersrand');
+INSERT INTO institutions (name) VALUES ('University of Johannesburg');
+
+-- Insert sample data into courses table
+INSERT INTO courses (institution_id, name, course_code) VALUES (1, 'Fincancial Accounting', 'FBS120');
+INSERT INTO courses (institution_id, name, course_code) VALUES (2, 'Introduction to Accounting', 'ACC101');
+INSERT INTO courses (institution_id, name, course_code) VALUES (3, 'Managerial Accounting', 'MGT150');
+INSERT INTO courses (institution_id, name, course_code) VALUES (4, 'Financial Analysis', 'FIN210');
+INSERT INTO courses (institution_id, name, course_code) VALUES (5, 'Basics of Accounting', 'BAC100');
+
+-- Insert sample data into course_books table
+INSERT INTO course_books (course_id, book_id) VALUES (1, 1);
+INSERT INTO course_books (course_id, book_id) VALUES (2, 1);
+INSERT INTO course_books (course_id, book_id) VALUES (3, 1);
+INSERT INTO course_books (course_id, book_id) VALUES (4, 1);
+INSERT INTO course_books (course_id, book_id) VALUES (5, 1);
+SELECT* from course_books;
+
