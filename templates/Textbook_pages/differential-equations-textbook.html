@@ -106,12 +106,12 @@
         <div class="row">
 
             <div class="col-sm-6" style="min-height: 600px; display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 1%; width: 45%;">
-                <img src="../textbook-images/differential-equations-textbook.webp" class="d-block w-145" alt="Differential Equations" height="580px">
+                <img src="{{ url_for('static', filename=book.image_path) }}" class="d-block w-145" alt="{{ book.title }}" height="580px">
             </div>
 
             <div class="col-sm-6" style="min-height: 600px; background-color:lavender; border-radius: 8px; display: flex; flex-direction: column; justify-content: flex-start; margin: 1%; width: 47%; padding-bottom: 20px;">
-                <div style="font-size: 31px; font-weight: bold; color: black; margin-top: 30px; text-align: left;">Differential Equations with Boundary Value Problems (9th Edition)</div>
-                <div style="font-size: 20px; color: rgba(136, 64, 136, 0.486); margin-bottom: 10px; text-align: left;">Dennis G. Zill</div>
+                <div style="font-size: 31px; font-weight: bold; color: balck; margin-top: 30px; text-align: left;">{{ book.title }}</div>
+                <div style="font-size: 20px; color: rgba(136, 64, 136, 0.486); margin-bottom: 10px; text-align: left;">{{ book.author }}</div>
 
                 <div style="text-align: right;">
                     <button type="button" class="btn btn-primary" id="wishlistBtn" onclick="addToWishlist()" style="background-color: plum; border-color: plum;">
@@ -119,92 +119,38 @@
                         <span id="btnText">Add to Wishlist</span>
                     </button>
                 </div>
-                
-                <br>
 
-                <div id="book-info" class="row" style="margin-top: 10px; text-align: center;">
-                    <div class="row" style="margin-bottom: 15px;">
-                        <div class="col-sm-4">
-                            <a href="#" class="book-type-link" data-type="new" style="text-decoration: none; color: inherit;">New Book</a>
-                        </div>
-                        <div class="col-sm-4">
-                            <a href="#" class="book-type-link" data-type="used" style="text-decoration: none; color: inherit;">Used Book</a>
-                        </div>
-                        <div class="col-sm-4">
-                            <a href="#" class="book-type-link" data-type="ebook" style="text-decoration: none; color: inherit;">E-Book</a>
-                        </div>
+                        <div class="container" style="margin-top:20px;">
+                    
+        <!-- Textbooks and Prices -->
+        <div class="row" style="justify-content:center; display:flex; flex-wrap:wrap; gap:10px;">
+            {% if inventory_rows %}
+                {% for item in inventory_rows %}
+                    <div class="col-12 col-sm-6 col-md-3 price-card" style="border:1mm solid plum; border-radius:8px; padding:10px; max-width:30%; text-align:center; margin-left:10px; margin-right:10px;">
+                        <a style="font-size:16px; color:plum; font-weight:bold;" href="{{ item.website_url }}" target="_blank">{{ item.vendor_name }}</a><br>
+                        <a style="font-size:14px; color:black;">R{{ "%.2f"|format(item.price) }}</a><br>
+                        <a style="font-size:12px; color:grey;">{{ item.book_type }}</a><br>
                     </div>
+                    {% endfor %}
+                {% else %}
+                    <p style="text-align:center; width:100%;">No vendor options available for this book.</p>
+                {% endif %}
+            </div>
 
-                    <!-- New book info -->
-                    <div id="new-book-info" class="row" style="margin-top: 10px; justify-content: center; display: flex; flex-wrap: wrap; gap: 10px;">
-                        <div class="col-12 col-sm-6 col-md-3 price-card" style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
-                            <span style="font-size: 16px; color: plum; font-weight: bold;">WizeBooks</span>
-                            <br>
-                            <span style="font-size: 14px; color:black">R879.00</span>
-                        </div> 
-
-                        <div class="col-12 col-sm-6 col-md-3 price-card" style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
-                            <span style="font-size: 16px; color: plum; font-weight: bold;">Takealot</span>
-                            <br>
-                            <span style="font-size: 14px; color:black">R979.99</span>
-                        </div>
-
-                        <div class="col-12 col-sm-6 col-md-3 price-card"style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
-                            <span style="font-size: 16px; color: plum; font-weight: bold;">Amazon</span>
-                            <br>
-                            <span style="font-size: 14px; color:black">R1 010.00</span>
-                        </div>
-                    </div>
-
-                    <!-- Used book info -->
-                    <div id="used-book-info" class="row" style="margin-top: 10px; justify-content: center; display:none; flex-wrap: wrap; gap: 10px;">
-                        <div class="col-12 col-sm-6 col-md-3 price-card" style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
-                            <span style="font-size: 16px; color: plum; font-weight: bold;">Textbook Trader</span>
-                            <br>
-                            <span style="font-size: 14px; color:black">R799.00</span>
-                            <br>
-                            <span style="font-size: 12px; color: grey;">Excellent Condition</span>
-                        </div> 
-
-                        <div class="col-12 col-sm-6 col-md-3 price-card" style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
-                            <span style="font-size: 16px; color: plum; font-weight: bold;">Textbook Trader</span>
-                            <br>
-                            <span style="font-size: 14px; color:black">R690.00</span>
-                            <br>
-                            <span style="font-size: 12px; color: grey;">Average Condition</span>
-                        </div>
-
-                        <div class="col-12 col-sm-6 col-md-3 price-card" style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
-                            <span style="font-size: 16px; color: plum; font-weight: bold;">Bob Shop</span>
-                            <br>
-                            <span style="font-size: 14px; color:black">R560.00</span>
-                            <br>
-                            <span style="font-size: 12px; color: grey;">Average (7th Edition)</span>
-                        </div>
-                    </div>
-
-                    <!-- E-book info -->
-                    <div id="ebook-info" class="row" style="margin-top: 10px; justify-content: center; display:none; flex-wrap: wrap; gap: 10px;">
-                        <div class="col-12 col-sm-6 col-md-3 price-card" style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
-                            <span style="font-size: 16px; color: plum; font-weight: bold;">Cengage</span>
-                            <br>
-                            <span style="font-size: 14px; color:black">R789.55</span>
-                            <br>
-                            <span style="font-size: 12px; color: grey;">Until 03 April 2026</span>
-                        </div> 
-
-                        <div class="col-12 col-sm-6 col-md-3 price-card" style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
-                            <span style="font-size: 16px; color: plum; font-weight: bold;">Amazon</span>
-                            <br>
-                            <span style="font-size: 14px; color:black">R968.97</span>
-                        </div>
-
-                        <div class="col-12 col-sm-6 col-md-3 price-card" style="border-color: plum; border-width:1mm; border-style: solid; margin-left: 10px; margin-right: 10px; max-width: 30%;">
-                            <span style="font-size: 16px; color: plum; font-weight: bold;">UP Library</span>
-                            <br>
-                            <span style="font-size: 12px; color: grey;">Download Not Available</span>
-                        </div>
-                    </div>
+            <!-- Linked Courses -->
+            <br>
+            <div class="row" id="linked-courses-row" style="margin-top:20px; justify-content:left; display:flex; flex-wrap:wrap; gap:10px;">
+                <div style="font-size: 20px; color: rgba(136, 64, 136, 0.486); margin-bottom: 10px; text-align: left;">Linked Courses</div>
+                {% if linked_courses %}
+                    {% for course in linked_courses %}
+                        <a style="justify-content: left;">{{ course.institution_name }} - {{course.course_name}} ({{course.course_code}})</a>
+                    {% endfor %}
+                {% else %}
+                        <p style="font-size:14px; color:grey;">No linked courses available for this textbook.</p>
+                {% endif %}
+                </div>
+            </div>
+        </div>
 
                 <script>
                     // Wishlist Manager
@@ -343,49 +289,6 @@
                     // Set "New Book" as bold by default on page load
                     document.querySelector('.book-type-link[data-type="new"]').style.fontWeight = 'bold';
                 </script>
-                </div>
-
-                <!--Textbook and Courses Info-->
-                <br>
-                <div id="textbook-info" class="row" style="margin-top: 10px; text-align: center;">
-                    <div class="row" style="margin-bottom: 15px;">
-                        <div class="col-sm-4">
-                            <a href="#" class="book-info-link" data-type="info" style="text-decoration: none; color: inherit;">Textbook Information</a>
-                        </div>
-                        <div class="col-sm-4">
-                            <a href="#" class="book-info-link" data-type="courses" style="text-decoration: none; color: inherit;">Linked Courses</a>
-                        </div>
-                    </div>
-
-                    <!-- General Textbook info -->
-                    <div id="general-book-info" class="row" style="margin-top: 10px; justify-content: center; display: flex;">
-                        <div class="col-sm-12" style="max-width: 90%;">
-                            <span style="font-size: 12px; color: black;">Straightforward and easy to read, DIFFERENTIAL EQUATIONS WITH BOUNDARY-VALUE PROBLEMS, 9th Edition, gives you a thorough overview of the topics typically taught in a first course in Differential Equations as well as an introduction to boundary-value problems and partial Differential Equations. Your study will be supported by a bounty of pedagogical aids, including an abundance of examples, explanations, "Remarks" boxes, definitions, and more.</span>
-                        </div>
-                    </div>
-
-                    <!-- Linked Courses info -->
-                    <div id="linked-courses-info" class="row" style="margin-top: 10px; justify-content: center; display:none;">
-                        <div class="col-sm-12" style="max-width: 90%;">
-                            <span style="font-size: 12px; color: black;">BEng Chemical (University of Pretoria)</span>
-                            <br>
-                            <span style="font-size: 12px; color: black;">BEng Civil (University of Pretoria)</span>
-                            <br>
-                            <span style="font-size: 12px; color: black;">BEng Computer (University of Pretoria)</span>
-                            <br>
-                            <span style="font-size: 12px; color: black;">BEng Electrical (University of Pretoria)</span>
-                            <br>
-                            <span style="font-size: 12px; color: black;">BEng Electronic (University of Pretoria)</span>
-                            <br>
-                            <span style="font-size: 12px; color: black;">BEng Industrial (University of Pretoria)</span>
-                            <br>
-                            <span style="font-size: 12px; color: black;">BEng Mechanical (University of Pretoria)</span>
-                            <br>
-                            <span style="font-size: 12px; color: black;">BEng Metallurgical (University of Pretoria)</span>
-                            <br>
-                            <span style="font-size: 12px; color: black;">BEng Mining (University of Pretoria)</span>
-                        </div>
-                    </div>
                 </div>
 
                 <script>

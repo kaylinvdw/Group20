@@ -43,8 +43,7 @@ create table wishlists (
     update_type TEXT NOT NULL CHECK (update_type IN ('add', 'remove', 'set')),
     added_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE,
-    FOREIGN KEY (book_id) REFERENCES books(book_id) ON DELETE CASCADE,
-    UNIQUE (user_id, book_id)
+    FOREIGN KEY (book_id) REFERENCES books(book_id) ON DELETE CASCADE
 );
 
 -- Create institutions table
@@ -98,8 +97,7 @@ create table inventory (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (book_id) REFERENCES books(book_id) ON DELETE CASCADE,
-    FOREIGN KEY (vendor_id) REFERENCES vendors(vendor_id) ON DELETE CASCADE,
-    UNIQUE (book_id, vendor_id)
+    FOREIGN KEY (vendor_id) REFERENCES vendors(vendor_id) ON DELETE CASCADE
 );
 
 -- Insert sample data into users table
@@ -151,6 +149,21 @@ INSERT INTO inventory (book_id, vendor_id, book_type, price) VALUES (1, 3, 'New'
 INSERT INTO inventory (book_id, vendor_id, book_type, price) VALUES (1, 4, 'Used', 599.00);
 INSERT INTO inventory (book_id, vendor_id, book_type, price) VALUES (1, 5, 'Used', 560.00);
 INSERT INTO inventory (book_id, vendor_id, book_type, price) VALUES (1, 6, 'eBook', 0.00);
+INSERT INTO inventory (book_id, vendor_id, book_type, price) VALUES (2, 1, 'New', 1200.00);
+INSERT INTO inventory (book_id, vendor_id, book_type, price) VALUES (2, 2, 'Used', 970.50);
+INSERT INTO inventory (book_id, vendor_id, book_type, price) VALUES (2, 3, 'eBook', 1000.00);
+INSERT INTO inventory (book_id, vendor_id, book_type, price) VALUES (3, 3, 'New', 1500.00);
+INSERT INTO inventory (book_id, vendor_id, book_type, price) VALUES (3, 5, 'Used', 1200.00);
+INSERT INTO inventory (book_id, vendor_id, book_type, price) VALUES (3, 6, 'eBook', 0.00);
+INSERT INTO inventory (book_id, vendor_id, book_type, price) VALUES (4, 2, 'New', 980.00);
+INSERT INTO inventory (book_id, vendor_id, book_type, price) VALUES (4, 4, 'Used', 750.00);
+INSERT INTO inventory (book_id, vendor_id, book_type, price) VALUES (4, 2, 'eBook', 1300.00);
+INSERT INTO inventory (book_id, vendor_id, book_type, price) VALUES (5, 1, 'New', 1100.00);
+INSERT INTO inventory (book_id, vendor_id, book_type, price) VALUES (5, 5, 'Used', 850.00);
+INSERT INTO inventory (book_id, vendor_id, book_type, price) VALUES (5, 6, 'eBook', 0.00);
+INSERT INTO inventory (book_id, vendor_id, book_type, price) VALUES (6, 3, 'New', 1400.00);
+INSERT INTO inventory (book_id, vendor_id, book_type, price) VALUES (6, 4, 'Used', 1100.00);
+INSERT INTO inventory (book_id, vendor_id, book_type, price) VALUES (6, 2, 'eBook', 1200.00);
 SELECT* from inventory; 
 
 -- Insert sample data into institutions table
@@ -161,11 +174,43 @@ INSERT INTO institutions (name) VALUES ('University of the Witwatersrand');
 INSERT INTO institutions (name) VALUES ('University of Johannesburg');
 
 -- Insert sample data into courses table
+DELETE FROM courses; -- Clear existing data to avoid duplicates
 INSERT INTO courses (institution_id, name, course_code) VALUES (1, 'Fincancial Accounting', 'FBS120');
 INSERT INTO courses (institution_id, name, course_code) VALUES (2, 'Introduction to Accounting', 'ACC101');
 INSERT INTO courses (institution_id, name, course_code) VALUES (3, 'Managerial Accounting', 'MGT150');
 INSERT INTO courses (institution_id, name, course_code) VALUES (4, 'Financial Analysis', 'FIN210');
 INSERT INTO courses (institution_id, name, course_code) VALUES (5, 'Basics of Accounting', 'BAC100');
+INSERT INTO courses (institution_id, name, course_code) VALUES (1, 'Calculus I', 'WTW158');
+INSERT INTO courses (institution_id, name, course_code) VALUES (2, 'Calculus II', 'MATH102');
+INSERT INTO courses (institution_id, name, course_code) VALUES (3, 'Advanced Calculus', 'MAT300');
+INSERT INTO courses (institution_id, name, course_code) VALUES (4, 'Calculus for Engineers', 'EMA150');
+INSERT INTO courses (institution_id, name, course_code) VALUES (5, 'Applied Calculus', 'APM110');
+INSERT INTO courses (institution_id, name, course_code) VALUES (1, 'General Chemistry', 'CHM101');
+INSERT INTO courses (institution_id, name, course_code) VALUES (2, 'Organic Chemistry', 'OCH220');
+INSERT INTO courses (institution_id, name, course_code) VALUES (3, 'Physical Chemistry', 'PCHM301');
+INSERT INTO courses (institution_id, name, course_code) VALUES (4, 'Inorganic Chemistry', 'INOC150');
+INSERT INTO courses (institution_id, name, course_code) VALUES (5, 'Analytical Chemistry', 'ANCHM110');
+INSERT INTO courses (institution_id, name, course_code) VALUES (1, 'Differential Equations', 'WTW258');
+INSERT INTO courses (institution_id, name, course_code) VALUES (2, 'Boundary Value Problems', 'MAT690');
+INSERT INTO courses (institution_id, name, course_code) VALUES (3, 'Advanced Differential Equations', 'MATH404');
+INSERT INTO courses (institution_id, name, course_code) VALUES (4, 'Differential Equations for Engineers', 'EMA250');
+INSERT INTO courses (institution_id, name, course_code) VALUES (5, 'Applied Differential Equations', 'APM210');
+INSERT INTO courses (institution_id, name, course_code) VALUES (1, 'Physics I', 'FSK101');
+INSERT INTO courses (institution_id, name, course_code) VALUES (2, 'Physics II', 'PHY102');
+INSERT INTO courses (institution_id, name, course_code) VALUES (3, 'Modern Physics', 'FIS201');
+INSERT INTO courses (institution_id, name, course_code) VALUES (4, 'Engineering Physics', 'ENP350');
+INSERT INTO courses (institution_id, name, course_code) VALUES (5, 'Applied Physics', 'APP110');
+INSERT INTO courses (institution_id, name, course_code) VALUES (1, 'Statics', 'SWK101');
+INSERT INTO courses (institution_id, name, course_code) VALUES (2, 'Dynamics', 'MSD201');
+INSERT INTO courses (institution_id, name, course_code) VALUES (3, 'Mechanics of Materials', 'ENM301');
+INSERT INTO courses (institution_id, name, course_code) VALUES (4, 'Fluid Mechanics', 'FME150');
+INSERT INTO courses (institution_id, name, course_code) VALUES (5, 'Thermodynamics', 'MTX110');
+INSERT INTO courses (institution_id, name, course_code) VALUES (1, 'Supply Chain Management', 'BOB101');
+INSERT INTO courses (institution_id, name, course_code) VALUES (2, 'Logistics Management', 'SCM201');
+INSERT INTO courses (institution_id, name, course_code) VALUES (3, 'Operations Management', 'SCL301');
+INSERT INTO courses (institution_id, name, course_code) VALUES (4, 'Procurement Management', 'PCM230');
+INSERT INTO courses (institution_id, name, course_code) VALUES (5, 'Inventory Management', 'INM287');
+SELECT* from courses;
 
 -- Insert sample data into course_books table
 INSERT INTO course_books (course_id, book_id) VALUES (1, 1);
@@ -173,5 +218,35 @@ INSERT INTO course_books (course_id, book_id) VALUES (2, 1);
 INSERT INTO course_books (course_id, book_id) VALUES (3, 1);
 INSERT INTO course_books (course_id, book_id) VALUES (4, 1);
 INSERT INTO course_books (course_id, book_id) VALUES (5, 1);
+INSERT INTO course_books (course_id, book_id) VALUES (6, 2);
+INSERT INTO course_books (course_id, book_id) VALUES (7, 2);
+INSERT INTO course_books (course_id, book_id) VALUES (8, 2);
+INSERT INTO course_books (course_id, book_id) VALUES (9, 2);
+INSERT INTO course_books (course_id, book_id) VALUES (10, 2);
+INSERT INTO course_books (course_id, book_id) VALUES (11, 3);
+INSERT INTO course_books (course_id, book_id) VALUES (12, 3);
+INSERT INTO course_books (course_id, book_id) VALUES (13, 3);
+INSERT INTO course_books (course_id, book_id) VALUES (14, 3);
+INSERT INTO course_books (course_id, book_id) VALUES (15, 3);
+INSERT INTO course_books (course_id, book_id) VALUES (16, 4);
+INSERT INTO course_books (course_id, book_id) VALUES (17, 4);
+INSERT INTO course_books (course_id, book_id) VALUES (18, 4);
+INSERT INTO course_books (course_id, book_id) VALUES (19, 4);
+INSERT INTO course_books (course_id, book_id) VALUES (20, 4);
+INSERT INTO course_books (course_id, book_id) VALUES (21, 5);
+INSERT INTO course_books (course_id, book_id) VALUES (22, 5);
+INSERT INTO course_books (course_id, book_id) VALUES (23, 5);
+INSERT INTO course_books (course_id, book_id) VALUES (24, 5);
+INSERT INTO course_books (course_id, book_id) VALUES (25, 5);
+INSERT INTO course_books (course_id, book_id) VALUES (26, 6);
+INSERT INTO course_books (course_id, book_id) VALUES (27, 6);
+INSERT INTO course_books (course_id, book_id) VALUES (28, 7);
+INSERT INTO course_books (course_id, book_id) VALUES (29, 7);
+INSERT INTO course_books (course_id, book_id) VALUES (30, 7);
+INSERT INTO course_books (course_id, book_id) VALUES (31, 8);
+INSERT INTO course_books (course_id, book_id) VALUES (32, 8);
+INSERT INTO course_books (course_id, book_id) VALUES (33, 8);
+INSERT INTO course_books (course_id, book_id) VALUES (34, 9);
+INSERT INTO course_books (course_id, book_id) VALUES (35, 9);
 SELECT* from course_books;
 
