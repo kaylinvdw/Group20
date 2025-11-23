@@ -114,9 +114,9 @@ INSERT INTO books (title, author, isbn, html_page, image_path) VALUES ('Calculus
 INSERT INTO books (title, author, isbn, html_page, image_path) VALUES ('Chemistry and Chemical Reactivity (10th Edition)', 'Kotz, Treichel, Townsend', '9781337399074', 'chemistry-textbook.html', 'textbook-images/chemistry-textbook.jpeg');
 INSERT INTO books (title, author, isbn, html_page, image_path) VALUES ('Differential Equations with Boundary Value Problems (9th Edition)', 'Dennis G. Zill', '9781337559881', 'differential-equations-textbook.html', 'textbook-images/differential-equations-textbook.webp');
 INSERT INTO books (title, author, isbn, html_page, image_path) VALUES ('Physics for Scientists and Engineers (10th Edition)', 'Serway, Jewett', '9781337553292', 'physics-textbook.html', 'textbook-images/physics-for-engineers-textbook.jpeg');
-INSERT INTO books (title, author, isbn, html_page, image_path) VALUES ('Engineering Mechanics: Dynamics (8th Edition)', 'Meriam, Kraige, Bolton', '9781118885840', 'engineering-mechanics-textbook.html', 'textbook-images/dynamics-textbook.webp');
-INSERT INTO books (title, author, isbn, html_page, image_path) VALUES ('Mechanical Engineering Design (11th Edition)', 'Richard G. Budynas, J. Keith Nisbett', '9789813158986', 'mechanical-engineering-design-textbook.html ', 'textbook-images/mechanical-engineering-design.jpg');
-INSERT INTO books (title, author, isbn, html_page, image_path) VALUES ('Supply Chain Management: A Logistics Perspective (12th Edition)', 'Langley, Novack, Gibson, Coyle', '9780357984925', 'supply-chain-management-textbook.html', 'textbook-images/supply-chain-management-textbook.jpeg');
+INSERT INTO books (title, author, isbn, html_page, image_path) VALUES ('Engineering Mechanics: Dynamics (8th Edition)', 'Meriam, Kraige, Bolton', '9781118885840', 'dynamics-textbook.html', 'textbook-images/dynamics-textbook.webp');
+INSERT INTO books (title, author, isbn, html_page, image_path) VALUES ('Mechanical Engineering Design (11th Edition)', 'Richard G. Budynas, J. Keith Nisbett', '9789813158986', 'mechanical-design-textbook.html', 'textbook-images/mechanical-engineering-design.jpg');
+INSERT INTO books (title, author, isbn, html_page, image_path) VALUES ('Supply Chain Management: A Logistics Perspective (12th Edition)', 'Langley, Novack, Gibson, Coyle', '9780357984925', 'supply-chain-textbook.html', 'textbook-images/supply-chain-management-textbook.jpeg');
 SELECT* from books;
 
 
