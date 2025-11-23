@@ -11,6 +11,38 @@ def get_db_connection():
     conn.row_factory = sqlite3.Row
     return conn
 
+# Route for the home page & statistics
+@app.route('/')
+def view_home_page():
+    conn = get_db_connection()
+
+    vendor_count = conn.execute('SELECT COUNT(*) FROM vendors').fetchone()[0]
+    textbook_count = conn.execute('SELECT COUNT(*) FROM books').fetchone()[0]
+    course_count = conn.execute('SELECT COUNT(*) FROM courses').fetchone()[0]
+    university_count = conn.execute('SELECT COUNT(*) FROM institutions').fetchone()[0]
+
+    conn.close()
+
+    max_count = max(vendor_count, textbook_count, course_count, university_count)
+    vendor_percent = int(vendor_count / max_count * 100)
+    textbook_percent = int(textbook_count / max_count * 100)
+    course_percent = int(course_count / max_count * 100)
+    university_percent = int(university_count / max_count * 100)
+
+
+    return render_template(
+        'index.html',
+        vendor_count=vendor_count,
+        textbook_count=textbook_count,
+        course_count=course_count,
+        university_count=university_count,
+        vendor_percent=vendor_percent,
+        textbook_percent=textbook_percent,
+        course_percent=course_percent,
+        university_percent=university_percent
+    )
+
+
 # Route to show all books
 @app.route('/newBooks')
 def view_textbooks_page():
@@ -67,7 +99,6 @@ def add_book():
     # If GET request → show the form
     return render_template('addTextbook.html')
 
+
 if __name__ == "__main__":
     app.run(debug=True)
-
-
