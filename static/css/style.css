@@ -1,9 +1,9 @@
 body {
-  background-image: url('Background.png'); /* path to your background image */
-  background-size: cover;         /* make it fill the screen */
-  background-repeat: no-repeat;   /* prevent tiling */
-  background-position: center;    /* center the image */
-  background-attachment: fixed;   /* makes it stay still while scrolling (optional) */
+  background-image: url('../Background.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 h1 {
@@ -13,7 +13,6 @@ h1 {
   text-align: center;
   color: #000000;
   margin-top: 40px;
-
 }
 
 /* Custom progress bar styling to match site theme */
