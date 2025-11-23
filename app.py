@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect, url_for
 import sqlite3
 import os
 
@@ -45,6 +45,27 @@ def view_individual_textbook(book_page):
     return render_template(
         f'Textbook_pages/{book_page}', book=book, inventory_rows=inventory_rows, linked_courses=linked_courses
     )
+
+@app.route('/addBook', methods=['GET', 'POST'])
+def add_book():
+    if request.method == 'POST':
+        # These are ONLY executed if the form was submitted
+        title = request.form.get('title')
+        author = request.form.get('author')
+        isbn = request.form.get('isbn')
+
+        conn = get_db_connection()
+        conn.execute(
+            'INSERT INTO books (title, author, isbn) VALUES (?, ?, ?)',
+            (title, author, isbn)
+        )
+        conn.commit()
+        conn.close()
+
+        return redirect('/newBooks')  # Your listing page
+
+    # If GET request → show the form
+    return render_template('addTextbook.html')
 
 if __name__ == "__main__":
     app.run(debug=True)

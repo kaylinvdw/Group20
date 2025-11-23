@@ -133,8 +133,15 @@
                 </div>
             </div>
             {% endfor %}
-
+                     
         </div>
+    </div>
+
+    <!-- Add more book entries as needed -->
+    <br>
+    <div class="container-fluid" style="justify-content: right;">
+        <span>Don't see your textbook?</span>
+            <a href="{{ url_for('add_book')}}" class="btn" style="border-color: plum; color: plum;">Add it here</a>
     </div>
 
     <!--Footer-->
