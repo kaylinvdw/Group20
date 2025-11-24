@@ -3,135 +3,81 @@
 {% block title %}Wishlist{% endblock %}
 
 {% block content %}
-    <!-- Wishlist -->
-    <style>
-        .wishlist-card {
-            border: 2px solid plum;
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 20px;
-            transition: box-shadow 0.3s ease;
-        }
-        .wishlist-card:hover {
-            box-shadow: 0 4px 12px rgba(221,160,221,0.3);
-        }
-        .wishlist-item-clickable {
-            cursor: pointer;
-            text-decoration: none;
-            color: inherit;
-            display: block;
-        }
-        .wishlist-item-clickable:hover .wishlist-title {
-            color: plum;
-            text-decoration: underline;
-        }
-        .remove-btn {
-            background-color: #dc3545;
-            border-color: #dc3545;
-            color: white;
-        }
-        .remove-btn:hover {
-            background-color: #c82333;
-            border-color: #bd2130;
-        }
-        .empty-wishlist {
-            text-align: center;
-            padding: 60px 20px;
-            color: #666;
-        }
-        .empty-wishlist svg {
-            opacity: 0.3;
-            margin-bottom: 20px;
-        }
-    </style>
-</head>
-<body>
-    
-    <div class="container mt-4">
-        <h1 class="text-left mb-4" style="color: plum;">My Wishlist</h1>
-        
-        <div id="wishlistContainer">
-            <!-- Wishlist items will be populated here -->
-        </div>
-    </div>
+<div class="container mt-4">
+    <h1 class="text-left mb-4" style="color: plum;">My Wishlist</h1>
 
-    <br>
-    
-    {% endblock %}
+    <div id="wishlistContainer">
+        <!-- Wishlist items will be populated here -->
+    </div>
+</div>
+{% endblock %}
 
 {% block scripts %}
-    <script>
-        // Wishlist Manager
-        const WishlistManager = {
-            getWishlist: function() {
-                const stored = sessionStorage.getItem('wishlist');
-                return stored ? JSON.parse(stored) : [];
-            },
-            saveWishlist: function(wishlist) {
-                sessionStorage.setItem('wishlist', JSON.stringify(wishlist));
-            },
-            removeItem: function(title) {
-                let wishlist = this.getWishlist();
-                wishlist = wishlist.filter(item => item.title !== title);
-                this.saveWishlist(wishlist);
-            }
-        };
+<script>
+    const wishlist = {{ wishlist|tojson }};
 
-        // Display wishlist items
-        function displayWishlist() {
-            const wishlist = WishlistManager.getWishlist();
-            const container = document.getElementById('wishlistContainer');
-            
-            if (wishlist.length === 0) {
-                container.innerHTML = `
-                    <div class="empty-wishlist">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="plum" class="bi bi-heart" viewBox="0 0 16 16">
-                            <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
-                        </svg>
-                        <h3>Your wishlist is empty</h3>
-                        <p>Start adding textbooks to your wishlist!</p>
-                        <a href="{{ url_for('view_textbooks_page') }}" class="btn btn-primary" style="background-color: plum; border-color: plum;">Browse Textbooks</a>
-                    </div>
-                `;
-                return;
-            }
-            
-            container.innerHTML = wishlist.map((item, index) => `
-                <div class="wishlist-card">
-                    <div class="row align-items-center">
-                        <div class="col-md-10">
-                            <a href="${item.sourceUrl || 'newBooks.html'}" class="wishlist-item-clickable">
-                                <div class="row align-items-center">
-                                    <div class="col-md-3">
-                                        <img src="${item.image}" alt="${item.title}" class="img-fluid rounded" style="max-height: 150px; object-fit: contain;">
-                                    </div>
-                                    <div class="col-md-9 ps-2">
-                                        <h4 class="wishlist-title">${item.title}</h4>
-                                        <p class="text-muted mb-1">${item.authors}</p>
-                                        <small class="text-muted">Added: ${new Date(item.timestamp).toLocaleDateString()}</small>
-                                    </div>
+    function displayWishlist() {
+        const container = document.getElementById('wishlistContainer');
+
+        if (!wishlist || wishlist.length === 0) {
+            container.innerHTML = `
+                <div class="empty-wishlist text-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="plum" class="bi bi-heart" viewBox="0 0 16 16">
+                        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                    </svg>
+                    <h3>Your wishlist is empty</h3>
+                    <p>Start adding textbooks to your wishlist!</p>
+                    <a href="{{ url_for('view_textbooks_page') }}" class="btn btn-primary" style="background-color: plum; border-color: plum;">Browse Textbooks</a>
+                </div>
+            `;
+            return;
+        }
+
+        container.innerHTML = wishlist.map(item => `
+            <div class="wishlist-card border border-2 rounded p-3 mb-3 shadow-sm">
+                <div class="row align-items-center">
+                    <div class="col-md-10">
+                        <a href="${item.html_page || '#'}" class="wishlist-item-clickable text-decoration-none text-dark d-block">
+                            <div class="row align-items-center">
+                                <div class="col-md-3">
+                                    <img src="${item.image_path}" alt="${item.title}" class="img-fluid rounded" style="max-height: 150px; object-fit: contain;">
                                 </div>
-                            </a>
-                        </div>
-                        <div class="col-md-2 text-end">
-                            <button class="btn remove-btn" onclick="removeFromWishlist('${item.title.replace(/'/g, "\\'")}')">
-                                Remove
-                            </button>
-                        </div>
+                                <div class="col-md-9 ps-2">
+                                    <h4 class="wishlist-title">${item.title}</h4>
+                                    <p class="text-muted mb-1">${item.author}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-2 text-end">
+                        <button class="btn remove-btn bg-danger text-white" onclick="removeFromWishlist(${item.book_id})">Remove</button>
                     </div>
                 </div>
-            `).join('');
-        }
+            </div>
+        `).join('');
+    }
 
-        // Remove item from wishlist
-        function removeFromWishlist(title) {
-            WishlistManager.removeItem(title);
-            displayWishlist();
-        }
-
-        // Load wishlist on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            displayWishlist();
+    async function removeFromWishlist(book_id) {
+        await fetch('{{ url_for("remove_from_wishlist") }}', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({book_id})
         });
-    </script>
+        // Remove locally for instant feedback
+        const index = wishlist.findIndex(b => b.book_id === book_id);
+        if (index !== -1) wishlist.splice(index, 1);
+        displayWishlist();
+    }
+
+    async function addToWishlist(book_id) {
+        await fetch('{{ url_for("add_to_wishlist") }}', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({book_id})
+        });
+        // Optional: you could fetch wishlist again
+    }
+
+    document.addEventListener('DOMContentLoaded', displayWishlist);
+</script>
 {% endblock %}

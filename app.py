@@ -1,6 +1,7 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, session, jsonify, flash
 import sqlite3
 import os
+from werkzeug.security import generate_password_hash
 
 app = Flask(__name__)
 app.secret_key = 'your-secret-key-here'
@@ -129,8 +130,119 @@ def wishlist():
 def register():
     return render_template('register.html')
 
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    if request.method == 'POST':
+        username = request.form.get('username')
+        email = request.form.get('email')
+        password = request.form.get('password')
 
+        # Hash the password before storing
+        password_hash = generate_password_hash(password)
 
+        conn = get_db_connection()
+        try:
+            conn.execute(
+                'INSERT INTO users (username, email, password_hash) VALUES (?, ?, ?)',
+                (username, email, password_hash)
+            )
+            conn.commit()
+        except sqlite3.IntegrityError:
+            conn.close()
+            return "Username or email already exists!", 400
+
+        conn.close()
+        return redirect(url_for('login'))
+
+    return render_template('register.html')
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        email = request.form.get('email')
+        password = request.form.get('password')
+
+        if not email or not password:
+            flash("Please enter both email and password.", "danger")
+            return render_template('login.html', email=email)
+
+        conn = get_db_connection()
+        user = conn.execute('SELECT * FROM users WHERE email = ?', (email,)).fetchone()
+        conn.close()
+
+        if user and check_password_hash(user['password_hash'], password):
+            # Save user info in session
+            session['user_id'] = user['user_id']
+            session['username'] = user['username']
+            flash(f"Welcome back, {user['name']}!", "success")
+            return redirect(url_for('view_home_page'))
+        else:
+            flash("Invalid email or password.", "danger")
+            return render_template('login.html', email=email)
+
+    return render_template('login.html')
+
+@app.route('/wishlist', methods=['GET'])
+def view_wishlist():
+    if 'user_id' not in session:
+        flash("You need to log in to view your wishlist.", "danger")
+        return redirect(url_for('login'))
+
+    user_id = session['user_id']
+    conn = get_db_connection()
+    wishlist_items = conn.execute(
+        '''SELECT b.book_id, b.title, b.author, b.image_path, b.html_page
+           FROM wishlists w
+           JOIN books b ON w.book_id = b.book_id
+           WHERE w.user_id = ? AND w.update_type='add' ''', 
+        (user_id,)
+    ).fetchall()
+    conn.close()
+
+    return render_template('wishlist.html', wishlist=wishlist_items)
+
+# API endpoint to add a book to wishlist
+@app.route('/wishlist/add', methods=['POST'])
+def add_to_wishlist():
+    if 'user_id' not in session:
+        return jsonify({'status': 'error', 'message': 'Not logged in'}), 401
+
+    user_id = session['user_id']
+    book_id = request.json.get('book_id')
+
+    conn = get_db_connection()
+    # Prevent duplicates
+    existing = conn.execute(
+        'SELECT * FROM wishlists WHERE user_id = ? AND book_id = ? AND update_type="add"',
+        (user_id, book_id)
+    ).fetchone()
+
+    if not existing:
+        conn.execute(
+            'INSERT INTO wishlists (user_id, book_id, update_type) VALUES (?, ?, "add")',
+            (user_id, book_id)
+        )
+        conn.commit()
+    conn.close()
+    return jsonify({'status': 'success'})
+
+# API endpoint to remove a book from wishlist
+@app.route('/wishlist/remove', methods=['POST'])
+def remove_from_wishlist():
+    if 'user_id' not in session:
+        return jsonify({'status': 'error', 'message': 'Not logged in'}), 401
+
+    user_id = session['user_id']
+    book_id = request.json.get('book_id')
+
+    conn = get_db_connection()
+    conn.execute(
+        'DELETE FROM wishlists WHERE user_id = ? AND book_id = ? AND update_type="add"',
+        (user_id, book_id)
+    )
+    conn.commit()
+    conn.close()
+    return jsonify({'status': 'success'})
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -3,36 +3,47 @@
 {% block title %}Login{% endblock %}
 
 {% block content %}
-    <!-- Login/Register Form -->
-    <div class="container mt-5" style="max-width: 500px;">
-        <div class="card shadow" style="border-color: plum;">
-            <div class="card-body">
-                <h2 class="mb-4 text-center" style="color: plum;">Login</h2>
-                <form>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="email" placeholder="Enter email">
-                    </div>
-                    <div class="mb-3">
-                        <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password" placeholder="Password">
-                    </div>
-                    <div class="d-flex justify-content-center mb-3">
-                        <button type="submit" class="btn btn-primary" style="background-color: plum; border-color: plum;">Login</button>
-                    </div>
-                    <div class="text-center">
-                        <span>Don't have an account?</span>
-                        <a href="{{ url_for('register') }}" class="btn btn-outline-secondary ms-2" style="border-color: plum; color: plum;">Register here</a>
-                    </div>
-                </form>
-                <script>
-                document.querySelector('form').addEventListener('submit', function(e) {
-                  e.preventDefault();
-                  window.location.href = 'index.html';
-                });
-                </script>
-            </div>
+<div class="container mt-5" style="max-width: 500px;">
+    <div class="card shadow" style="border-color: plum;">
+        <div class="card-body">
+            <h2 class="mb-4 text-center" style="color: plum;">Login</h2>
+
+            <!-- Flash messages -->
+            {% with messages = get_flashed_messages(with_categories=true) %}
+              {% if messages %}
+                {% for category, message in messages %}
+                  <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
+                {% endfor %}
+              {% endif %}
+            {% endwith %}
+
+            <form method="POST" action="{{ url_for('login') }}">
+
+                <div class="mb-3">
+                    <label class="form-label">Email address</label>
+                    <input type="email" class="form-control" name="email" placeholder="Enter email" required
+                           value="{{ email|default('') }}">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Password</label>
+                    <input type="password" class="form-control" name="password" placeholder="Password" required>
+                </div>
+
+                <div class="d-flex justify-content-center mb-3">
+                    <button type="submit" class="btn btn-primary" style="background-color: plum; border-color: plum;">Login</button>
+                </div>
+
+                <div class="text-center">
+                    <span>Don't have an account?</span>
+                    <a href="{{ url_for('register') }}" class="btn btn-outline-secondary ms-2" style="border-color: plum; color: plum;">Register here</a>
+                </div>
+
+            </form>
         </div>
     </div>
-
+</div>
 {% endblock %}
