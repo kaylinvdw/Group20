@@ -52,6 +52,8 @@ def view_textbooks_page():
     conn.close()
     return render_template('newBooks.html', books=books)
 
+
+
 # Route to show individual textbook pages
 @app.route('/Textbook_pages/<book_page>')
 def view_individual_textbook(book_page):
@@ -98,6 +100,24 @@ def add_book():
 
     # If GET request → show the form
     return render_template('addTextbook.html')
+
+@app.route('/stellies')
+def stellies():
+    return render_template('University_pages/stellies.html')
+@app.route('/uct')
+def uct():
+    return render_template('University_pages/uct.html')
+@app.route('/uj')
+def uj():
+    return render_template('University_pages/uj.html')
+@app.route('/up')
+def up():
+    return render_template('University_pages/up.html')
+@app.route('/wits')
+def wits():
+    return render_template('University_pages/wits.html')
+
+
 
 
 if __name__ == "__main__":
