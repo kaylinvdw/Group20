@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, session, jsonify, flash
 import sqlite3
 import os
-from werkzeug.security import generate_password_hash
+from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
 app.secret_key = 'your-secret-key-here'
@@ -118,17 +118,11 @@ def up():
 def wits():
     return render_template('University_pages/wits.html')
 
-@app.route('/login')
-def login():
-    return render_template('login.html')
 
 @app.route('/wishlist')
 def wishlist():
     return render_template('wishlist.html')
 
-@app.route('/register')
-def register():
-    return render_template('register.html')
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -137,24 +131,27 @@ def register():
         email = request.form.get('email')
         password = request.form.get('password')
 
-        # Hash the password before storing
+        if not username or not email or not password:
+            flash("All fields are required.", "danger")
+            return render_template('register.html', username=username, email=email)
+
         password_hash = generate_password_hash(password)
 
         conn = get_db_connection()
         try:
-            conn.execute(
-                'INSERT INTO users (username, email, password_hash) VALUES (?, ?, ?)',
-                (username, email, password_hash)
-            )
+            conn.execute("INSERT INTO users (username, email, password_hash) VALUES (?, ?, ?)", (username, email, password_hash))
             conn.commit()
         except sqlite3.IntegrityError:
             conn.close()
-            return "Username or email already exists!", 400
+            flash("Username or email already exists.", "danger")
+            return render_template('register.html', username=username, email=email)
 
         conn.close()
+        flash("Registration successful. Please log in.", "success")
         return redirect(url_for('login'))
 
     return render_template('register.html')
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -162,25 +159,31 @@ def login():
         email = request.form.get('email')
         password = request.form.get('password')
 
+        # Validate fields
         if not email or not password:
             flash("Please enter both email and password.", "danger")
             return render_template('login.html', email=email)
 
         conn = get_db_connection()
-        user = conn.execute('SELECT * FROM users WHERE email = ?', (email,)).fetchone()
+        user = conn.execute(
+            "SELECT * FROM users WHERE email = ?",
+            (email,)
+        ).fetchone()
         conn.close()
 
+        # Check password
         if user and check_password_hash(user['password_hash'], password):
-            # Save user info in session
             session['user_id'] = user['user_id']
             session['username'] = user['username']
-            flash(f"Welcome back, {user['name']}!", "success")
+
+            flash(f"Welcome back, {user['username']}!", "success")
             return redirect(url_for('view_home_page'))
-        else:
-            flash("Invalid email or password.", "danger")
-            return render_template('login.html', email=email)
+
+        flash("Invalid email or password.", "danger")
+        return render_template('login.html', email=email)
 
     return render_template('login.html')
+
 
 @app.route('/wishlist', methods=['GET'])
 def view_wishlist():

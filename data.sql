@@ -92,7 +92,7 @@ create table inventory (
     book_id INTEGER NOT NULL,
     vendor_id INTEGER NOT NULL,
     stock_level INTEGER DEFAULT 0,
-    book_type VARCHAR(50) DEFAULT 'new' CHECK (book_type IN ('New', 'Used', 'eBook')),
+    book_type VARCHAR(50) DEFAULT 'New' CHECK (book_type IN ('New', 'Used', 'eBook')),
     price DECIMAL(10, 2) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -127,11 +127,6 @@ INSERT INTO institutions (name, address) VALUES ('University of Witwatersrand', 
 INSERT INTO institutions (name, address) VALUES ('University of Cape Town', 'Rondebosch, Cape Town, 7701');
 INSERT INTO institutions (name, address) VALUES ('University of Johannesburg', 'Auckland Park, Johannesburg, 2006');
 SELECT* from institutions;
-
---Insert into wishlists to show activity
-INSERT INTO wishlists (user_id, book_id, update_type) VALUES (1, 2, 'add');
-INSERT INTO wishlists (user_id, book_id, update_type) VALUES (2, 3, 'add');
-SELECT* from wishlists;
 
 --Insert sample data into vendors table
 INSERT INTO vendors (name, contact_email, website_url) VALUES ('WizeBooks', 'wizebooks@gmail.com', 'https://www.wizebooks.co.za/');
@@ -250,3 +245,4 @@ INSERT INTO course_books (course_id, book_id) VALUES (34, 9);
 INSERT INTO course_books (course_id, book_id) VALUES (35, 9);
 SELECT* from course_books;
 
+SELECT 1;
