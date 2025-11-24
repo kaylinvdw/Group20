@@ -117,6 +117,18 @@ def up():
 def wits():
     return render_template('University_pages/wits.html')
 
+@app.route('/login')
+def login():
+    return render_template('login.html')
+
+@app.route('/wishlist')
+def wishlist():
+    return render_template('wishlist.html')
+
+@app.route('/register')
+def register():
+    return render_template('register.html')
+
 
 
 
