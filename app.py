@@ -54,7 +54,6 @@ def view_textbooks_page():
     return render_template('newBooks.html', books=books)
 
 
-
 # Route to show individual textbook pages
 @app.route('/Textbook_pages/<book_page>')
 def view_individual_textbook(book_page):
@@ -102,6 +101,8 @@ def add_book():
     # If GET request → show the form
     return render_template('addTextbook.html')
 
+
+# Route to show university pages
 @app.route('/stellies')
 def stellies():
     return render_template('University_pages/stellies.html')
@@ -117,11 +118,6 @@ def up():
 @app.route('/wits')
 def wits():
     return render_template('University_pages/wits.html')
-
-
-@app.route('/wishlist')
-def wishlist():
-    return render_template('wishlist.html')
 
 
 @app.route('/register', methods=['GET', 'POST'])
