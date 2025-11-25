@@ -9,6 +9,12 @@ A website connecting students with textbook suppliers
 - Leandri Swanepoel (u23539331) - LeandriS2004
 - Kaylin van der Westhuizen (u23555557) - kaylinvdw
 
+## Task Allocation
+- Tiana Grobler: Textbook catalogue page and textbook detail pages
+- Tonya Li: University pages and database creation
+- Leandri Swanepoel: Login, register and wishlist pages
+- Kaylin van der Westhuizen: Home page, overall styling, template creation and assist with textbook detail pages
+
 ## Features
 
 - **User Management**: Login and registration system for users
