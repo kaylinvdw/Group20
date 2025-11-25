@@ -201,5 +201,3 @@ The application works with all modern browsers that support HTML5 and CSS3, incl
 - Firefox 88+
 - Safari 14+
 - Edge 90+
-
-Note: This is a static HTML application. For production use, you would need to add backend functionality for database connectivity and form processing.
