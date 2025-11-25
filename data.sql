@@ -245,4 +245,4 @@ INSERT INTO course_books (course_id, book_id) VALUES (34, 9);
 INSERT INTO course_books (course_id, book_id) VALUES (35, 9);
 SELECT* from course_books;
 
-SELECT 1;
+

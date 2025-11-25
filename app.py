@@ -10,6 +10,7 @@ app.secret_key = 'your-secret-key-here'
 def get_db_connection():
     conn = sqlite3.connect('data.db')
     conn.row_factory = sqlite3.Row
+    conn.execute("PRAGMA foreign_keys = ON")
     return conn
 
 # Route for the home page & statistics
