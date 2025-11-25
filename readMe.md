@@ -139,29 +139,33 @@ Physics for Scientists and Engineers (10th Edition), Engineering Mechanics: Dyna
 ## File Structure
 
 ```
-├── index.html              # Home page
-├── login.html              # User login page
-├── register.html           # User registration page
-├── newBooks.html           # View all textbooks
-├── Textbook_pages folder   # folder with all textbook pages
-    ├── accounting-textbook.html   
-    ├── calculus-textbook.html    
-    ├── chemistry-textbook.html   
-    ├── differential-equations-textbook.html   
-    ├── dynamics-textbook.html 
-    ├── mechanical-design-textbook.html    
-    ├── physics-textbook.html   
-    ├── supply-chain-textbook.html                 
-├── University_Pages folder    # folder with all University pages
-    ├── stellies.html  
-    ├── uct.html 
-    ├── uj.html 
-    ├── up.html 
-    ├── wits.html 
-├── wishlist.html           # Update wishlists
-├── data.sql           # Database schema and sample data
-├── data.db            # SQLite database (created after running setup)
-└── readme.md              # This file
+├── css/
+├── js/
+├── static/                 # Static assets
+    ├── css/
+        └── style.css       # CSS styling
+    ├── textbook-images/    # Textbook cover images
+    ├── uni-logos/          # Universities' logos
+    ├── Background.png
+    ├── Banner.png
+    ├── bootstrap-logo.svg
+    ├── Icon.png
+    ├── OurStory.png
+    └── search.png
+├── templates/
+    ├── Textbook_pages/     # Textbook pages
+    ├── University_pages/   # University pages
+    ├── addTextbook.html    # Add new textbooks
+    ├── base.html           # Template page
+    ├── index.html          # Home page
+    ├── login.html          # User login page
+    ├── newBooks.html       # Textbooks page
+    ├── register.html       # User registration page
+    └── wishlist.html       # Wishlist page
+├── app.py                  # Central application control
+├── data.db                 # SQLite database (created after running setup)
+├── data.sql                # Database schema and sample data
+└── readme.md               # This file
 ```
 
 ## Usage - Textbooks
